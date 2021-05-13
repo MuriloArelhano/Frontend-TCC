@@ -6,16 +6,18 @@ import GlobalStyle from "./globalStyles";
 import ScrollToTop from "./components/ScrollToTop";
 // routes
 import Routes from './routes';
+// context provider
+import ContextProvider from './contexts/global';
 
 const App = () => {
   return (
-    <>
+    <ContextProvider>
       <Router >
         <GlobalStyle />
         <ScrollToTop />
         <Routes />
       </Router>
-    </>
+    </ContextProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { Button } from "../../globalStyles";
@@ -15,8 +15,12 @@ import {
   NavItemBtn,
   NavBtnLink,
 } from "./NavbarElements";
+// context
+import { Context } from '../../contexts/global';
 
 const Navbar = ({position}) => {
+  const context = useContext(Context);
+
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -44,6 +48,7 @@ const Navbar = ({position}) => {
       borderBottom: "4px solid #4b59f7"
     }
   }
+
   return (
     <>
       <IconContext.Provider value={{ color: "fff" }}>
@@ -87,32 +92,39 @@ const Navbar = ({position}) => {
               {/* <NavItem>
                 <NavLinks to="/products" onClick={closeMobileMenu}>Products</NavLinks>
               </NavItem> */}
-              <NavItemBtn>
-                {button ? (
-                  <NavBtnLink to="/log-in" onClick={closeMobileMenu}>
-                    <Button primary>Log in</Button>
-                  </NavBtnLink>
-                ) : (
-                  <NavBtnLink to="/log-in" onClick={closeMobileMenu}>
-                    <Button fontBig primary>
-                      Log in
-                    </Button>
-                  </NavBtnLink>
-                )}
-              </NavItemBtn>
-              <NavItemBtn>
-                {button ? (
-                  <NavBtnLink to="/sign-up" onClick={closeMobileMenu}>
-                    <Button primary>Sign up</Button>
-                  </NavBtnLink>
-                ) : (
-                  <NavBtnLink to="/sign-up" onClick={closeMobileMenu}>
-                    <Button fontBig primary>
-                      Sign up
-                    </Button>
-                  </NavBtnLink>
-                )}
-              </NavItemBtn>
+              {!context.user && (
+                <>
+                  <NavItemBtn>
+                    {button ? (
+                      <NavBtnLink to="/log-in" onClick={closeMobileMenu}>
+                        <Button primary>Log in</Button>
+                      </NavBtnLink>
+                    ) : (
+                      <NavBtnLink to="/log-in" onClick={closeMobileMenu}>
+                        <Button fontBig primary>
+                          Log in
+                        </Button>
+                      </NavBtnLink>
+                    )}
+                  </NavItemBtn>
+                  <NavItemBtn>
+                    {button ? (
+                      <NavBtnLink to="/sign-up" onClick={closeMobileMenu}>
+                        <Button primary>Sign up</Button>
+                      </NavBtnLink>
+                    ) : (
+                      <NavBtnLink to="/sign-up" onClick={closeMobileMenu}>
+                        <Button fontBig primary>
+                          Sign up
+                        </Button>
+                      </NavBtnLink>
+                    )}
+                  </NavItemBtn>
+                </>
+              )}
+              {context.user && (
+                <p style={{ color: 'white' }}>{context.user.email}</p>
+              )}
             </NavMenu>
           </NavbarContainer>
         </Nav>

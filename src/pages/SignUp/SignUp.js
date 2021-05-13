@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { Navbar, Footer } from "../../components";
 import {
   Container,
@@ -6,9 +7,55 @@ import {
   Title,
   PersonalInfoWrapper,
   Form
-} from "./style"
+} from "./style";
+// auth api
+import AuthAPI from '../../api/Auth';
 
 const Signup = () => {
+  const [authData, setAuthData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
+
+  const history = useHistory();
+
+  const handleInputChange = (inputName, text) => {
+    const clonedAuthData = {
+      ...authData,
+      [inputName]: text,
+    };
+
+    setAuthData(clonedAuthData);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    const requiredFields = {
+      name: authData.name,
+      email: authData.email,
+      password: authData.password,
+    };
+
+    let hasError = false;
+
+    Object.keys(requiredFields).forEach((key) => {
+      if (requiredFields[key] === '') {
+        hasError = true;
+      }
+    });
+
+    if (!hasError) {
+      await AuthAPI.signUp(authData);
+      setAuthData({ name: '', email: '', password: '' });
+      
+      setTimeout(() => {
+        history.push('/');
+      }, 500);
+    }
+  };
+  
   return (
     <>
       <Navbar />
@@ -19,45 +66,44 @@ const Signup = () => {
             <h1>Crie sua conta</h1>
           </Title>
           <PersonalInfoWrapper>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <label
                 name="user[login]"
                 autoCapitalize="off"
-                autoFocus="autofocus"
-                required="required"
                 htmlFor="user_login"
               >Nome de usuário</label>
               <input
                 type="text"
                 name="user[login]"
                 id="user_login"
-                autoFocus="autofocus"
+                autoFocus
                 autoCapitalize="off"
                 required
                 autoComplete="off"
                 spellCheck="false"
+                value={authData.name}
+                onChange={(event) => handleInputChange('name', event.target.value)}
               />
               <label
                 type="text"
                 name="user[email]"
                 htmlFor="user_email"
-                required = "required"
                 autoCapitalize="off"
               >Endereço de email</label>
               <input
                 type="email"
                 name="user[email]"
                 id="user_email"
-                required = "required"
                 autoCapitalize="off"
+                required
                 autoComplete="off"
                 spellCheck="false"
-
+                value={authData.email}
+                onChange={(event) => handleInputChange('email', event.target.value)}
               />
               <label
                 name="user[password]"
                 autoComplete="new-password"
-                required="required"
                 htmlFor="user_password"
               >Senha</label>
               <input
@@ -65,11 +111,12 @@ const Signup = () => {
                 type="password"
                 name="user[password]"
                 id="user_password"
-                autoFocus="autofocus"
                 autoCapitalize="off"
                 required
                 autoComplete="off"
                 spellCheck="false"
+                value={authData.password}
+                onChange={(event) => handleInputChange('password', event.target.value)}
               />
 
               <span className="passwordWarning">

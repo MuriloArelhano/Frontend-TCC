@@ -97,6 +97,15 @@ export const Form = styled.form`
   }
 `
 
+export const Error = styled.div`
+  border-radius: 5px;
+  background-color: #ffcdd2;
+  border: 1px solid #b71c1c;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px 20px;
+`
+
 export const NewAccount = styled.div`
   width: 100%;
   padding: 15px 20px;
