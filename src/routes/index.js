@@ -16,6 +16,7 @@ import Inicio from "../pages/Modelo/Fases/Inicio";
 import Crescimento from "../pages/Modelo/Fases/Crescimento";
 import Maturidade from "../pages/Modelo/Fases/Maturidade";
 import Conclusao from "../pages/Modelo/Fases/Conclusao";
+import Account from "../pages/Account";
 
 const Routes = () => {
     return (
@@ -35,6 +36,7 @@ const Routes = () => {
             <Route path="/modelo/Crescimento" exact component={Crescimento} />
             <Route path="/modelo/Maturidade" exact component={Maturidade} />
             <Route path="/modelo/Conclusao" exact component={Conclusao} />
+            <Route path="/account" exact component={Account} />
         </Switch>
     );
 }

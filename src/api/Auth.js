@@ -15,7 +15,10 @@ class Auth {
   static async signIn({email, password}) {
     try {
       const { data, status } = await axios.post('/users/auth', { email, password });
-      Storage.setItem('@devgo-authentication', data);
+      Storage.setItem('@devgo-authentication', {
+        ...data,
+        isAdmin: data.user.role === 'ADMIN'
+      });
 
       return {
         status,
@@ -36,12 +39,14 @@ class Auth {
   static userIsLogged() {
     const auth = Storage.getItem('@devgo-authentication');
     let user = null;
+    let isAdmin = false;
 
     if (auth) {
       user = auth.user;
+      isAdmin = auth.isAdmin;
     }
 
-    return user;
+    return [user, isAdmin];
   }
 }
 

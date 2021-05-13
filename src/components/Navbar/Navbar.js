@@ -123,7 +123,11 @@ const Navbar = ({position}) => {
                 </>
               )}
               {context.user && (
-                <p style={{ color: 'white' }}>{context.user.email}</p>
+                <NavBtnLink to="/account" onClick={closeMobileMenu}>
+                  <Button fontBig primary>
+                    <p style={{ color: 'white' }}>{context.user.email}</p>
+                  </Button>
+                </NavBtnLink>
               )}
             </NavMenu>
           </NavbarContainer>
