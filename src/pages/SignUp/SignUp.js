@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
-import { Navbar, Footer } from "../../components";
+import { Navbar, Footer, PasswordStrength } from "../../components";
 // notification
 import Notification from '../../notification';
 import {
@@ -14,13 +14,13 @@ import {
 import AuthAPI from '../../api/Auth';
 
 const Signup = () => {
+  const history = useHistory();
+
   const [authData, setAuthData] = useState({
     name: '',
     email: '',
     password: ''
   });
-
-  const history = useHistory();
 
   const handleInputChange = (inputName, text) => {
     const clonedAuthData = {
@@ -51,7 +51,7 @@ const Signup = () => {
     if (!hasError) {
       const response = await AuthAPI.signUp(authData);
 
-      if (response.status === 200) {
+      if (response === 200) {
         setAuthData({ name: '', email: '', password: '' });
 
         setTimeout(() => {
@@ -127,9 +127,11 @@ const Signup = () => {
                 onChange={(event) => handleInputChange('password', event.target.value)}
               />
 
+              <PasswordStrength password={authData.password} />
+
               <span className="passwordWarning">
-                A senha<span> precisa ter 15 caracteres</span> OU pelo menos 8 caracteres incluindo um número e uma letra
-                maiúscula.
+                A senha<span> precisa ter pelo menos 6 caracteres</span> e recomendamos utilizar letras minúsculas e maiúsculas,
+                números e caracteres especiais.
               </span>
 
               <button>
