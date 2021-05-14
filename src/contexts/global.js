@@ -18,15 +18,20 @@ const ContextProvider = ({children}) => {
     }
   }, [userIsLogged]);
 
+  const removeUser = () => {
+    setUserIsLogged(false);
+    setUser(null);
+    setUserIsAdmin(false);
+  }
+
   return (
     <Context.Provider
       value={{
         user,
-        setUser,
         userIsLogged,
-        setUserIsLogged,
         userIsAdmin,
-        setUserIsAdmin
+        setUser,
+        removeUser
       }}
     >
       {children}

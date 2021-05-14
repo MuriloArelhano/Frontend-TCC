@@ -33,7 +33,7 @@ class Auth {
   }
 
   static async signOut() {
-    // TODO
+    Storage.removeItem('@devgo-authentication');
   }
 
   static userIsLogged() {
