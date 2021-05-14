@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+import Route from './Route';
 
 import Home from "../pages/HomePage/Home";
 import Products from "../pages/Products/Products";
@@ -29,8 +30,8 @@ const Routes = () => {
         <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/products" exact component={Products} />
-            <Route path="/sign-up" exact component={SignUp} />
-            <Route path="/log-in" exact component={LogIn} />
+            <Route path="/sign-up" exact component={SignUp} isAuth />
+            <Route path="/log-in" exact component={LogIn} isAuth />
             <Route path="/ferramenta/index" exact component={Ferramenta} />
             <Route path="/modelo/Introducao" exact component={Introducao} />
             <Route path="/modelo/Plataforma_e_produtos" exact component={Plataforma_e_produtos} />
@@ -43,7 +44,7 @@ const Routes = () => {
             <Route path="/modelo/Maturidade" exact component={Maturidade} />
             <Route path="/modelo/Conclusao" exact component={Conclusao} />
             {/* rotas privadas */}
-            <Route path={accountRoutes} exact component={Account} />
+            <Route path={accountRoutes} component={Account} isPrivate />
         </Switch>
     );
 }
