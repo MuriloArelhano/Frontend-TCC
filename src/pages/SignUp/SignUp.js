@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { Navbar, Footer } from "../../components";
+// notification
+import Notification from '../../notification';
 import {
   Container,
   Wrapper,
@@ -47,12 +49,18 @@ const Signup = () => {
     });
 
     if (!hasError) {
-      await AuthAPI.signUp(authData);
-      setAuthData({ name: '', email: '', password: '' });
-      
-      setTimeout(() => {
-        history.push('/');
-      }, 500);
+      const response = await AuthAPI.signUp(authData);
+
+      if (response.status === 200) {
+        setAuthData({ name: '', email: '', password: '' });
+
+        setTimeout(() => {
+          history.push('/');
+          Notification.show('success', 'Cadastro realizado com sucesso, aguarde a aprovação de um moderador');
+        }, 500);
+      } else {
+        Notification.show('error', response.error);
+      }
     }
   };
   

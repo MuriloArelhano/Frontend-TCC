@@ -10,13 +10,14 @@ import {
   NewAccount, 
   Footer,
   Form,
-  Button,
-  Error
+  Button
 } from "./style";
 // auth api
 import AuthAPI from '../../api/Auth';
 // context
 import { Context } from '../../contexts/global';
+// notification
+import Notification from '../../notification';
 
 const Login = () => {
   const context = useContext(Context);
@@ -26,8 +27,6 @@ const Login = () => {
     email: '',
     password: ''
   });
-
-  const [authError, setAuthError] = useState(null);
 
   const handleInputChange = (inputName, text) => {
     const clonedAuthData = {
@@ -61,11 +60,13 @@ const Login = () => {
         setAuthData({ email: '', password: '' });
         context.setUser(response.data.user);
         
+        Notification.show('success', `Bem vindo de volta ${response.data.user.name}`);
+
         setTimeout(() => {
           history.push('/');
         }, 500);
       } else {
-        setAuthError({ message: response.error });
+        Notification.show('error', response.error);
       }
     }
   };
@@ -116,11 +117,6 @@ const Login = () => {
                 value="Sign in"
               />
             </Form>
-            {authError && (
-              <Error>
-                <p>{authError.message}</p>
-              </Error>
-            )}
           </PersonalInfoWrapper>
           <NewAccount>
             <p>

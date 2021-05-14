@@ -5,10 +5,16 @@ import axios from './axios';
 class Auth {
   static async signUp({ name, email, password }) {
     try {
-      const response = await axios.post('/users', { name, email, password });
-      return response.status;
+      const { data, status } = await axios.post('/users', { name, email, password });
+      return {
+        status,
+        data
+      }
     } catch (error) {
-      console.log(error.message);
+      return {
+        status: error.response.status,
+        error: error.response.data.error
+      }
     }
   }
 
