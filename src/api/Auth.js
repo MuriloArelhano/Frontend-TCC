@@ -40,13 +40,15 @@ class Auth {
     const auth = Storage.getItem('@devgo-authentication');
     let user = null;
     let isAdmin = false;
+    let token = null;
 
     if (auth) {
       user = auth.user;
       isAdmin = auth.isAdmin;
+      token = auth.token;
     }
 
-    return [user, isAdmin];
+    return [user, isAdmin, token];
   }
 }
 

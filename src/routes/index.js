@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from "../pages/HomePage/Home";
@@ -18,7 +18,13 @@ import Maturidade from "../pages/Modelo/Fases/Maturidade";
 import Conclusao from "../pages/Modelo/Fases/Conclusao";
 import Account from "../pages/Account";
 
+import { Context } from '../contexts/global';
+
 const Routes = () => {
+    const context = useContext(Context);
+    const accountRoutes = ["/account", "/account/change-password", "/account/admin"];
+    !context.userIsAdmin && accountRoutes.pop();
+
     return (
         <Switch>
             <Route path="/" exact component={Home} />
@@ -36,7 +42,8 @@ const Routes = () => {
             <Route path="/modelo/Crescimento" exact component={Crescimento} />
             <Route path="/modelo/Maturidade" exact component={Maturidade} />
             <Route path="/modelo/Conclusao" exact component={Conclusao} />
-            <Route path="/account" exact component={Account} />
+            {/* rotas privadas */}
+            <Route path={accountRoutes} exact component={Account} />
         </Switch>
     );
 }
