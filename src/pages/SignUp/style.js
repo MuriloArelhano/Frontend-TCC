@@ -99,6 +99,7 @@ export const Form = styled.form`
     line-height: 18px;
     color: #586069;
     font-weight: 400;
+    margin-bottom: 8px;
 
     span {
       color: #22863a;

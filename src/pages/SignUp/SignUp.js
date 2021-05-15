@@ -19,7 +19,8 @@ const Signup = () => {
   const [authData, setAuthData] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   });
 
   const handleInputChange = (inputName, text) => {
@@ -33,11 +34,12 @@ const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     const requiredFields = {
       name: authData.name,
       email: authData.email,
       password: authData.password,
+      confirmPassword: authData.confirmPassword
     };
 
     let hasError = false;
@@ -49,21 +51,25 @@ const Signup = () => {
     });
 
     if (!hasError) {
-      const response = await AuthAPI.signUp(authData);
-
-      if (response === 200) {
-        setAuthData({ name: '', email: '', password: '' });
-
-        setTimeout(() => {
-          history.push('/');
-          Notification.show('success', 'Cadastro realizado com sucesso, aguarde a aprovação de um moderador');
-        }, 500);
+      if (authData.confirmPassword !== authData.password) {
+        Notification.show('error', 'As senhas devem ser iguais');
       } else {
-        Notification.show('error', response.error);
+        const response = await AuthAPI.signUp(authData);
+
+        if (response === 200) {
+          setAuthData({ name: '', email: '', password: '', confirmPassword: '' });
+
+          setTimeout(() => {
+            history.push('/');
+            Notification.show('success', 'Cadastro realizado com sucesso, aguarde a aprovação de um moderador');
+          }, 500);
+        } else {
+          Notification.show('error', response.error);
+        }
       }
     }
   };
-  
+
   return (
     <>
       <Navbar />
@@ -127,12 +133,30 @@ const Signup = () => {
                 onChange={(event) => handleInputChange('password', event.target.value)}
               />
 
-              <PasswordStrength password={authData.password} />
+              {authData.password.length >= 6 && <PasswordStrength password={authData.password} />}
 
               <span className="passwordWarning">
                 A senha<span> precisa ter pelo menos 6 caracteres</span> e recomendamos utilizar letras minúsculas e maiúsculas,
                 números e caracteres especiais.
               </span>
+
+              <label
+                name="user[confirmPassword]"
+                autoComplete="confirmPassword-password"
+                htmlFor="user_confirm_password"
+              >Confirmar senha</label>
+              <input
+                className="inputPassword"
+                type="password"
+                name="user[confirmPassword]"
+                id="user_confirm_password"
+                autoCapitalize="off"
+                required
+                autoComplete="off"
+                spellCheck="false"
+                value={authData.confirmPassword}
+                onChange={(event) => handleInputChange('confirmPassword', event.target.value)}
+              />
 
               <button>
                 Criar conta
