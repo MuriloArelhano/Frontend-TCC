@@ -18,6 +18,7 @@ import Crescimento from "../pages/Modelo/Fases/Crescimento";
 import Maturidade from "../pages/Modelo/Fases/Maturidade";
 import Conclusao from "../pages/Modelo/Fases/Conclusao";
 import Account from "../pages/Account";
+import Form from '../pages/Form';
 
 import { Context } from '../contexts/global';
 
@@ -43,6 +44,7 @@ const Routes = () => {
             <Route path="/modelo/Crescimento" exact component={Crescimento} />
             <Route path="/modelo/Maturidade" exact component={Maturidade} />
             <Route path="/modelo/Conclusao" exact component={Conclusao} />
+            <Route path="/formulario" component={Form} />
             {/* rotas privadas */}
             <Route path={accountRoutes} component={Account} isPrivate />
         </Switch>

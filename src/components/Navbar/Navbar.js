@@ -84,7 +84,7 @@ const Navbar = ({position}) => {
                 >Ferramenta</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/" onClick={closeMobileMenu}>Formulário</NavLinks>
+                <NavLinks to="/formulario" onClick={closeMobileMenu}>Formulário</NavLinks>
               </NavItem>
               {/* <NavItem>
                 <NavLinks to="/services" onClick={closeMobileMenu}>Services</NavLinks>
