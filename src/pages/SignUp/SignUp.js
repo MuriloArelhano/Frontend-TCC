@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { Navbar, Footer, PasswordStrength } from "../../components";
 // notification
@@ -56,7 +56,7 @@ const Signup = () => {
       } else {
         const response = await AuthAPI.signUp(authData);
 
-        if (response === 200) {
+        if (response.status === 200) {
           setAuthData({ name: '', email: '', password: '', confirmPassword: '' });
 
           setTimeout(() => {
