@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, memo, useCallback } from 'react';
 // context
 import { Context } from '../../contexts/global';
 // styles
@@ -13,7 +13,7 @@ const Profile = () => {
         birthDate: ''
     });
 
-    const [accountError, setAccountError] = useState(null);
+    const [accountError] = useState(null);
 
     useEffect(() => {
         if (context.user) {
@@ -24,16 +24,16 @@ const Profile = () => {
         }
     }, [context.user]);
 
-    const handleInputChange = (inputName, text) => {
+    const handleInputChange = useCallback((inputName, text) => {
         const clonedAccountData = {
             ...accountData,
             [inputName]: text,
         };
 
         setAccountData(clonedAccountData);
-    };
+    }, [accountData]);
 
-    const handleSave = async (event) => {
+    const handleSave = useCallback(async (event) => {
         event.preventDefault();
 
         const requiredFields = {
@@ -52,7 +52,7 @@ const Profile = () => {
         if (!hasError) {
             // TODO
         }
-    };
+    }, [accountData]);
 
     return (
         <AccountInfoArea>
@@ -103,4 +103,4 @@ const Profile = () => {
     );
 }
 
-export default Profile;
+export default memo(Profile);

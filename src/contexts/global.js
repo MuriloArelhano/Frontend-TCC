@@ -29,6 +29,7 @@ const ContextProvider = ({children}) => {
       value={{
         user,
         userIsLogged,
+        setUserIsLogged,
         userIsAdmin,
         setUser,
         removeUser

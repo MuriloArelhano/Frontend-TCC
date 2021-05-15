@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useCallback } from 'react';
+import React, { useState, useContext, useEffect, useCallback, memo } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 // context
 import { Context } from '../../contexts/global';
@@ -22,16 +22,25 @@ import { FaRegUser } from 'react-icons/fa';
 import { BsShieldLock } from 'react-icons/bs';
 import { RiAdminLine } from 'react-icons/ri';
 
+const IconWithMemo = memo(({ icon: Icon }) => {
+    return <Icon />
+})
+
 const Account = () => {
     const context = useContext(Context);
     const history = useHistory();
     const location = useLocation();
 
     const [users, setUsers] = useState([]);
+    const [showAdminMenu, setShowAdminMenu] = useState(false);
 
     useEffect(() => {
         loadUsersInfo();
     });
+
+    useEffect(() => {
+        if (context.userIsAdmin) setShowAdminMenu(true);
+    }, [context.userIsAdmin]);
 
     const loadUsersInfo = useCallback(async () => {
         const usersResponse = await UserAPI.getUsers('onlyBase');
@@ -90,27 +99,27 @@ const Account = () => {
                                 onClick={() => navigateTo('')}
                             >
                                 Meu perfil
-                                <FaRegUser />
+                                <IconWithMemo icon={FaRegUser} />
                             </li>
                             <li
                                 className={`${isActive('/change-password') ? 'active' : ''}`}
                                 onClick={() => navigateTo('/change-password')}
                             >
                                 Alterar senha
-                                <BsShieldLock />
+                                <IconWithMemo icon={BsShieldLock} />
                             </li>
-                            {context.userIsAdmin && (
+                            {showAdminMenu && (
                                 <li
                                     className={`${isActive('/admin') ? 'active' : ''}`}
                                     onClick={() => navigateTo('/admin')}
                                 >
                                     Painel administrativo
-                                    <RiAdminLine />
+                                    <IconWithMemo icon={RiAdminLine} />
                                 </li>
                             )}
                             <li onClick={() => logout()}>
                                 Sair
-                                <MdPowerSettingsNew />
+                                <IconWithMemo icon={MdPowerSettingsNew} />
                             </li>
                         </ul>
                     </AccountContentMenu>
@@ -123,4 +132,4 @@ const Account = () => {
     );
 }
 
-export default Account;
+export default memo(Account);

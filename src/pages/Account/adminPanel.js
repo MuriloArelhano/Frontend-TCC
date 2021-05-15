@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 // styles
 import { AccountInfoArea, AccountTable } from './styles';
 
@@ -79,4 +79,4 @@ const AdminPanel = ({ users, handleUserAccess }) => {
     );
 }
 
-export default AdminPanel;
+export default memo(AdminPanel);

@@ -59,6 +59,7 @@ const Login = () => {
       if (response.status === 200) {
         setAuthData({ email: '', password: '' });
         context.setUser(response.data.user);
+        context.setUserIsLogged(true);
         
         Notification.show('success', `Bem vindo de volta ${response.data.user.name}`);
 

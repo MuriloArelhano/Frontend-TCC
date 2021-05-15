@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 // styles
 import { AccountInfoArea, AccountForm, InputControl } from './styles';
 
@@ -29,4 +29,4 @@ const ChangePassword = () => {
     );
 }
 
-export default ChangePassword;
+export default memo(ChangePassword);

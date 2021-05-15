@@ -12,7 +12,7 @@ export const AccountContainer = styled.div`
 `;
 
 export const AccountContent = styled.div`
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
     display: flex;
 `;
