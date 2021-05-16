@@ -216,6 +216,10 @@ const sensibilizacao = {
                         {
                             id: 'SE_DEVEA_OB_03',
                             text: '3. Balancear o roadmap interno da organização com as necessidades dos desenvolvedores'
+                        },
+                        {
+                            id: 'SE_DEVEA_OB_04',
+                            text: '4. Construir confiança entre setores da organização e os desenvolvedores'
                         }
                     ]
                 },
@@ -477,38 +481,38 @@ const sensibilizacao = {
                 },
 
                 categorias: {
-                    initials: 'COMP',
+                    initials: 'CAT',
                     content: [
                         {
-                            id: 'SE_MTO_COMP_01',
+                            id: 'SE_MTO_CAT_01',
                             text: '1. Perguntas e Respostas'
                         },
                         {
-                            id: 'SE_MTO_COMP_02',
+                            id: 'SE_MTO_CAT_02',
                             text: '2. Lista de E-mails e Fóruns'
                         },
                         {
-                            id: 'SE_MTO_COMP_03',
+                            id: 'SE_MTO_CAT_03',
                             text: '3. Ambiente Social de Codificação'
                         },
                         {
-                            id: 'SE_MTO_COMP_04',
+                            id: 'SE_MTO_CAT_04',
                             text: '4. Website Social de Notícias'
                         },
                         {
-                            id: 'SE_MTO_COMP_05',
+                            id: 'SE_MTO_CAT_05',
                             text: '5. Redes Sociais'
                         },
                         {
-                            id: 'SE_MTO_COMP_06',
+                            id: 'SE_MTO_CAT_06',
                             text: '6. Comunicação do time'
                         },
                         {
-                            id: 'SE_MTO_COMP_07',
+                            id: 'SE_MTO_CAT_07',
                             text: '7. Loja de aplicações'
                         },
                         {
-                            id: 'SE_MTO_COMP_08',
+                            id: 'SE_MTO_CAT_08',
                             text: '8. Painel de controle do desenvolvedor'
                         },
                     ]
