@@ -1,6 +1,6 @@
 import React from 'react';
 // components
-import { Navbar, Footer } from '../../components';
+import { Navbar, Footer, Accordion } from '../../components';
 // styles
 import { Container } from './styles';
 
@@ -21,6 +21,8 @@ const Form = () => {
                 <div className="select-message">
                     <p>Selecione abaixo um dos seguintes estágios</p>
                 </div>
+
+                <Accordion title="Objetivo" />
             </Container>
             <Footer />
         </>

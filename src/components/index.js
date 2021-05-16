@@ -4,3 +4,4 @@ export { default as Pricing } from "./Pricing/Pricing";
 export { default as Footer } from "./Footer/Footer";
 export { default as Sidebar } from "./Sidebar/Sidebar";
 export { default as PasswordStrength } from "./PasswordStrength";
+export { default as Accordion } from "./Accordion";
