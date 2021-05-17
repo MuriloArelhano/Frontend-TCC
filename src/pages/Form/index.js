@@ -1,52 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 // components
-import { Navbar, Footer, FormBox } from '../../components';
+import { Navbar, Footer } from '../../components';
+import Stage from './Stage';
 // styles
-import { Container } from './styles';
-// mocks
-import sensibilizacao from '../../mocks/sensibilizacao';
-// notification
-import Notification from '../../notification';
+import { Container, StageContainer } from './styles';
+// images
+import sensibilityImg from '../../images/speaker.png';
+import entranceImg from '../../images/rocket.png';
+import activationImg from '../../images/box.png';
+import retentionImg from '../../images/tool.png';
+import rewardImg from '../../images/reward.png';
+import referenceImg from '../../images/reference.png';
 
 const Form = () => {
-    const [errors, setErrors] = useState({});
-
-    const handleErrors = (error) => {
-        setErrors(oldErrors => ({ ...oldErrors, [error.box]: error.value }));
-    }
-
-    const hasNoErrors = () => {
-        const errorsValues = Object.values(errors);
-
-        return errorsValues.every(value => value === null);
-    }
-
-    const handleSubmit = () => {
-        if (hasNoErrors()) {
-            // TODO
-        } else {
-            handleErrorNotification(Object.values(errors));
-        }
-    }
-
-    const handleErrorNotification = (errorsValues) => {
-        const errorsValuesWithText = errorsValues.filter(value => value !== null);
-        const errorsAmount = errorsValuesWithText.length;
-
-        if (errorsAmount === errorsValues.length) {
-            Notification.show('error', 'Nenhuma resposta foi selecionada');
-        } else if (errorsAmount === 1) {
-            Notification.show('error', `Nenhuma resposta foi selecionada na seção ${errorsValuesWithText[0]}`);
-        } else if (errorsAmount === 2) {
-            const text = errorsValuesWithText.join(';').replace(';', ' e ');
-            Notification.show('error', `Nenhuma resposta foi selecionada nas seções ${text}`);
-        } else {
-            const lastError = errorsValuesWithText.splice(errorsAmount-1, 1);
-            const text = errorsValuesWithText.join(';').replace(';', ', ');
-            Notification.show('error', `Nenhuma resposta foi selecionada nas seções ${text} e ${lastError}`);
-        }
-    }
-
     return (
         <>
             <Navbar />
@@ -60,23 +26,50 @@ const Form = () => {
                     melhoria de processos dentro da sua empresa.
                 </p>
 
-                <div className="select-message">
+                <div className="default-box select-message">
                     <p>Selecione abaixo um dos seguintes estágios</p>
                 </div>
 
-                <FormBox
-                    title="objetivo"
-                    questions={sensibilizacao.content.plataforma_e_produtos.content.objetivo.content}
-                    handleErrors={error => handleErrors(error)}
-                />
+                <StageContainer>
+                    <div className="stage-item">
+                        <div className="img-container">
+                            <img src={sensibilityImg} alt="Sensibilização" />
+                        </div>
+                        <span>Sensibilização</span>
+                    </div>
+                    <div className="stage-item">
+                        <div className="img-container">
+                            <img src={entranceImg} alt="Entrada" />
+                        </div>
+                        <span>Entrada</span>
+                    </div>
+                    <div className="stage-item">
+                        <div className="img-container">
+                            <img src={activationImg} alt="Ativação" />
+                        </div>
+                        <span>Ativação</span>
+                    </div>
+                    <div className="stage-item">
+                        <div className="img-container">
+                            <img src={retentionImg} alt="Retenção" />
+                        </div>
+                        <span>Retenção</span>
+                    </div>
+                    <div className="stage-item">
+                        <div className="img-container">
+                            <img src={rewardImg} alt="Reconhecimento" />
+                        </div>
+                        <span>Reconhecimento</span>
+                    </div>
+                    <div className="stage-item">
+                        <div className="img-container">
+                            <img src={referenceImg} alt="Referência" />
+                        </div>
+                        <span>Referência</span>
+                    </div>
+                </StageContainer>
 
-                <FormBox
-                    title="componente"
-                    questions={sensibilizacao.content.plataforma_e_produtos.content.componente.content}
-                    handleErrors={error => handleErrors(error)}
-                />
-                
-                <button type="button" onClick={() => handleSubmit()}>Salvar</button>
+                <Stage />
             </Container>
             <Footer />
         </>
