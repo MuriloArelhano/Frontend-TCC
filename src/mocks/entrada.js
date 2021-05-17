@@ -933,7 +933,7 @@ const entrada = {
 
                     insights: {
                         initials: 'ISG',
-                        title: 'Para o seu contexto de DevRel visando a sensibilização de desenvolvedores, selecione os insights que mais considera importante visando o monitoramento',
+                        title: 'Para o seu contexto de DevRel visando a entrada de desenvolvedores, selecione os insights que mais considera importante visando o monitoramento',
 
                         content: [
                             {
