@@ -4,6 +4,7 @@ export const AccordionContainer = styled.div`
     width: 100%;
     border: 1px solid #1890ff;
     border-radius: 5px;
+    margin-bottom: 32px;
 `
 
 export const AccordionHeader = styled.div`

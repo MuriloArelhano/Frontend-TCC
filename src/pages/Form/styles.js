@@ -29,4 +29,25 @@ export const Container = styled.div`
         border: 1px solid #1890ff;
         border-radius: 10px;
     }
+
+    button {
+        width: 100%;
+        margin-top: 16px;
+        border: 0;
+        outline: 0;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #FFFFFF;
+        background-color: #3DBB11;
+        width: 140px;
+        height: 45px;
+        border-radius: 4px;
+        box-shadow: 0 0 5px 2px #00000029;
+        cursor: pointer;
+        transition: filter linear 0.2s;
+
+        &:hover {
+            filter: brightness(85%);
+        }
+    }
 `;

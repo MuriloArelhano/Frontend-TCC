@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 // styles
 import { AccordionContainer, AccordionHeader, AccordionBody } from './styles';
 
-function Accordion({ title }) {
+const Accordion = ({ title, children }) => {
     const [accordionExpanded, setAccordionExpanded] = useState(false);
     const [accordionMaxHeight, setAccordionMaxHeight] = useState(false);
     const accordionRef = useRef(null);
@@ -21,7 +21,7 @@ function Accordion({ title }) {
             <AccordionHeader onClick={toogleAccordion}>{title}</AccordionHeader>
             <AccordionBody ref={accordionRef} maxHeight={accordionMaxHeight}>
                 <div className="content">
-                    dasdsa
+                    {children}
                 </div>
             </AccordionBody>
         </AccordionContainer>
