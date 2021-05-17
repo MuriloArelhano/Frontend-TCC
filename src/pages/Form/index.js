@@ -75,19 +75,7 @@ const Form = () => {
                     questions={sensibilizacao.content.plataforma_e_produtos.content.componente.content}
                     handleErrors={error => handleErrors(error)}
                 />
-
-                <FormBox
-                    title="teste"
-                    questions={sensibilizacao.content.plataforma_e_produtos.content.teste.content}
-                    handleErrors={error => handleErrors(error)}
-                />
-
-                <FormBox
-                    title="teste2"
-                    questions={sensibilizacao.content.plataforma_e_produtos.content.teste2.content}
-                    handleErrors={error => handleErrors(error)}
-                />
-
+                
                 <button type="button" onClick={() => handleSubmit()}>Salvar</button>
             </Container>
             <Footer />
