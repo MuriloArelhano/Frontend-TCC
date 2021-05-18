@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { memo, useEffect, useState } from 'react';
 // components
 import { Navbar, Footer } from '../../components';
 import Stage from './Stage';
 // styles
 import { Container, StageContainer } from './styles';
-// images
-import sensibilityImg from '../../images/speaker.png';
-import entranceImg from '../../images/rocket.png';
-import activationImg from '../../images/box.png';
-import retentionImg from '../../images/tool.png';
-import rewardImg from '../../images/reward.png';
-import referenceImg from '../../images/reference.png';
+// mocks
+import { getStages } from '../../mocks';
 
-const Form = () => {
+const Form = memo(() => {
+    const [selectedStage, selectStage] = useState(null);
+    const [stages, setStages] = useState([]);
+
+    useEffect(() => {
+        setStages(getStages());
+    }, []);
+
+    const renderContent = () => {
+        return (
+            <Stage areas={selectedStage.stage.content} sectionName={selectedStage.name} />
+        );
+    }
+
     return (
         <>
             <Navbar />
@@ -31,49 +39,21 @@ const Form = () => {
                 </div>
 
                 <StageContainer>
-                    <div className="stage-item">
-                        <div className="img-container">
-                            <img src={sensibilityImg} alt="Sensibilização" />
+                    {stages.map(stage => (
+                        <div className="stage-item" key={stage.id} onClick={() => selectStage(stage)}>
+                            <div className={`img-container ${selectedStage && selectedStage.id === stage.id && 'active'}`}>
+                                <img src={stage.image} alt={stage.name} />
+                            </div>
+                            <span>{stage.name}</span>
                         </div>
-                        <span>Sensibilização</span>
-                    </div>
-                    <div className="stage-item">
-                        <div className="img-container">
-                            <img src={entranceImg} alt="Entrada" />
-                        </div>
-                        <span>Entrada</span>
-                    </div>
-                    <div className="stage-item">
-                        <div className="img-container">
-                            <img src={activationImg} alt="Ativação" />
-                        </div>
-                        <span>Ativação</span>
-                    </div>
-                    <div className="stage-item">
-                        <div className="img-container">
-                            <img src={retentionImg} alt="Retenção" />
-                        </div>
-                        <span>Retenção</span>
-                    </div>
-                    <div className="stage-item">
-                        <div className="img-container">
-                            <img src={rewardImg} alt="Reconhecimento" />
-                        </div>
-                        <span>Reconhecimento</span>
-                    </div>
-                    <div className="stage-item">
-                        <div className="img-container">
-                            <img src={referenceImg} alt="Referência" />
-                        </div>
-                        <span>Referência</span>
-                    </div>
+                    ))}
                 </StageContainer>
 
-                <Stage />
+                {selectedStage && renderContent()}
             </Container>
             <Footer />
         </>
     );
-}
+})
 
 export default Form;

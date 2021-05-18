@@ -88,6 +88,10 @@ export const StageContainer = styled.div`
             }
         }
 
+        .active {
+            border: 2px solid #3DBB11;
+        }
+
         > span {
             text-transform: uppercase;
             font-weight: bold;
@@ -146,10 +150,22 @@ export const StageBox = styled.div`
             margin-top: 32px;
 
             .focus-area {
+                display: table;
                 flex-basis: 180px;
-                word-wrap: break-word;
-                text-align: center;
+                height: 56px;
                 cursor: pointer;
+                transition: transform ease-in-out .2s;
+
+                .text {
+                    display: table-cell;
+                    word-wrap: break-word;
+                    text-align: center;
+                    vertical-align: middle;
+                }
+
+                &:hover {
+                    transform: scale(1.03);
+                }
             }
         }
     }
