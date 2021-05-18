@@ -7,7 +7,7 @@ const RouteWrapper = ({ component: Component, isPrivate, isAuth, ...rest }) => {
   const [userData] = AuthAPI.userIsLogged();
 
   if (!userData && isPrivate) {
-    return <Redirect to="/log-in" />;
+    return <Redirect to="/entrar" />;
   }
 
   if (userData && isAuth) {

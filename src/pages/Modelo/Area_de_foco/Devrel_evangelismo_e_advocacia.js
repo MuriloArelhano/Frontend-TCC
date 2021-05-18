@@ -68,12 +68,12 @@ function Devrel_evangelismo_e_advocacia() {
 
           <SwitchPages>
             <span>
-              <a href="/modelo/Plataforma_e_produtos">
+              <a href="/modelo/plataforma-e-produtos">
                 <i>&lt; Plataforma e produtos</i>
               </a>
             </span>
             <span>
-              <a href="/modelo/Fluxo_de_avanco_do_desenvolvedor">
+              <a href="/modelo/fluxo-de-avanco-do-desenvolvedor">
                 <i>Fluxo de avanço do desenvolvedor &gt; </i>
               </a>
             </span>

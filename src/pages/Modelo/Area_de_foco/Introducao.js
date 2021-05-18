@@ -150,7 +150,7 @@ const Introducao = () => {
           <SwitchPages>
             <LinkPostion linkPosition={false}>
               <span>
-                <a href="/modelo/Plataforma_e_produtos">
+                <a href="/modelo/plataforma-e-produtos">
                   <i>Plataforma e produtos &gt; </i>
                 </a>
               </span>

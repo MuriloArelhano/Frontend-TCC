@@ -14,7 +14,7 @@ export const homeOjeOne = {
   img: require('../../images/svg-1.svg').default,
   start: '',
   alt: 'Image',
-  link: '/modelo/Introducao'
+  link: '/modelo/introducao'
 };
 
 
