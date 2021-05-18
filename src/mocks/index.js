@@ -12,13 +12,27 @@ import retentionImg from '../images/tool.png';
 import rewardImg from '../images/reward.png';
 import referenceImg from '../images/reference.png';
 
+const stages = [
+    { id: sensibilizacao.initials, defaultName: 'sensibilizacao', name: 'Sensibilização', stage: sensibilizacao, image: sensibilityImg },
+    { id: entrada.initials, defaultName: 'entrada', name: 'Entrada', stage: entrada, image: entranceImg },
+    { id: ativacao.initials, defaultName: 'ativacao', name: 'Ativação', stage: ativacao, image: activationImg },
+    { id: retencao.initials, defaultName: 'retencao', name: 'Retenção', stage: retencao, image: retentionImg },
+    { id: reconhecimento.initials, defaultName: 'reconhecimento', name: 'Reconhecimento', stage: reconhecimento, image: rewardImg },
+    { id: referencia.initials, defaultName: 'referencia', name: 'Referência', stage: referencia, image: referenceImg }
+];
+
 export function getStages() {
-    return [
-        { id: sensibilizacao.initials, defaultName: 'sensibilizacao', name: 'Sensibilização', stage: sensibilizacao, image: sensibilityImg },
-        { id: entrada.initials, defaultName: 'entrada', name: 'Entrada', stage: entrada, image: entranceImg },
-        { id: ativacao.initials, defaultName: 'ativacao', name: 'Ativação', stage: ativacao, image: activationImg },
-        { id: retencao.initials, defaultName: 'retencao', name: 'Retenção', stage: retencao, image: retentionImg },
-        { id: reconhecimento.initials, defaultName: 'reconhecimento', name: 'Reconhecimento', stage: reconhecimento, image: rewardImg },
-        { id: referencia.initials, defaultName: 'referencia', name: 'Referência', stage: referencia, image: referenceImg }
-    ]
+    return stages;
+}
+
+export function getFocusArea(stageInitials, focusArea) {
+    let area = null;
+
+    stages.forEach(item => {
+        if (item.defaultName === stageInitials) {
+            area = item.stage.content[focusArea];
+        }
+    });
+
+    return area;
 }

@@ -7,6 +7,7 @@ const retencao = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'RET_PEP_OB_01',
@@ -25,6 +26,7 @@ const retencao = {
 
                 componente: {
                     initials: 'COMP',
+                    name: 'Componente',
                     content: [
                         {
                             id: 'RET_PEP_COMP_01',
@@ -51,6 +53,7 @@ const retencao = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
                         subarea_devrel: {
                             content: [
@@ -141,6 +144,7 @@ const retencao = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
                         subarea_devrel: {
                             content: [
@@ -205,6 +209,7 @@ const retencao = {
             content: {
                 objetivo_da_area: {
                     initials: 'OBJA',
+                    name: 'Objetivo da área',
                     content: [
                         {
                             id: 'RET_FLXAD_OBJA_01',
@@ -220,6 +225,7 @@ const retencao = {
 
                 objetivo_do_estagio: {
                     initials: 'OBJE',
+                    name: 'Objetivo do estágio',
                     content: [
                         {
                             id: 'RET_FLXAD_OBJE_01',
@@ -262,6 +268,7 @@ const retencao = {
 
                 facilitadores: {
                     initials: 'FCT',
+                    name: 'Facilitadores',
                     content: [
                         {
                             id: 'RET_FLXAD_FCT_01',
@@ -292,6 +299,7 @@ const retencao = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
                         plataforma: {
                             content: [
@@ -386,6 +394,7 @@ const retencao = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
                         plataforma: {
                             content: [
@@ -588,6 +597,7 @@ const retencao = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'RET_DEVEA_OB_01',
@@ -611,6 +621,7 @@ const retencao = {
 
                 componente: {
                     initials: 'COMP',
+                    name: 'Componente',
                     content: [
                         {
                             id: 'RET_DEVEA_COMP_01',
@@ -628,8 +639,9 @@ const retencao = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'RET_DEVEA_OTVC_SUBPEP_01',
@@ -718,8 +730,9 @@ const retencao = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'RET_DEVEA_OTVP_SUBPEP_01',
@@ -854,6 +867,7 @@ const retencao = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'RET_MTO_OB_01',
@@ -868,6 +882,7 @@ const retencao = {
 
                 categorias: {
                     initials: 'CAT',
+                    name: 'Categorias',
                     content: [
                         {
                             id: 'RET_MTO_CAT_01',
@@ -906,8 +921,9 @@ const retencao = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'RET_MTO_OTVC_SUBPEP_01',
@@ -964,8 +980,9 @@ const retencao = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'RET_MTO_OTVP_SUBPEP_01',

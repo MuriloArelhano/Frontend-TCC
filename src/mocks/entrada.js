@@ -7,6 +7,7 @@ const entrada = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'EN_PEP_OB_01',
@@ -25,6 +26,7 @@ const entrada = {
 
                 componente: {
                     initials: 'COMP',
+                    name: 'Componente',
                     content: [
                         {
                             id: 'EN_PEP_COMP_01',
@@ -51,6 +53,7 @@ const entrada = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
                         subarea_devrel: {
                             content: [
@@ -141,6 +144,7 @@ const entrada = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
                         subarea_devrel: {
                             content: [
@@ -205,6 +209,7 @@ const entrada = {
             content: {
                 objetivo_da_area: {
                     initials: 'OBJA',
+                    name: 'Objetivo da área',
                     content: [
                         {
                             id: 'EN_FLXAD_OBJA_01',
@@ -220,6 +225,7 @@ const entrada = {
 
                 objetivo_do_estagio: {
                     initials: 'OBJE',
+                    name: 'Objetivo de estágio',
                     content: [
                         {
                             id: 'EN_FLXAD_OBJE_01',
@@ -246,6 +252,7 @@ const entrada = {
 
                 facilitadores: {
                     initials: 'FCT',
+                    name: 'Facilitadores',
                     content: [
                         {
                             id: 'EN_FLXAD_FCT_01',
@@ -268,6 +275,7 @@ const entrada = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
                         plataforma: {
                             content: [
@@ -362,6 +370,7 @@ const entrada = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
                         plataforma: {
                             content: [
@@ -545,6 +554,7 @@ const entrada = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'EN_DEVEA_OB_01',
@@ -568,6 +578,7 @@ const entrada = {
 
                 componente: {
                     initials: 'COMP',
+                    name: 'Componente',
                     content: [
                         {
                             id: 'EN_DEVEA_COMP_01',
@@ -585,8 +596,9 @@ const entrada = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'EN_DEVEA_OTVC_SUBPEP_01',
@@ -675,8 +687,9 @@ const entrada = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'EN_DEVEA_OTVP_SUBPEP_01',
@@ -811,6 +824,7 @@ const entrada = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'EN_MTO_OB_01',
@@ -825,6 +839,7 @@ const entrada = {
 
                 categorias: {
                     initials: 'CAT',
+                    name: 'Categorias',
                     content: [
                         {
                             id: 'EN_MTO_CAT_01',
@@ -863,8 +878,9 @@ const entrada = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'EN_MTO_OTVC_SUBPEP_01',
@@ -921,8 +937,9 @@ const entrada = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'EN_MTO_OTVP_SUBPEP_01',

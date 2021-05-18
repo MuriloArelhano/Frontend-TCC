@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 // components
 import { Navbar, Footer, FormBox } from '../../components';
@@ -8,21 +8,35 @@ import { Container } from './styles';
 import sensibilizacao from '../../mocks/sensibilizacao';
 // notification
 import Notification from '../../notification';
+// mocks
+import { getFocusArea } from '../../mocks';
 
-const Form = () => {
-    const [errors, setErrors] = useState({});
-
+const Form = memo(() => {
     const location = useLocation();
 
-    const areaIsValid = () => {
+    const [errors, setErrors] = useState({});
+    const [data, setData] = useState(null);
+    const [areaIsValid, setSetAreaIsValid] = useState(false);
+
+    useEffect(() => {
+        const [stage] = location.pathname.split('/').slice(-2);
         const [area] = location.pathname.split('/').slice(-1);
 
-        return [
+        const focusArea = getFocusArea(stage, area);
+        if (focusArea) setData(focusArea);
+
+        handleArea(area);
+    }, [location]);
+
+    const handleArea = (area) => {
+        const result = [
             'plataforma_e_produtos',
             'fluxo_de_avanco_do_desenvolvedor',
             'devrel_evangelismo_e_advocacia',
             'monitoramento'
         ].includes(area);
+
+        setSetAreaIsValid(result);
     }
 
     const handleErrors = (error) => {
@@ -61,7 +75,16 @@ const Form = () => {
         }
     }
 
-    if (!areaIsValid()) {
+    const renderQuestions = (content) => {
+        if (Array.isArray(content)) {
+            return content;
+        } else {
+            // TODO: lidar com as subareas
+            return [];
+        }
+    }
+
+    if (!areaIsValid) {
         return (
             <h1>Área de foco inválida</h1>
         );
@@ -71,23 +94,20 @@ const Form = () => {
         <>
             <Navbar />
             <Container>
-                <FormBox
-                    title="objetivo"
-                    questions={sensibilizacao.content.plataforma_e_produtos.content.objetivo.content}
-                    handleErrors={error => handleErrors(error)}
-                />
-
-                <FormBox
-                    title="componente"
-                    questions={sensibilizacao.content.plataforma_e_produtos.content.componente.content}
-                    handleErrors={error => handleErrors(error)}
-                />
+                {Object.values(data.content).map(item => (
+                    <FormBox
+                        key={item.initials}
+                        title={item.name}
+                        questions={renderQuestions(item.content)}
+                        handleErrors={error => handleErrors(error)}
+                    />
+                ))}
                 
                 <button type="button" onClick={() => handleSubmit()}>Salvar</button>
             </Container>
             <Footer />
         </>
     );
-}
+})
 
 export default Form;

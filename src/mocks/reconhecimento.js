@@ -7,6 +7,7 @@ const reconhecimento = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'REC_PEP_OB_01',
@@ -25,6 +26,7 @@ const reconhecimento = {
 
                 componente: {
                     initials: 'COMP',
+                    name: 'Componente',
                     content: [
                         {
                             id: 'REC_PEP_COMP_01',
@@ -51,6 +53,7 @@ const reconhecimento = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
                         subarea_devrel: {
                             content: [
@@ -141,6 +144,7 @@ const reconhecimento = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
                         subarea_devrel: {
                             content: [
@@ -205,6 +209,7 @@ const reconhecimento = {
             content: {
                 objetivo_da_area: {
                     initials: 'OBJA',
+                    name: 'Objetivo da área',
                     content: [
                         {
                             id: 'REC_FLXAD_OBJA_01',
@@ -220,6 +225,7 @@ const reconhecimento = {
 
                 objetivo_do_estagio: {
                     initials: 'OBJE',
+                    name: 'Objetivo do estágio',
                     content: [
                         {
                             id: 'REC_FLXAD_OBJE_01',
@@ -246,6 +252,7 @@ const reconhecimento = {
 
                 facilitadores: {
                     initials: 'FCT',
+                    name: 'Facilitadores',
                     content: [
                         {
                             id: 'REC_FLXAD_FCT_01',
@@ -272,6 +279,7 @@ const reconhecimento = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
                         plataforma: {
                             content: [
@@ -366,6 +374,7 @@ const reconhecimento = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
                         plataforma: {
                             content: [
@@ -571,6 +580,7 @@ const reconhecimento = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'REC_DEVEA_OB_01',
@@ -594,6 +604,7 @@ const reconhecimento = {
 
                 componente: {
                     initials: 'COMP',
+                    name: 'Componente',
                     content: [
                         {
                             id: 'REC_DEVEA_COMP_01',
@@ -611,8 +622,9 @@ const reconhecimento = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'REC_DEVEA_OTVC_SUBPEP_01',
@@ -701,8 +713,9 @@ const reconhecimento = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'REC_DEVEA_OTVP_SUBPEP_01',
@@ -837,6 +850,7 @@ const reconhecimento = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'REC_MTO_OB_01',
@@ -851,6 +865,7 @@ const reconhecimento = {
 
                 categorias: {
                     initials: 'CAT',
+                    name: 'Categorias',
                     content: [
                         {
                             id: 'REC_MTO_CAT_01',
@@ -889,8 +904,9 @@ const reconhecimento = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'REC_MTO_OTVC_SUBPEP_01',
@@ -947,8 +963,9 @@ const reconhecimento = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'REC_MTO_OTVP_SUBPEP_01',
