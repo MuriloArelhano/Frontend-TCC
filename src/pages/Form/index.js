@@ -17,7 +17,11 @@ const Form = memo(() => {
 
     const renderContent = () => {
         return (
-            <Stage areas={selectedStage.stage.content} sectionName={selectedStage.name} />
+            <Stage
+                areas={selectedStage.stage.content}
+                sectionName={selectedStage.name}
+                defaultName={selectedStage.defaultName}
+            />
         );
     }
 

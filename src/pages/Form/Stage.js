@@ -1,8 +1,15 @@
 import React, { memo } from 'react';
+import { useHistory } from 'react-router-dom';
 // styles
 import { StageBox } from './styles';
 
-const Stage = memo(({ areas, sectionName }) => {
+const Stage = memo(({ areas, sectionName, defaultName }) => {
+    const history = useHistory();
+
+    const handleClickArea = (area) => {
+        history.push(`/formulario/${defaultName}/${area}`);
+    }
+
     return (
         <StageBox>
             <div className="box-header">Estágio de {sectionName}</div>
@@ -16,7 +23,7 @@ const Stage = memo(({ areas, sectionName }) => {
 
                 <div className="focus-area-container">
                     {Object.keys(areas).map(key => (
-                        <div className="default-box focus-area">
+                        <div className="default-box focus-area" onClick={() => handleClickArea(key)}>
                             <div className="text">
                                 <p>{areas[key].name}</p>
                             </div>

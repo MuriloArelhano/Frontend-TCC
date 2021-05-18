@@ -28,6 +28,10 @@ const Routes = () => {
     const accountRoutes = ["/conta", "/conta/trocar-senha", "/conta/painel-administrativo"];
     !context.userIsAdmin && accountRoutes.pop();
 
+    const formRoutes = ['sensibilizacao', 'entrada', 'ativacao', 'retencao', 'reconhecimento', 'referencia'].map(stage => {
+        return `/formulario/${stage}/:area`
+    });
+
     return (
         <Switch>
             <Route path="/" exact component={Home} />
@@ -44,10 +48,10 @@ const Routes = () => {
             <Route path="/modelo/crescimento" exact component={Crescimento} />
             <Route path="/modelo/maturidade" exact component={Maturidade} />
             <Route path="/modelo/conclusao" exact component={Conclusao} />
-            <Route path="/formulario" component={Form} />
+            <Route path="/formulario" exact component={Form} />
             {/* rotas privadas */}
             <Route path={accountRoutes} component={Account} isPrivate />
-            <Route path="/formulario/:stage/:area" component={FormPage} isPrivate />
+            <Route path={formRoutes} exact component={FormPage} isPrivate />
         </Switch>
     );
 }

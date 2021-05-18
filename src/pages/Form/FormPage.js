@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 // components
 import { Navbar, Footer, FormBox } from '../../components';
 // styles
@@ -10,6 +11,19 @@ import Notification from '../../notification';
 
 const Form = () => {
     const [errors, setErrors] = useState({});
+
+    const location = useLocation();
+
+    const areaIsValid = () => {
+        const [area] = location.pathname.split('/').slice(-1);
+
+        return [
+            'plataforma_e_produtos',
+            'fluxo_de_avanco_do_desenvolvedor',
+            'devrel_evangelismo_e_advocacia',
+            'monitoramento'
+        ].includes(area);
+    }
 
     const handleErrors = (error) => {
         setErrors(oldErrors => ({ ...oldErrors, [error.box]: error.value }));
@@ -45,6 +59,12 @@ const Form = () => {
             const text = errorsValuesWithText.join(';').replace(';', ', ');
             Notification.show('error', `Nenhuma resposta foi selecionada nas seções ${text} e ${lastError}`);
         }
+    }
+
+    if (!areaIsValid()) {
+        return (
+            <h1>Área de foco inválida</h1>
+        );
     }
 
     return (

@@ -14,11 +14,11 @@ import referenceImg from '../images/reference.png';
 
 export function getStages() {
     return [
-        { id: sensibilizacao.initials, name: 'Sensibilização', stage: sensibilizacao, image: sensibilityImg },
-        { id: entrada.initials, name: 'Entrada', stage: entrada, image: entranceImg },
-        { id: ativacao.initials, name: 'Ativação', stage: ativacao, image: activationImg },
-        { id: retencao.initials, name: 'Retenção', stage: retencao, image: retentionImg },
-        { id: reconhecimento.initials, name: 'Reconhecimento', stage: reconhecimento, image: rewardImg },
-        { id: referencia.initials, name: 'Referência', stage: referencia, image: referenceImg }
+        { id: sensibilizacao.initials, defaultName: 'sensibilizacao', name: 'Sensibilização', stage: sensibilizacao, image: sensibilityImg },
+        { id: entrada.initials, defaultName: 'entrada', name: 'Entrada', stage: entrada, image: entranceImg },
+        { id: ativacao.initials, defaultName: 'ativacao', name: 'Ativação', stage: ativacao, image: activationImg },
+        { id: retencao.initials, defaultName: 'retencao', name: 'Retenção', stage: retencao, image: retentionImg },
+        { id: reconhecimento.initials, defaultName: 'reconhecimento', name: 'Reconhecimento', stage: reconhecimento, image: rewardImg },
+        { id: referencia.initials, defaultName: 'referencia', name: 'Referência', stage: referencia, image: referenceImg }
     ]
 }
