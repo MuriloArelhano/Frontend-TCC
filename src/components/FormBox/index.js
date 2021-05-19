@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 // componennts
 import { Accordion } from '..';
 // styles
-import { CheckboxContainer } from './styles';
+import { CheckboxContainer, SubAreaContainer } from './styles';
 
 const CheckBox = memo(({ id, text, checked, ...rest }) => {
     return (
@@ -19,14 +19,34 @@ const CheckBox = memo(({ id, text, checked, ...rest }) => {
     )
 })
 
-const FormBox = memo(({ title, questions, handleErrors }) => {
-    const [boxQuestions, setBoxQuestions] = useState(questions.map(question => ({
-        ...question,
-        selected: false
-    })));
+const FormBox = memo(({ title, questions: questionsOrSubAreas , handleErrors }) => {
+    const [boxQuestions, setBoxQuestions] = useState([]);
+    const [boxSubAreas, setBoxSubAreas] = useState([]);
 
     useEffect(() => {
-        if (boxQuestions.filter(question => question.selected).length === 0) {
+        if (Object.keys(questionsOrSubAreas[0]).includes('id')) {
+            setBoxQuestions(questionsOrSubAreas.map(question => ({
+                ...question,
+                selected: false
+            })));
+        } else {
+            setBoxSubAreas(questionsOrSubAreas.map(subArea => {
+                subArea[1] = subArea[1].map(question => ({
+                    ...question,
+                    selected: false
+                }));
+
+                return subArea;
+            }));
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        const hasErrorOnQuestions = boxQuestions.filter(question => question.selected).length === 0;
+        // TODO: Validar erros das subareas
+
+        if (hasErrorOnQuestions) {
             handleErrors({ box: title, value: `${String(title).toUpperCase()}` });
         } else {
             handleErrors({ box: title, value: null });
@@ -34,11 +54,21 @@ const FormBox = memo(({ title, questions, handleErrors }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [boxQuestions]);
 
-    const handleCheckboxChange = useCallback((questionId, questionSelected) => {
-        setBoxQuestions(oldQuestions => oldQuestions.map(oldQuestion => {
-            if (oldQuestion.id === questionId) return {...oldQuestion, selected: !questionSelected};
-            else return {...oldQuestion};
-        }));
+    const handleCheckboxChange = useCallback((type, questionId, questionSelected) => {
+        if (type === 'question') {
+            setBoxQuestions(oldQuestions => oldQuestions.map(oldQuestion => {
+                if (oldQuestion.id === questionId) return {...oldQuestion, selected: !questionSelected};
+                else return {...oldQuestion};
+            }));
+        } else {
+            setBoxSubAreas(oldSubAreas => oldSubAreas.map(oldSubArea => {
+                oldSubArea[1] = oldSubArea[1].map(oldQuestion => {
+                    if (oldQuestion.id === questionId) return {...oldQuestion, selected: !questionSelected};
+                    else return {...oldQuestion};
+                });
+                return oldSubArea;
+            }));
+        }
     }, []);
 
     return (
@@ -48,9 +78,26 @@ const FormBox = memo(({ title, questions, handleErrors }) => {
                     key={question.id}
                     id={question.id}
                     text={question.text}
-                    onChange={() => handleCheckboxChange(question.id, question.selected)}
+                    onChange={() => handleCheckboxChange('question', question.id, question.selected)}
                     checked={question.selected}
                 />
+            ))}
+            {boxSubAreas.map(subArea => (
+                <SubAreaContainer>
+                    <span>{String(subArea[0]).toUpperCase()}</span>
+
+                    <div className="content">
+                        {subArea[1].map(question => (
+                            <CheckBox
+                                key={question.id}
+                                id={question.id}
+                                text={question.text}
+                                onChange={() => handleCheckboxChange('subarea', question.id, question.selected)}
+                                checked={question.selected}
+                            />
+                        ))}
+                    </div>
+                </SubAreaContainer>
             ))}
         </Accordion>
     )

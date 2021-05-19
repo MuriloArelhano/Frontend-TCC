@@ -2,25 +2,36 @@ import React, { memo, useEffect, useState } from 'react';
 // components
 import { Navbar, Footer } from '../../components';
 import Stage from './Stage';
+// api
+import StageAPI from '../../api/Stage';
 // styles
 import { Container, StageContainer } from './styles';
-// mocks
-import { getStages } from '../../mocks';
 
 const Form = memo(() => {
     const [selectedStage, selectStage] = useState(null);
     const [stages, setStages] = useState([]);
 
     useEffect(() => {
-        setStages(getStages());
+        getStagesFromAPI();
+        // setStages(getStages());
     }, []);
 
+    const getStagesFromAPI = async () => {
+        const stagesResponse = await StageAPI.getStages();
+
+        if (stagesResponse.status === 200) {
+            setStages(stagesResponse.data);
+        }
+    }
+
     const renderContent = () => {
+        const defaultName = String(selectedStage.name).replace('ã', 'a').replace('ç', 'c').replace('ê', 'e');
+
         return (
             <Stage
-                areas={selectedStage.stage.content}
+                areas={JSON.parse(JSON.parse(selectedStage.content))}
                 sectionName={selectedStage.name}
-                defaultName={selectedStage.defaultName}
+                defaultName={defaultName.toLowerCase()}
             />
         );
     }

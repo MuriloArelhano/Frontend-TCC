@@ -81,7 +81,18 @@ const Form = memo(() => {
             return content;
         } else {
             // TODO: lidar com as subareas
-            return [];
+            const subAreasEntries = Object.entries(content);
+            
+            const subAreas = subAreasEntries.map(entry => {
+                const name = entry[0].replace('subarea_', '');
+                entry[0] = name.replace(name.charAt(0), name.charAt(0).toLocaleUpperCase());
+                entry[1] = entry[1].content;
+
+                return entry;
+            });
+
+            // console.log(subAreas);
+            return subAreas;
         }
     }
 
@@ -97,19 +108,19 @@ const Form = memo(() => {
             <Container>
                 <div className="default-box select-message">
                     <p>Marque os elementos visando {stageName === 'Reconhecimento' ? 'o' : 'a'}
-                    <strong> {String(stageName).toLowerCase()} de desenvolvedores</strong></p>
+                        <strong> {String(stageName).toLowerCase()} de desenvolvedores</strong></p>
                 </div>
-                
+
                 {Object.values(data.content).map(item => (
                     <FormBox
-                        key={item.initials}
+                        key={item.id}
                         title={item.name}
                         questions={renderQuestions(item.content)}
                         handleErrors={error => handleErrors(error)}
                     />
                 ))}
 
-                <button type="button" onClick={() => handleSubmit()}>Salvar</button>
+                <button type="button" onClick={() => handleSubmit()}>Submeter formulário</button>
             </Container>
             <Footer />
         </>
