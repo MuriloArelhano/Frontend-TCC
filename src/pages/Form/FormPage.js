@@ -4,8 +4,6 @@ import { useLocation } from 'react-router-dom';
 import { Navbar, Footer, FormBox } from '../../components';
 // styles
 import { Container } from './styles';
-// mocks
-import sensibilizacao from '../../mocks/sensibilizacao';
 // notification
 import Notification from '../../notification';
 // mocks
@@ -17,15 +15,18 @@ const Form = memo(() => {
     const [errors, setErrors] = useState({});
     const [data, setData] = useState(null);
     const [areaIsValid, setSetAreaIsValid] = useState(false);
+    const [stageName, setStageName] = useState('');
 
     useEffect(() => {
-        const [stage] = location.pathname.split('/').slice(-2);
-        const [area] = location.pathname.split('/').slice(-1);
+        const { pathname, state } = location;
+        const [stage] = pathname.split('/').slice(-2);
+        const [area] = pathname.split('/').slice(-1);
 
         const focusArea = getFocusArea(stage, area);
         if (focusArea) setData(focusArea);
 
         handleArea(area);
+        setStageName(state.stage);
     }, [location]);
 
     const handleArea = (area) => {
@@ -69,7 +70,7 @@ const Form = memo(() => {
             const text = errorsValuesWithText.join(';').replace(';', ' e ');
             Notification.show('error', `Nenhuma resposta foi selecionada nas seções ${text}`);
         } else {
-            const lastError = errorsValuesWithText.splice(errorsAmount-1, 1);
+            const lastError = errorsValuesWithText.splice(errorsAmount - 1, 1);
             const text = errorsValuesWithText.join(';').replace(';', ', ');
             Notification.show('error', `Nenhuma resposta foi selecionada nas seções ${text} e ${lastError}`);
         }
@@ -94,6 +95,11 @@ const Form = memo(() => {
         <>
             <Navbar />
             <Container>
+                <div className="default-box select-message">
+                    <p>Marque os elementos visando {stageName === 'Reconhecimento' ? 'o' : 'a'}
+                    <strong> {String(stageName).toLowerCase()} de desenvolvedores</strong></p>
+                </div>
+                
                 {Object.values(data.content).map(item => (
                     <FormBox
                         key={item.initials}
@@ -102,7 +108,7 @@ const Form = memo(() => {
                         handleErrors={error => handleErrors(error)}
                     />
                 ))}
-                
+
                 <button type="button" onClick={() => handleSubmit()}>Salvar</button>
             </Container>
             <Footer />

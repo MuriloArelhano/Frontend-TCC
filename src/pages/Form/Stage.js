@@ -7,7 +7,7 @@ const Stage = memo(({ areas, sectionName, defaultName }) => {
     const history = useHistory();
 
     const handleClickArea = (area) => {
-        history.push(`/formulario/${defaultName}/${area}`);
+        history.push(`/formulario/${defaultName}/${area}`, { stage: sectionName });
     }
 
     return (
@@ -17,13 +17,14 @@ const Stage = memo(({ areas, sectionName, defaultName }) => {
                 <div className="default-box box-info">
                     <p>
                         Os formulários que seguem tem como objetivo a seleção de elementos para cada <strong>área de foco </strong>
-                        visando a <strong>{String(sectionName || '').toLowerCase()} de desenvolvedores</strong> 
+                        visando {sectionName === 'Reconhecimento' ? 'o' : 'a'}
+                        <strong> {String(sectionName || '').toLowerCase()} de desenvolvedores</strong> 
                     </p>
                 </div>
 
                 <div className="focus-area-container">
-                    {Object.keys(areas).map(key => (
-                        <div className="default-box focus-area" onClick={() => handleClickArea(key)}>
+                    {Object.keys(areas).map((key, index) => (
+                        <div key={`${key}-${index}`} className="default-box focus-area" onClick={() => handleClickArea(key)}>
                             <div className="text">
                                 <p>{areas[key].name}</p>
                             </div>
