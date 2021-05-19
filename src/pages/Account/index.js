@@ -34,14 +34,6 @@ const Account = () => {
     const [users, setUsers] = useState([]);
     const [showAdminMenu, setShowAdminMenu] = useState(false);
 
-    useEffect(() => {
-        loadUsersInfo();
-    });
-
-    useEffect(() => {
-        if (context.userIsAdmin) setShowAdminMenu(true);
-    }, [context.userIsAdmin]);
-
     const loadUsersInfo = useCallback(async () => {
         const usersResponse = await UserAPI.getUsers('onlyBase');
 
@@ -52,6 +44,16 @@ const Account = () => {
             })));
         }
     }, []);
+
+    useEffect(() => {
+        if (location.pathname === '/conta/painel-administrativo') {
+            loadUsersInfo();
+        }
+    }, [location, loadUsersInfo]);
+
+    useEffect(() => {
+        if (context.userIsAdmin) setShowAdminMenu(true);
+    }, [context.userIsAdmin]);
 
     const handleUserAccess = useCallback(async (type, userEmail) => {
         const response = await UserAPI.manageUserAccess(type, userEmail);
@@ -102,16 +104,16 @@ const Account = () => {
                                 <IconWithMemo icon={FaRegUser} />
                             </li>
                             <li
-                                className={`${isActive('/change-password') ? 'active' : ''}`}
-                                onClick={() => navigateTo('/change-password')}
+                                className={`${isActive('/trocar-senha') ? 'active' : ''}`}
+                                onClick={() => navigateTo('/trocar-senha')}
                             >
                                 Alterar senha
                                 <IconWithMemo icon={BsShieldLock} />
                             </li>
                             {showAdminMenu && (
                                 <li
-                                    className={`${isActive('/admin') ? 'active' : ''}`}
-                                    onClick={() => navigateTo('/admin')}
+                                    className={`${isActive('/painel-administrativo') ? 'active' : ''}`}
+                                    onClick={() => navigateTo('/painel-administrativo')}
                                 >
                                     Painel administrativo
                                     <IconWithMemo icon={RiAdminLine} />
