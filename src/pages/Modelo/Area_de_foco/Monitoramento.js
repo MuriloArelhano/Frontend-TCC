@@ -164,12 +164,12 @@ function Monitoramento() {
 
           <SwitchPages>
             <span>
-              <a href="/modelo/Fluxo_de_avanco_do_desenvolvedor">
+              <a href="/modelo/fluxo-de-avanco-do-desenvolvedor">
                 <i>&lt; Fluxo de avanço do desenvolvedor</i>
               </a>
             </span>
             <span>
-              <a href="/modelo/Fases_estagios_facilitadores">
+              <a href="/modelo/fases-estagios-facilitadores">
                 <i>Fases, estágios e facilitadores &gt; </i>
               </a>
             </span>

@@ -71,36 +71,30 @@ const Navbar = ({position}) => {
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="/modelo/Introducao"
+                  to="/modelo/introducao"
                   style={teste.pathname.includes("modelo") ? styles.active : null} 
                   onClick={closeMobileMenu}
                 >Modelo</NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks 
-                  to="/ferramenta/index"
-                  style={teste.pathname === '/ferramenta/index'? styles.active : null}  
+                  to="/ferramenta"
+                  style={teste.pathname === '/ferramenta'? styles.active : null}  
                   onClick={closeMobileMenu}
                 >Ferramenta</NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks to="/formulario" onClick={closeMobileMenu}>Formulário</NavLinks>
               </NavItem>
-              {/* <NavItem>
-                <NavLinks to="/services" onClick={closeMobileMenu}>Services</NavLinks>
-              </NavItem> */}
-              {/* <NavItem>
-                <NavLinks to="/products" onClick={closeMobileMenu}>Products</NavLinks>
-              </NavItem> */}
               {!context.user && (
                 <>
                   <NavItemBtn>
                     {button ? (
-                      <NavBtnLink to="/log-in" onClick={closeMobileMenu}>
+                      <NavBtnLink to="/entrar" onClick={closeMobileMenu}>
                         <Button primary>Log in</Button>
                       </NavBtnLink>
                     ) : (
-                      <NavBtnLink to="/log-in" onClick={closeMobileMenu}>
+                      <NavBtnLink to="/entrar" onClick={closeMobileMenu}>
                         <Button fontBig primary>
                           Log in
                         </Button>
@@ -109,11 +103,11 @@ const Navbar = ({position}) => {
                   </NavItemBtn>
                   <NavItemBtn>
                     {button ? (
-                      <NavBtnLink to="/sign-up" onClick={closeMobileMenu}>
+                      <NavBtnLink to="/cadastro" onClick={closeMobileMenu}>
                         <Button primary>Sign up</Button>
                       </NavBtnLink>
                     ) : (
-                      <NavBtnLink to="/sign-up" onClick={closeMobileMenu}>
+                      <NavBtnLink to="/cadastro" onClick={closeMobileMenu}>
                         <Button fontBig primary>
                           Sign up
                         </Button>
@@ -123,7 +117,7 @@ const Navbar = ({position}) => {
                 </>
               )}
               {context.user && (
-                <NavBtnLink to="/account" onClick={closeMobileMenu}>
+                <NavBtnLink to="/conta" onClick={closeMobileMenu}>
                   <Button fontBig primary>
                     <p style={{ color: 'white' }}>{context.user.email}</p>
                   </Button>

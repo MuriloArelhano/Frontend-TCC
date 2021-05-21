@@ -81,7 +81,7 @@ const Conclusao = () => {
           <SwitchPages>
             <LinkPostion linkPosition={true}>
               <span>
-                <a href="/modelo/Maturidade">
+                <a href="/modelo/maturidade">
                   <i>&lt; Fase de maturidade</i>
                 </a>
               </span>

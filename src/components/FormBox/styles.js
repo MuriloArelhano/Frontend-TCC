@@ -41,3 +41,26 @@ export const CheckboxContainer = styled.div`
         color: #1890ff;
     }
 `;
+
+export const SubAreaContainer = styled.div`
+    text-align: center;
+    margin: 16px 0;
+    
+    &:first-child {
+        margin: 0;
+    }
+
+    &:last-child {
+        margin: 0;
+    }
+
+    span {
+        font-weight: bold;
+    }
+    
+    .content {
+        margin-top: 16px;
+        padding: 16px;
+        border: 1px dashed;
+    }
+`;

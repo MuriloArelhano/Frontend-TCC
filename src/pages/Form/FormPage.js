@@ -1,15 +1,44 @@
-import React, { useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 // components
 import { Navbar, Footer, FormBox } from '../../components';
 // styles
 import { Container } from './styles';
-// mocks
-import sensibilizacao from '../../mocks/sensibilizacao';
 // notification
 import Notification from '../../notification';
+// mocks
+import { getFocusArea } from '../../mocks';
 
-const Form = () => {
+const Form = memo(() => {
+    const location = useLocation();
+
     const [errors, setErrors] = useState({});
+    const [data, setData] = useState(null);
+    const [areaIsValid, setSetAreaIsValid] = useState(false);
+    const [stageName, setStageName] = useState('');
+
+    useEffect(() => {
+        const { pathname, state } = location;
+        const [stage] = pathname.split('/').slice(-2);
+        const [area] = pathname.split('/').slice(-1);
+
+        const focusArea = getFocusArea(stage, area);
+        if (focusArea) setData(focusArea);
+
+        handleArea(area);
+        setStageName(state.stage);
+    }, [location]);
+
+    const handleArea = (area) => {
+        const result = [
+            'plataforma_e_produtos',
+            'fluxo_de_avanco_do_desenvolvedor',
+            'devrel_evangelismo_e_advocacia',
+            'monitoramento'
+        ].includes(area);
+
+        setSetAreaIsValid(result);
+    }
 
     const handleErrors = (error) => {
         setErrors(oldErrors => ({ ...oldErrors, [error.box]: error.value }));
@@ -41,33 +70,61 @@ const Form = () => {
             const text = errorsValuesWithText.join(';').replace(';', ' e ');
             Notification.show('error', `Nenhuma resposta foi selecionada nas seções ${text}`);
         } else {
-            const lastError = errorsValuesWithText.splice(errorsAmount-1, 1);
+            const lastError = errorsValuesWithText.splice(errorsAmount - 1, 1);
             const text = errorsValuesWithText.join(';').replace(';', ', ');
             Notification.show('error', `Nenhuma resposta foi selecionada nas seções ${text} e ${lastError}`);
         }
+    }
+
+    const renderQuestions = (content) => {
+        if (Array.isArray(content)) {
+            return content;
+        } else {
+            // TODO: lidar com as subareas
+            const subAreasEntries = Object.entries(content);
+            
+            const subAreas = subAreasEntries.map(entry => {
+                const name = entry[0].replace('subarea_', '');
+                entry[0] = name.replace(name.charAt(0), name.charAt(0).toLocaleUpperCase());
+                entry[1] = entry[1].content;
+
+                return entry;
+            });
+
+            // console.log(subAreas);
+            return subAreas;
+        }
+    }
+
+    if (!areaIsValid) {
+        return (
+            <h1>Área de foco inválida</h1>
+        );
     }
 
     return (
         <>
             <Navbar />
             <Container>
-                <FormBox
-                    title="objetivo"
-                    questions={sensibilizacao.content.plataforma_e_produtos.content.objetivo.content}
-                    handleErrors={error => handleErrors(error)}
-                />
+                <div className="default-box select-message">
+                    <p>Marque os elementos visando {stageName === 'Reconhecimento' ? 'o' : 'a'}
+                        <strong> {String(stageName).toLowerCase()} de desenvolvedores</strong></p>
+                </div>
 
-                <FormBox
-                    title="componente"
-                    questions={sensibilizacao.content.plataforma_e_produtos.content.componente.content}
-                    handleErrors={error => handleErrors(error)}
-                />
-                
-                <button type="button" onClick={() => handleSubmit()}>Salvar</button>
+                {Object.values(data.content).map(item => (
+                    <FormBox
+                        key={item.id}
+                        title={item.name}
+                        questions={renderQuestions(item.content)}
+                        handleErrors={error => handleErrors(error)}
+                    />
+                ))}
+
+                <button type="button" onClick={() => handleSubmit()}>Submeter formulário</button>
             </Container>
             <Footer />
         </>
     );
-}
+})
 
 export default Form;

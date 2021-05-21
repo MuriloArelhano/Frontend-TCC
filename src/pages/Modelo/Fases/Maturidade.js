@@ -293,12 +293,12 @@ function Maturidade() {
 
           <SwitchPages>
             <span>
-              <a href="/modelo/Crescimento">
+              <a href="/modelo/crescimento">
                 <i>&lt; Fase de crescimento</i>
               </a>
             </span>
             <span>
-              <a href="/modelo/Conclusao">
+              <a href="/modelo/conclusao">
                 <i>Conclusão &gt; </i>
               </a>
             </span>

@@ -57,12 +57,12 @@ function Fluxo_de_avanco_do_desenvolvedor() {
 
           <SwitchPages>
             <span>
-              <a href="/modelo/Devrel_evangelismo_e_advocacia">
+              <a href="/modelo/devrel-evangelismo-e-advocacia">
                 <i>&lt; Devrel (evangelismo e advocacia)</i>
               </a>
             </span>
             <span>
-              <a href="/modelo/Monitoramento">
+              <a href="/modelo/monitoramento">
                 <i>Monitoramento &gt; </i>
               </a>
             </span>

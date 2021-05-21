@@ -34,14 +34,6 @@ const Account = () => {
     const [users, setUsers] = useState([]);
     const [showAdminMenu, setShowAdminMenu] = useState(false);
 
-    useEffect(() => {
-        loadUsersInfo();
-    });
-
-    useEffect(() => {
-        if (context.userIsAdmin) setShowAdminMenu(true);
-    }, [context.userIsAdmin]);
-
     const loadUsersInfo = useCallback(async () => {
         const usersResponse = await UserAPI.getUsers('onlyBase');
 
@@ -53,6 +45,16 @@ const Account = () => {
         }
     }, []);
 
+    useEffect(() => {
+        if (location.pathname === '/conta/painel-administrativo') {
+            loadUsersInfo();
+        }
+    }, [location, loadUsersInfo]);
+
+    useEffect(() => {
+        if (context.userIsAdmin) setShowAdminMenu(true);
+    }, [context.userIsAdmin]);
+
     const handleUserAccess = useCallback(async (type, userEmail) => {
         const response = await UserAPI.manageUserAccess(type, userEmail);
 
@@ -60,11 +62,11 @@ const Account = () => {
     }, [loadUsersInfo]);
 
     const renderInfo = useCallback(() => {
-        if (location.pathname === '/account' || location.pathname === '/account/') {
+        if (location.pathname === '/conta' || location.pathname === '/conta/') {
             return <Profile />;
-        } else if (location.pathname === '/account/change-password') {
+        } else if (location.pathname === '/conta/trocar-senha') {
             return <ChangePassword />
-        } else if (location.pathname === '/account/admin') {
+        } else if (location.pathname === '/conta/painel-administrativo') {
             return <AdminPanel users={users} handleUserAccess={handleUserAccess} />
         }
     }, [location, users, handleUserAccess]);
@@ -76,14 +78,14 @@ const Account = () => {
     }, [context, history]);
 
     const navigateTo = useCallback((route) => {
-        history.push(`/account${route}`);
+        history.push(`/conta${route}`);
     }, [history]);
 
     const isActive = useCallback((route) => {
         if (typeof route === 'object')
-            return route.filter(item => location.pathname === `/account${item}`).length > 0;
+            return route.filter(item => location.pathname === `/conta${item}`).length > 0;
         else
-            return location.pathname === `/account${route}`;
+            return location.pathname === `/conta${route}`;
     }, [location]);
 
     return (
@@ -102,16 +104,16 @@ const Account = () => {
                                 <IconWithMemo icon={FaRegUser} />
                             </li>
                             <li
-                                className={`${isActive('/change-password') ? 'active' : ''}`}
-                                onClick={() => navigateTo('/change-password')}
+                                className={`${isActive('/trocar-senha') ? 'active' : ''}`}
+                                onClick={() => navigateTo('/trocar-senha')}
                             >
                                 Alterar senha
                                 <IconWithMemo icon={BsShieldLock} />
                             </li>
                             {showAdminMenu && (
                                 <li
-                                    className={`${isActive('/admin') ? 'active' : ''}`}
-                                    onClick={() => navigateTo('/admin')}
+                                    className={`${isActive('/painel-administrativo') ? 'active' : ''}`}
+                                    onClick={() => navigateTo('/painel-administrativo')}
                                 >
                                     Painel administrativo
                                     <IconWithMemo icon={RiAdminLine} />

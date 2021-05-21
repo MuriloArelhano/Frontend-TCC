@@ -291,12 +291,12 @@ function Inicio() {
 
           <SwitchPages>
             <span>
-              <a href="/modelo/Fases_estagios_facilitadores">
+              <a href="/modelo/fases-estagios-facilitadores">
                 <i>&lt; Fases, estágios e facilitadores</i>
               </a>
             </span>
             <span>
-              <a href="/modelo/Crescimento">
+              <a href="/modelo/crescimento">
                 <i>Fase de crescimento &gt; </i>
               </a>
             </span>

@@ -46,12 +46,12 @@ function Fases_estagios_facilitadores() {
 
           <SwitchPages>
             <span>
-              <a href="/modelo/Monitoramento">
+              <a href="/modelo/monitoramento">
                 <i>&lt; Minitoramento</i>
               </a>
             </span>
             <span>
-              <a href="/modelo/Inicio">
+              <a href="/modelo/inicio">
                 <i>Fase de início &gt; </i>
               </a>
             </span>

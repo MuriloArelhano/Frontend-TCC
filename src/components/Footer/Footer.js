@@ -46,7 +46,7 @@ const Footer = () => {
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Sobre nós</FooterLinkTitle>
-              <FooterLink to="/sign-up">Teste</FooterLink>
+              <FooterLink to="/cadastro">Teste</FooterLink>
               <FooterLink to="/">Teste</FooterLink>
               <FooterLink to="/">Teste</FooterLink>
               <FooterLink to="/">Teste</FooterLink>
@@ -54,7 +54,7 @@ const Footer = () => {
             </FooterLinkItems>
             <FooterLinkItems>
               <FooterLinkTitle>Teste</FooterLinkTitle>
-              <FooterLink to="/sign-up">Teste</FooterLink>
+              <FooterLink to="/cadastro">Teste</FooterLink>
               <FooterLink to="/">Teste</FooterLink>
               <FooterLink to="/">Teste</FooterLink>
               <FooterLink to="/">Teste</FooterLink>
@@ -64,7 +64,7 @@ const Footer = () => {
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Videos</FooterLinkTitle>
-              <FooterLink to="/sign-up">Teste</FooterLink>
+              <FooterLink to="/cadastro">Teste</FooterLink>
               <FooterLink to="/">Teste</FooterLink>
               <FooterLink to="/">Teste</FooterLink>
               <FooterLink to="/">Teste</FooterLink>
@@ -73,7 +73,7 @@ const Footer = () => {
             <FooterLinkItems>
               <FooterLinkTitle>Mídias Sociais</FooterLinkTitle>
               <FooterLink to="/">Github</FooterLink>
-              <FooterLink to="/sign-up">Facebook</FooterLink>
+              <FooterLink to="/cadastro">Facebook</FooterLink>
               <FooterLink to="/">Instagram</FooterLink>
               <FooterLink to="/">Twitter</FooterLink>
               <FooterLink to="/">Linkedin</FooterLink>

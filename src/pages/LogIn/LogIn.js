@@ -122,7 +122,7 @@ const Login = () => {
           <NewAccount>
             <p>
               Novo em DevGo?{" "}
-              <Link to="/sign-up"><Button>Criar uma conta</Button></Link>
+              <Link to="/cadastro"><Button>Criar uma conta</Button></Link>
               .
             </p>
           </NewAccount>

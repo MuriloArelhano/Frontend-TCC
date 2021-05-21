@@ -60,12 +60,12 @@ function Plataforma_e_produtos() {
 
           <SwitchPages>
             <span>
-              <a href="/modelo/Introducao">
+              <a href="/modelo/introducao">
                 <i>&lt; Introdução</i>
               </a>
             </span>
             <span>
-              <a href="/modelo/Devrel_evangelismo_e_advocacia">
+              <a href="/modelo/devrel-evangelismo-e-advocacia">
                 <i>Devrel (evangelismo e advocacia) &gt; </i>
               </a>
             </span>

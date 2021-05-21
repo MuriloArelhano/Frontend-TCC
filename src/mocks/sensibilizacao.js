@@ -7,6 +7,7 @@ const sensibilizacao = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'SE_PEP_OB_01',
@@ -25,6 +26,7 @@ const sensibilizacao = {
 
                 componente: {
                     initials: 'COMP',
+                    name: 'Componente',
                     content: [
                         {
                             id: 'SE_PEP_COMP_01',
@@ -51,6 +53,7 @@ const sensibilizacao = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
                         subarea_devrel: {
                             content: [
@@ -141,6 +144,7 @@ const sensibilizacao = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
                         subarea_devrel: {
                             content: [
@@ -205,6 +209,7 @@ const sensibilizacao = {
             content: {
                 objetivo_da_area: {
                     initials: 'OBJA',
+                    name: 'Objetivo da área',
                     content: [
                         {
                             id: 'SE_FLXAD_OBJA_01',
@@ -220,6 +225,7 @@ const sensibilizacao = {
 
                 objetivo_do_estagio: {
                     initials: 'OBJE',
+                    name: 'Objetivo do estágio',
                     content: [
                         {
                             id: 'SE_FLXAD_OBJE_01',
@@ -242,6 +248,7 @@ const sensibilizacao = {
 
                 facilitadores: {
                     initials: 'FCT',
+                    name: 'Facilitadores',
                     content: [
                         {
                             id: 'SE_FLXAD_FCT_01',
@@ -264,6 +271,7 @@ const sensibilizacao = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
                         plataforma: {
                             content: [
@@ -358,6 +366,7 @@ const sensibilizacao = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
                         plataforma: {
                             content: [
@@ -590,6 +599,7 @@ const sensibilizacao = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'SE_DEVEA_OB_01',
@@ -613,6 +623,7 @@ const sensibilizacao = {
 
                 componente: {
                     initials: 'COMP',
+                    name: 'Componente',
                     content: [
                         {
                             id: 'SE_DEVEA_COMP_01',
@@ -630,8 +641,9 @@ const sensibilizacao = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'SE_DEVEA_OTVC_SUBPEP_01',
@@ -720,8 +732,9 @@ const sensibilizacao = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'SE_DEVEA_OTVP_SUBPEP_01',
@@ -856,6 +869,7 @@ const sensibilizacao = {
             content: {
                 objetivo: {
                     initials: 'OB',
+                    name: 'Objetivo',
                     content: [
                         {
                             id: 'SE_MTO_OB_01',
@@ -870,6 +884,7 @@ const sensibilizacao = {
 
                 categorias: {
                     initials: 'CAT',
+                    name: 'Categorias',
                     content: [
                         {
                             id: 'SE_MTO_CAT_01',
@@ -908,8 +923,9 @@ const sensibilizacao = {
 
                 objetos_de_transferencia_de_valor_consome_de: {
                     initials: 'OTVC',
+                    name: 'Objetos de Transferência de Valor - Consome de',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'SE_MTO_OTVC_SUBPEP_01',
@@ -966,8 +982,9 @@ const sensibilizacao = {
 
                 objetos_de_transferencia_de_valor_prove_para: {
                     initials: 'OTVP',
+                    name: 'Objetos de Transferência de Valor - Provê para',
                     content: {
-                        subarea_plataforma_e_prudutos: {
+                        subarea_plataforma_e_produtos: {
                             content: [
                                 {
                                     id: 'SE_MTO_OTVP_SUBPEP_01',
