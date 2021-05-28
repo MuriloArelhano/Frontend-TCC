@@ -2,12 +2,12 @@ import React, { memo, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 // components
 import { Navbar, Footer, FormBox } from '../../components';
+// api
+import StageAPI from '../../api/Stage';
 // styles
 import { Container } from './styles';
 // notification
 import Notification from '../../notification';
-// mocks
-import { getFocusArea } from '../../mocks';
 
 const Form = memo(() => {
     const location = useLocation();
@@ -19,15 +19,22 @@ const Form = memo(() => {
 
     useEffect(() => {
         const { pathname, state } = location;
-        const [stage] = pathname.split('/').slice(-2);
+        const [stageId] = pathname.split('/').slice(-2);
         const [area] = pathname.split('/').slice(-1);
 
-        const focusArea = getFocusArea(stage, area);
-        if (focusArea) setData(focusArea);
+        getFocusAreaFromAPI(stageId, area);
 
         handleArea(area);
         setStageName(state.stage);
     }, [location]);
+
+    const getFocusAreaFromAPI = async (stageId, area) => {
+        const focusAreaResponse = await StageAPI.getFocusArea(stageId, area);
+
+        if (focusAreaResponse.status === 200) {
+            setData(focusAreaResponse.data);
+        }
+    }
 
     const handleArea = (area) => {
         const result = [
@@ -84,9 +91,8 @@ const Form = memo(() => {
             const subAreasEntries = Object.entries(content);
             
             const subAreas = subAreasEntries.map(entry => {
-                const name = entry[0].replace('subarea_', '');
+                const name = entry[0].replace('subarea_', '').replaceAll('_', ' ');
                 entry[0] = name.replace(name.charAt(0), name.charAt(0).toLocaleUpperCase());
-                entry[1] = entry[1].content;
 
                 return entry;
             });
@@ -111,7 +117,7 @@ const Form = memo(() => {
                         <strong> {String(stageName).toLowerCase()} de desenvolvedores</strong></p>
                 </div>
 
-                {Object.values(data.content).map(item => (
+                {data && Object.values(data.content).map(item => (
                     <FormBox
                         key={item.id}
                         title={item.name}

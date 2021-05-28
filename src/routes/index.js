@@ -27,8 +27,8 @@ const Routes = () => {
     const accountRoutes = ["/conta", "/conta/trocar-senha", "/conta/painel-administrativo"];
     !context.userIsAdmin && accountRoutes.pop();
 
-    const formRoutes = ['sensibilizacao', 'entrada', 'ativacao', 'retencao', 'reconhecimento', 'referencia'].map(stage => {
-        return `/formulario/${stage}/:area`
+    const formRoutes = ['SE', 'EN', 'A', 'RET', 'REC', 'REF'].map(stageId => {
+        return `/formulario/${stageId}/:area`
     });
 
     return (

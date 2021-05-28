@@ -82,8 +82,8 @@ const FormBox = memo(({ title, questions: questionsOrSubAreas , handleErrors }) 
                     checked={question.selected}
                 />
             ))}
-            {boxSubAreas.map(subArea => (
-                <SubAreaContainer>
+            {boxSubAreas.map((subArea, index) => (
+                <SubAreaContainer key={index}>
                     <span>{String(subArea[0]).toUpperCase()}</span>
 
                     <div className="content">

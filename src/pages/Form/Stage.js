@@ -3,11 +3,11 @@ import { useHistory } from 'react-router-dom';
 // styles
 import { StageBox } from './styles';
 
-const Stage = memo(({ areas, sectionName, defaultName }) => {
+const Stage = memo(({ areas, sectionName, stageId }) => {
     const history = useHistory();
 
     const handleClickArea = (area) => {
-        history.push(`/formulario/${defaultName}/${area}`, { stage: sectionName });
+        history.push(`/formulario/${stageId}/${area}`, { stage: sectionName });
     }
 
     return (

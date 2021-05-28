@@ -13,7 +13,6 @@ const Form = memo(() => {
 
     useEffect(() => {
         getStagesFromAPI();
-        // setStages(getStages());
     }, []);
 
     const getStagesFromAPI = async () => {
@@ -25,13 +24,11 @@ const Form = memo(() => {
     }
 
     const renderContent = () => {
-        const defaultName = String(selectedStage.name).replace('ã', 'a').replace('ç', 'c').replace('ê', 'e');
-
         return (
             <Stage
-                areas={JSON.parse(JSON.parse(selectedStage.content))}
+                areas={JSON.parse(selectedStage.content)}
                 sectionName={selectedStage.name}
-                defaultName={defaultName.toLowerCase()}
+                stageId={selectedStage.id}
             />
         );
     }
