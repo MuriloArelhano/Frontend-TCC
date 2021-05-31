@@ -11,9 +11,16 @@ class Auth {
         data
       }
     } catch (error) {
+      if (error.response) {
+        return {
+          status: error.response.status,
+          error: error.response.data.error
+        }
+      }
+
       return {
-        status: error.response.status,
-        error: error.response.data.error
+        status: 404,
+        error: 'Erro ao conectar-se com a api'
       }
     }
   }
@@ -31,9 +38,16 @@ class Auth {
         data
       }
     } catch (error) {
+      if (error.response) {
+        return {
+          status: error.response.status,
+          error: error.response.data.error
+        }
+      }
+
       return {
-        status: error.response.status,
-        error: error.response.data.error
+        status: 404,
+        error: 'Erro ao conectar-se com a api'
       }
     }
   }
