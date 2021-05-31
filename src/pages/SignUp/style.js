@@ -111,8 +111,9 @@ export const Form = styled.form`
   }
 
   button {
-    display: inline-block;
-    padding: 16px 24px;
+    display: flex;
+    justify-content: center;
+    padding: 8px 24px;
     font-size: 14px;
     font-weight: 500;
     color: #fff;
@@ -120,14 +121,13 @@ export const Form = styled.form`
     background-color: #3076df;
     border: 1px solid #3076df;
     border-radius: 6px;
-    transition: .2s;
+    transition: filter linear .2s;
     appearance: none;
     margin-top: 40px;
     cursor: pointer;
 
     &:hover {
-      transform: scale(1.01);
-      color: lightgreen;
+      filter: brightness(90%);
     }
   }
 `

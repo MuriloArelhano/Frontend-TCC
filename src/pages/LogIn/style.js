@@ -79,11 +79,25 @@ export const Form = styled.form`
     margin-bottom: 15px;
   }
 
-  input.submit {
-    background-color: #2EA44F;
+  button.submit {
+    display: flex;
+    justify-content: center;
+    padding: 8px 24px;
+    font-size: 14px;
+    font-weight: 500;
     color: #fff;
-    font-weight: bold;
+    user-select: none;
+    background-color: #3076df;
+    border: 1px solid #3076df;
+    border-radius: 6px;
+    transition: filter linear .2s;
+    appearance: none;
+    margin-top: 40px;
     cursor: pointer;
+
+    &:hover {
+      filter: brightness(90%);
+    }
   }
 
   input:focus {

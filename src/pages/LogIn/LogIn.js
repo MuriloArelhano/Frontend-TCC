@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from 'react-router-dom';
+import ReactLoading from 'react-loading'; 
 import { 
   Container, 
   Wrapper, 
@@ -28,6 +29,8 @@ const Login = () => {
     password: ''
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleInputChange = (inputName, text) => {
     const clonedAuthData = {
       ...authData,
@@ -54,7 +57,9 @@ const Login = () => {
     });
 
     if (!hasError) {
+      setLoading(true);
       const response = await AuthAPI.signIn(authData);
+      setLoading(false);
       
       if (response.status === 200) {
         setAuthData({ email: '', password: '' });
@@ -97,12 +102,6 @@ const Login = () => {
                 value={authData.email}
                 onChange={(event) => handleInputChange('email', event.target.value)}
               />
-              <label htmlFor="password">
-                Senha
-                <Button className="label-link">
-                  Esqueceu a senha?
-                </Button>
-              </label>
               <input 
                 type="password" 
                 name="password" 
@@ -111,12 +110,11 @@ const Login = () => {
                 value={authData.password}
                 onChange={(event) => handleInputChange('password', event.target.value)}
               />
-              <input 
-                className="submit" 
-                type="submit" 
-                name="commit" 
-                value="Sign in"
-              />
+              <Button className="submit" type="submit">
+                {loading ? (
+                  <ReactLoading type="spokes" color="#ffffff" height={20} width={20} />
+                ) : 'Entrar'}
+              </Button>
             </Form>
           </PersonalInfoWrapper>
           <NewAccount>

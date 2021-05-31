@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
+import ReactLoading from 'react-loading'; 
 import { Navbar, Footer, PasswordStrength } from "../../components";
 // notification
 import Notification from '../../notification';
@@ -22,6 +23,8 @@ const Signup = () => {
     password: '',
     confirmPassword: ''
   });
+
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (inputName, text) => {
     const clonedAuthData = {
@@ -51,10 +54,13 @@ const Signup = () => {
     });
 
     if (!hasError) {
+      setLoading(true);
       if (authData.confirmPassword !== authData.password) {
+        setLoading(false);
         Notification.show('error', 'As senhas devem ser iguais');
       } else {
         const response = await AuthAPI.signUp(authData);
+        setLoading(false);
 
         if (response.status === 200) {
           setAuthData({ name: '', email: '', password: '', confirmPassword: '' });
@@ -82,13 +88,10 @@ const Signup = () => {
           <PersonalInfoWrapper>
             <Form onSubmit={handleSubmit}>
               <label
-                name="user[login]"
-                autoCapitalize="off"
                 htmlFor="user_login"
               >Nome de usuário</label>
               <input
                 type="text"
-                name="user[login]"
                 id="user_login"
                 autoFocus
                 autoCapitalize="off"
@@ -99,14 +102,10 @@ const Signup = () => {
                 onChange={(event) => handleInputChange('name', event.target.value)}
               />
               <label
-                type="text"
-                name="user[email]"
                 htmlFor="user_email"
-                autoCapitalize="off"
               >Endereço de email</label>
               <input
                 type="email"
-                name="user[email]"
                 id="user_email"
                 autoCapitalize="off"
                 required
@@ -116,14 +115,11 @@ const Signup = () => {
                 onChange={(event) => handleInputChange('email', event.target.value)}
               />
               <label
-                name="user[password]"
-                autoComplete="new-password"
                 htmlFor="user_password"
               >Senha</label>
               <input
                 className="inputPassword"
                 type="password"
-                name="user[password]"
                 id="user_password"
                 autoCapitalize="off"
                 required
@@ -141,14 +137,11 @@ const Signup = () => {
               </span>
 
               <label
-                name="user[confirmPassword]"
-                autoComplete="confirmPassword-password"
                 htmlFor="user_confirm_password"
               >Confirmar senha</label>
               <input
                 className="inputPassword"
                 type="password"
-                name="user[confirmPassword]"
                 id="user_confirm_password"
                 autoCapitalize="off"
                 required
@@ -158,8 +151,10 @@ const Signup = () => {
                 onChange={(event) => handleInputChange('confirmPassword', event.target.value)}
               />
 
-              <button>
-                Criar conta
+              <button type="submit">
+                {loading ? (
+                  <ReactLoading type="spokes" color="#ffffff" height={20} width={20} />
+                ) : 'Criar conta'}
               </button>
             </Form>
           </PersonalInfoWrapper>
