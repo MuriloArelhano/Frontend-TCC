@@ -8,6 +8,7 @@ export const AccordionContainer = styled.div`
 `
 
 export const AccordionHeader = styled.div`
+    position: relative;
     width: 100%;
     padding: 4px;
     background-color: #1890ff;
@@ -19,6 +20,13 @@ export const AccordionHeader = styled.div`
     color: #ffffff;
     cursor: pointer;
     outline: none;
+
+    > svg {
+        position: absolute;
+        top: 5px;
+        right: 8px;
+        font-size: 24px;
+    }
 `
 
 export const AccordionBody = styled.div`

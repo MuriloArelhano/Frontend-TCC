@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+// icons
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 // styles
 import { AccordionContainer, AccordionHeader, AccordionBody } from './styles';
 
@@ -18,7 +20,10 @@ const Accordion = ({ title, children }) => {
 
     return (
         <AccordionContainer>
-            <AccordionHeader onClick={toogleAccordion}>{title}</AccordionHeader>
+            <AccordionHeader onClick={toogleAccordion}>
+                {title}
+                {accordionExpanded ? <FiChevronUp /> : <FiChevronDown /> }
+            </AccordionHeader>
             <AccordionBody ref={accordionRef} maxHeight={accordionMaxHeight}>
                 <div className="content">
                     {children}
