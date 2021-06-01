@@ -4,7 +4,7 @@ import ReactLoading from 'react-loading';
 import { Navbar, Footer } from '../../components';
 import Stage from './Stage';
 // api
-import StageAPI from '../../api/Stage';
+import { StageAPI, StorageAPI } from '../../api';
 // styles
 import { Container, StageContainer } from './styles';
 // images
@@ -31,6 +31,9 @@ const Form = memo(() => {
 
     useEffect(() => {
         getStagesFromAPI();
+        if (StorageAPI.getItem('@devgo-form-route')) {
+            StorageAPI.removeItem('@devgo-form-route');
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

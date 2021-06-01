@@ -1,9 +1,11 @@
 import Auth from './Auth';
 import Storage from './Storage';
 import User from './User';
+import Stage from './Stage';
 
 export {
     Auth as AuthAPI,
     Storage as StorageAPI,
-    User as UserAPI
+    User as UserAPI,
+    Stage as StageAPI
 }

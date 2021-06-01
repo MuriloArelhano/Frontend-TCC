@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ReactLoading from 'react-loading'; 
 import { 
   Container, 
@@ -13,8 +13,8 @@ import {
   Form,
   Button
 } from "./style";
-// auth api
-import AuthAPI from '../../api/Auth';
+// api
+import { AuthAPI } from "../../api";
 // context
 import { Context } from '../../contexts/global';
 // notification
@@ -22,7 +22,6 @@ import Notification from '../../notification';
 
 const Login = () => {
   const context = useContext(Context);
-  const history = useHistory();
 
   const [authData, setAuthData] = useState({
     email: '',
@@ -67,10 +66,6 @@ const Login = () => {
         context.setUserIsLogged(true);
         
         Notification.show('success', `Bem vindo de volta ${response.data.user.name}`);
-
-        setTimeout(() => {
-          history.push('/');
-        }, 500);
       } else {
         Notification.show('error', response.error);
       }
