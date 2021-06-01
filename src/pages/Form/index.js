@@ -16,12 +16,12 @@ import rewardImg from '../../images/reward.png';
 import referenceImg from '../../images/reference.png';
 
 const stagesImage = [
-    { id: 'SE', image: sensibilityImg },
-    { id: 'EN', image: entranceImg },
-    { id: 'A', image: activationImg },
-    { id: 'RET', image: retentionImg },
-    { id: 'REC', image: rewardImg },
-    { id: 'REF', image: referenceImg }
+    { id: 'SE', image: sensibilityImg, order: 1 },
+    { id: 'EN', image: entranceImg, order: 2 },
+    { id: 'A', image: activationImg, order: 3 },
+    { id: 'RET', image: retentionImg, order: 4 },
+    { id: 'REC', image: rewardImg, order: 5 },
+    { id: 'REF', image: referenceImg, order: 6 }
 ]
 
 const Form = memo(() => {
@@ -31,6 +31,7 @@ const Form = memo(() => {
 
     useEffect(() => {
         getStagesFromAPI();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const getStagesFromAPI = async () => {
@@ -38,10 +39,13 @@ const Form = memo(() => {
         const stagesResponse = await StageAPI.getStages();
 
         if (stagesResponse.status === 200) {
-            setStages(stagesResponse.data.map(stage => ({
+            const formattedStages = stagesResponse.data.map(stage => ({
                 ...stage,
-                image: getStageImage(stage.id)
-            })));
+                image: getStageImage(stage.id),
+                order: getStageOrder(stage.id)
+            }));
+            
+            setStages(formattedStages.sort(compareOrder));
             setLoading(false);
         }
     }
@@ -51,6 +55,23 @@ const Form = memo(() => {
 
         if (stage) return stage.image;
     }
+    
+    const getStageOrder = (stageId) => {
+        const [stage] = stagesImage.filter(stage => stage.id === stageId);
+
+        if (stage) return stage.order;
+    }
+
+    const compareOrder = (stageA, stageB) => {
+        if (stageA.order < stageB.order) {
+          return -1;
+        }
+
+        if (stageA.order > stageB.order) {
+          return 1;
+        }
+        return 0;
+      }
 
     const renderContent = () => {
         return (
