@@ -1,5 +1,8 @@
 import React, { memo, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import ReactLoading from 'react-loading';
+import { useLocation, useHistory } from 'react-router-dom';
+// icons
+import { IoReturnUpBackOutline } from 'react-icons/io5'
 // components
 import { Navbar, Footer, FormBox } from '../../components';
 // api
@@ -11,11 +14,13 @@ import Notification from '../../notification';
 
 const Form = memo(() => {
     const location = useLocation();
+    const history = useHistory();
 
     const [errors, setErrors] = useState({});
     const [data, setData] = useState(null);
     const [areaIsValid, setSetAreaIsValid] = useState(false);
     const [stageName, setStageName] = useState('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const { pathname, state } = location;
@@ -29,10 +34,12 @@ const Form = memo(() => {
     }, [location]);
 
     const getFocusAreaFromAPI = async (stageId, area) => {
+        setLoading(true);
         const focusAreaResponse = await StageAPI.getFocusArea(stageId, area);
 
         if (focusAreaResponse.status === 200) {
             setData(focusAreaResponse.data);
+            setLoading(false);
         }
     }
 
@@ -112,21 +119,37 @@ const Form = memo(() => {
         <>
             <Navbar />
             <Container>
+                <button className="back-container" onClick={() => history.goBack()}>
+                    <IoReturnUpBackOutline />
+                    <span>Voltar para o formulário</span>
+                </button>
+
                 <div className="default-box select-message">
                     <p>Marque os elementos visando {stageName === 'Reconhecimento' ? 'o' : 'a'}
                         <strong> {String(stageName).toLowerCase()} de desenvolvedores</strong></p>
                 </div>
 
-                {data && Object.values(data.content).map(item => (
-                    <FormBox
-                        key={item.id}
-                        title={item.name}
-                        questions={renderQuestions(item.content)}
-                        handleErrors={error => handleErrors(error)}
-                    />
-                ))}
+                {
+                    loading ? (
+                        <div style={{ marginTop: 60 }}>
+                            <ReactLoading type="spokes" color="#1890FF" height={50} width={50} />
+                        </div>
+                    ) :
+                    (
+                        <>
+                            {data && Object.values(data.content).map(item => (
+                                <FormBox
+                                    key={item.id}
+                                    title={item.name}
+                                    questions={renderQuestions(item.content)}
+                                    handleErrors={error => handleErrors(error)}
+                                />
+                            ))}
 
-                <button type="button" onClick={() => handleSubmit()}>Submeter formulário</button>
+                            <button type="button" onClick={() => handleSubmit()}>Submeter formulário</button>
+                        </>
+                    )
+                }
             </Container>
             <Footer />
         </>

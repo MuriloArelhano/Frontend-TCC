@@ -8,6 +8,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 48px 0;
+    position: relative;
 
     > h1 {
         font-size: 2rem;
@@ -20,6 +21,29 @@ export const Container = styled.div`
         text-align: center;
         color: #484646;
         line-height: 1.4rem;
+    }
+
+    .back-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        box-shadow: none;
+
+        > svg {
+            color: #1890FF;
+            font-size: 24px;
+        }
+
+        > span {
+            color: #1890FF;
+            font-size: 18px;
+            font-weight: 500;
+            margin-left: 8px;
+        }
     }
 
     .select-message {
