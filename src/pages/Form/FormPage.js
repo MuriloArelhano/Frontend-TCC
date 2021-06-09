@@ -113,6 +113,7 @@ const Form = memo(() => {
     const handleSubmit = () => {
         if (hasNoErrors()) {
             // TODO: criar lógica do envio do formulário
+            console.log(selectedQuestions);
         } else {
             handleErrorNotification(Object.values(errors));
         }

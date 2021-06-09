@@ -23,6 +23,7 @@ export const CheckboxContainer = styled.div`
         border: 1px solid #A8A8B3;
         border-radius: 4px;
         width: 16px;
+        min-width: 16px;
         height: 16px;
         cursor: pointer;
     }
@@ -75,5 +76,22 @@ export const Notice = styled.div`
 
     .error {
         color: #e74c3c;
+    }
+`;
+
+export const OtherInput = styled.textarea`
+    resize: none;
+    width: 50%;
+    height: 76px;
+    outline: none;
+    padding: 16px;
+    font-size: 1rem;
+    border-width: 1px;
+    border-color: #dddddd;
+    border-radius: 4px;
+    transition: border-color linear .2s;
+    
+    &:focus {
+        border-color: #1890ff;
     }
 `;
