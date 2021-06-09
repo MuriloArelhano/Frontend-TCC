@@ -106,7 +106,7 @@ const Form = memo(() => {
                         </div>
                     ) : (
                         <>
-                            <div className="default-box select-message">
+                            <div className="default-box-2 select-message">
                                 <p>Selecione abaixo um dos seguintes estágios</p>
                             </div>
 

@@ -47,7 +47,7 @@ export const Container = styled.div`
     }
 
     .select-message {
-        margin: 64px 0;
+        margin: 64px 0 32px 0;
     }
 
     .default-box {
@@ -55,6 +55,15 @@ export const Container = styled.div`
         background-color: #E6F7FF;
         border: 1px solid #1890ff;
         border-radius: 10px;
+    }
+
+    .default-box-2 {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .default-box-3 {
+        font-size: 18px;
     }
 
     button {

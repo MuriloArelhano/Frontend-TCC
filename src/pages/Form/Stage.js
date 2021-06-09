@@ -14,7 +14,7 @@ const Stage = memo(({ areas, sectionName, stageId }) => {
         <StageBox>
             <div className="box-header">Estágio de {sectionName}</div>
             <div className="box-body">
-                <div className="default-box box-info">
+                <div className="default-box-3 box-info">
                     <p>
                         Os formulários que seguem tem como objetivo a seleção de elementos para cada <strong>área de foco </strong>
                         visando {sectionName === 'Reconhecimento' ? 'o' : 'a'}
