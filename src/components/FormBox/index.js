@@ -35,6 +35,7 @@ const FormBox = memo(({ title, questions: questionsOrSubAreas, handleErrors, han
 
             setBoxQuestions(clonedQuestionsOrSubAreas.map(question => ({
                 ...question,
+                text: question.text || question.objetivo,
                 selected: false
             })));
         } else {
@@ -47,6 +48,7 @@ const FormBox = memo(({ title, questions: questionsOrSubAreas, handleErrors, han
 
                 subArea[1] = subArea[1].map(question => ({
                     ...question,
+                    text: question.text || question.objetivo,
                     selected: false
                 }));
 
