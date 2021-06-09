@@ -81,7 +81,7 @@ function Maturidade() {
               O marco que indica que o desenvolvedor já passou por este estágio é quando um
               desenvolvedor está com uma contribuição publicada (exemplo: aplicação móvel,
               funcionalidade em projeto open-source, artigo técnico) em algum dos repositórios do
-              MSECO.
+              SECO.
             </p>
           </Marco>
 

@@ -217,7 +217,7 @@ function Inicio() {
           <p>
             Este estágio está relacionado ao objetivo do desenvolvedor de gerar alguma
             contribuição para o ecossistema ou para sua carreira profissional. Aqui o desenvolvedor
-            passou pelo estágio de sensibilização e possui alguma motivação em atuar no MSECO.
+            passou pelo estágio de sensibilização e possui alguma motivação em atuar no SECO.
             Neste estágio o desenvolvedor é considerado novato em algum produto do ecossistema
             pois está iniciando sua possível contribuição. Desta forma é importante reduzir as barreiras
             para a participação deste desenvolvedor.
@@ -236,7 +236,7 @@ function Inicio() {
             <p>
               O marco que indica que o desenvolvedor já passou por este estágio é quando um
               desenvolvedor está com uma contribuição pronta em nível de submissão para algum dos
-              repositórios do MSECO.
+              repositórios do SECO.
             </p>
           </Marco>
 
@@ -265,7 +265,7 @@ function Inicio() {
               <li>
                 <p>
                   <b><i>LA21.</i></b> Ajude os desenvolvedores a se sentirem em casa quando interagirem com a
-                  equipe DevRel ou com os serviços e produtos da MSECO, mesmo se o
+                  equipe DevRel ou com os serviços e produtos da SECO, mesmo se o
                   desenvolvedor já for contribuidor de outro ecossistema;
                       </p>
               </li>

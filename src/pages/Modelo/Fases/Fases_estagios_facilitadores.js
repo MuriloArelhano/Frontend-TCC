@@ -26,7 +26,7 @@ function Fases_estagios_facilitadores() {
           <p>
             🔍 Cada fase compreende um conjunto de Estágios de Avanço do Desenvolvedor.
             Cada um destes estágios colabora para um laço de feedback que aumenta tanto o
-            conhecimento da organização sobre o MSECO quanto dos desenvolvedores. Este laço de
+            conhecimento da organização sobre o SECO quanto dos desenvolvedores. Este laço de
             feedback apoia a organização central, assim como os desenvolvedores por meio da solução
             de problemas e da redução de riscos (situação de cooperação). O laço de feedback consiste
             no exercício contínuo de colher as percepções/expectativas dos desenvolvedores e facilitar

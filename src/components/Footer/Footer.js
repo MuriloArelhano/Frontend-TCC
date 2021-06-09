@@ -46,29 +46,29 @@ const Footer = () => {
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Sobre nós</FooterLinkTitle>
-              <FooterLink to="/cadastro">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
+              <FooterLink to="/cadastro">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
             </FooterLinkItems>
             <FooterLinkItems>
-              <FooterLinkTitle>Teste</FooterLinkTitle>
-              <FooterLink to="/cadastro">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
+              <FooterLinkTitle>DevGo</FooterLinkTitle>
+              <FooterLink to="/cadastro">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
             </FooterLinkItems>
           </FooterLinksWrapper>
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Videos</FooterLinkTitle>
-              <FooterLink to="/cadastro">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
-              <FooterLink to="/">Teste</FooterLink>
-              <FooterLink to="/">Testee</FooterLink>
+              <FooterLink to="/cadastro">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/">DevGo</FooterLink>
             </FooterLinkItems>
             <FooterLinkItems>
               <FooterLinkTitle>Mídias Sociais</FooterLinkTitle>

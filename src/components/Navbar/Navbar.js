@@ -43,6 +43,7 @@ const Navbar = ({position}) => {
   window.addEventListener("resize", showButton);
 
   const teste = useLocation();
+  console.log(teste.pathname)
   const styles = {
     active: {
       borderBottom: "4px solid #4b59f7"
@@ -76,15 +77,17 @@ const Navbar = ({position}) => {
                   onClick={closeMobileMenu}
                 >Modelo</NavLinks>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLinks 
                   to="/ferramenta"
                   style={teste.pathname === '/ferramenta'? styles.active : null}  
                   onClick={closeMobileMenu}
                 >Ferramenta</NavLinks>
-              </NavItem>
+              </NavItem> */}
               <NavItem>
-                <NavLinks to="/formulario" onClick={closeMobileMenu}>Formulário</NavLinks>
+                <NavLinks to="/formulario" 
+                style={teste.pathname.includes('formulario') ? styles.active : null}
+                onClick={closeMobileMenu}>Formulário</NavLinks>
               </NavItem>
               {!context.user && (
                 <>

@@ -66,7 +66,7 @@ const Conclusao = () => {
               <p>
                 <b>Monitoramento e controle:</b> uso mais focado na área de Monitoramento para
                     formar uma base sólida de mecanismos de avaliação e ferramentas para
-                    MSECOs com base mais extensa de desenvolvedores;
+                    SECOs com base mais extensa de desenvolvedores;
                 </p>
             </li>
             <li>

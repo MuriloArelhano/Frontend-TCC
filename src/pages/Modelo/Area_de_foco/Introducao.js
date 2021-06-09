@@ -49,8 +49,8 @@ const Introducao = () => {
             🔍 <i>O DevGo (do inglês, Developer Governance)</i> consiste em um
             modelo composto elementos estruturais e por um conjunto de lições
             aprendidas para a criação e manutenção de um{" "}
-            <i>MSECO (Mobile Software Ecosystem)</i> próspero para a organização
-            central e para os desenvolvedores. As organizações centrais em MSECO
+            <i>SECO (Software Ecosystem)</i> próspero para a organização
+            central e para os desenvolvedores. As organizações centrais em SECO
             podem se beneficiar do DevGo para saber quais elementos da estrutura
             do modelo têm sido abordados, ajudando a identificar lições
             aprendidas e favorecendo a colaboração e a competitividade. Dessa

@@ -102,7 +102,7 @@ function Monitoramento() {
             <li>
               <p>
                 <b><i>Insight #1</i></b>: os tópicos podem indicar as barreiras mais frequentes
-                    enfrentadas por desenvolvedores dispostos a participar de um MSECO. Esse
+                    enfrentadas por desenvolvedores dispostos a participar de um SECO. Esse
                     cenário pode servir como uma estratégia de monitoramento para apoiar a
                     organização central no recrutamento e no treinamento de desenvolvedores.
                     Do ponto de vista do custo operacional, de manutenção e a competividades,
@@ -126,7 +126,7 @@ function Monitoramento() {
               <p>
                 <b><i>Insight #3</i></b>: é importante explorar como a falta de interseção de interesses
                     impulsiona a troca de informações entre desenvolvedores trabalhando em
-                    mais de um MSECO. A pequena interseção mostra que as estratégias
+                    mais de um SECO. A pequena interseção mostra que as estratégias
                     tomadas em nível gerencial podem afetar as interações e motivações dos
                     desenvolvedores;
                 </p>
@@ -136,15 +136,15 @@ function Monitoramento() {
                 <b><i>Insight #4</i></b>: os tópicos mais visualizados, bem como os tópicos em que os
                     desenvolvedores estão mais empenhados em responder, podem indicar uma
                     comunidade de especialistas que pode ajudar a reduzir as barreiras
-                    frequentes à participação no MSECO. Isto favorece o crescimento da
+                    frequentes à participação no SECO. Isto favorece o crescimento da
                     comunidade e o aumento da satisfação dos desenvolvedores;
                 </p>
             </li>
             <li>
               <p>
                 <b><i>Insight #5</i></b>: as perguntas postadas em um repositório de perguntas e
-                    respostas em períodos próximos a anúncios oficiais de um MSECO podem
-                    ajudar a definir estratégias para adicionar novos recursos do MSECO (por
+                    respostas em períodos próximos a anúncios oficiais de um SECO podem
+                    ajudar a definir estratégias para adicionar novos recursos do SECO (por
                     exemplo, plataformas, SDKs, APIs, linguagens de programação). Quando
                     essas novas tecnologias são lançadas no mercado, uma organização central
                     deve ser capaz de gerenciá-las facilmente;
