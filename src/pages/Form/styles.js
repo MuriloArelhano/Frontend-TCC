@@ -63,6 +63,9 @@ export const Container = styled.div`
         margin-top: 16px;
         border: 0;
         outline: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-weight: 600;
         font-size: 1.1rem;
         letter-spacing: 0.5px;

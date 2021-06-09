@@ -216,7 +216,7 @@ const Form = memo(() => {
                                 ))}
 
                                 <button type="button" onClick={() => handleSubmit()}>
-                                    {loading ? (
+                                    {loadingSubmit ? (
                                         <ReactLoading type="spokes" color="#ffffff" height={20} width={20} />
                                     ) : 'Submter formulário'}
                                 </button>
