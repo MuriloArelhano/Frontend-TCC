@@ -58,13 +58,14 @@ export const Container = styled.div`
     }
 
     button {
-        width: 100%;
+        width: 100% !important;
         min-width: 200px;
         margin-top: 16px;
         border: 0;
         outline: 0;
         font-weight: 600;
-        font-size: 1rem;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
         color: #FFFFFF;
         background-color: #3DBB11;
         width: 140px;
