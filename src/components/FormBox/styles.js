@@ -64,3 +64,16 @@ export const SubAreaContainer = styled.div`
         border: 1px dashed;
     }
 `;
+
+export const Notice = styled.div`
+    text-align: center;
+    margin-bottom: 32px;
+
+    > span {
+        font-weight: normal;
+    }
+
+    .error {
+        color: #e74c3c;
+    }
+`;
