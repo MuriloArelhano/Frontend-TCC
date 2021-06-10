@@ -185,12 +185,11 @@
             }
         }
     },
-
     "fluxo_de_avanco_do_desenvolvedor": {
         "id": "FLXAD",
         "name": "Fluxo de Avanço do Desenvolvedor",
         "content": {
-                "objetivo_da_area": {
+            "objetivo_da_area": {
                 "id": "OBJA",
                 "name": "Objetivo da área",
                 "content": [
@@ -204,8 +203,7 @@
                     }
                 ]
             },
-
-                "objetivo_do_estagio": {
+            "objetivo_do_estagio": {
                 "id": "OBJE",
                 "name": "Objetivo do estágio",
                 "content": [
@@ -223,8 +221,7 @@
                     }
                 ]
             },
-
-                "facilitadores": {
+            "facilitadores": {
                 "id": "FCT",
                 "name": "Facilitadores",
                 "content": [
@@ -410,87 +407,87 @@
                             "text": "3. Expectativas"
                         }
                     ]
-                },
-                "licoes_aprendidas": {
-                    "id": "LA",
-                    "title": "Para o seu contexto de DevRel visando a referência de desenvolvedores, selecione as lições aprendidas que mais considera importante",
-                    "content": [
-                        {
-                            "id": "REF_FLXAD_LA_01",
-                            "text": "1. Estabeleça um forte relacionamento com desenvolvedores influentes locais chamados de influenciadores. Estas são as pessoas que se levantarão durante uma reunião e proporão seu produto como a solução para o problema que estão tentando resolver. Eles fazem parte do meu sistema de apoio. Um influenciador é alguém com quem você criou um relacionamento especialmente profundo esignificativo, que você delegou para sair, agir em seu nome e aumentar seu alcance"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_02",
-                            "text": "2. Invista em eventos, preferencialmente organizados pelos influenciadores, garantindo eles compreendam que afetam os objetivos da empresa e o que eles podem fazer para causar impacto positivo. Mantenha sua equipe de influenciadores informadas os eventos que você está planejando"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_03",
-                            "text": "3. Construa uma rede forte entre os diferentes influenciadores da comunidade, uma comunidade de influenciadores. Então, reconheça-as como comunidades oficiais de especialistas e conceda-lhes privilégios expandidos. Isso ajudará a aumentar a comunidade e diminuir a carga nas equipes DevRel"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_04",
-                            "text": "4. Apresente a sua comunidade de influenciadores aos desenvolvedores e empresas parceiras. Informe aos diversos setores de sua organização sobre seus influenciadores - este é o passo final para transformar os voluntários em colegas"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_05",
-                            "text": "5. Defina um manual de eventos – como o influenciador de alguma forma fala do nome da sua empresa usando seus materiais, eles também devem ter metas a serem alcançadas"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_06",
-                            "text": "6. Peça aos influenciadores para submeter palestras para conferências técnicas para que eles entreguem palestras técnicas e ajudem na divulgação do ecossistema"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_07",
-                            "text": "7. Envolva os influenciadores na codificação de demonstrações técnicas de produtos do ecossistema. Isto ajuda na capacitação do influenciador"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_08",
-                            "text": "08. Ensine os influenciadores a criar artigos técnicos que informam, convencem e/ou estabelecem a credibilidade do autor"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_09",
-                            "text": "9. Peça aos influenciadores que planejem e realizem reuniões com as comunidades locais, além de analisar os resultados do engajamento de encontro"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_10",
-                            "text": "10. Oriente os influenciadores para serem ativos em sites como o GitHub, o Medium e o YouTube"
-                        },
-                        {
-                            "id": "REF_FLXAD_LA_11",
-                            "text": "11. Direcione o influenciador a coletar feedback sobre as tendências de seus produtos."
-                        }
-                    ]
-                },
-                "insights": {
-                    "id": "ISG",
-                    "title": "Para o seu contexto de DevRel visando a referência de desenvolvedores, selecione os insights que mais considera importante visando o monitoramento",
-                    "content": [
-                        {
-                            "id": "REF_FLXAD_ISG_01",
-                            "text": "Insight #1: os tópicos podem indicar as barreiras mais frequentes enfrentadas por desenvolvedores dispostos a participar de um MSECO. Esse cenário pode servir como uma estratégia de monitoramento para apoiar a organização central no recrutamento e no treinamento de desenvolvedores. Do ponto de vista do custo operacional, de manutenção e a competividades, os tópicos comuns: vinculação de dados, programação de UI e infraestrutura de desenvolvimento, ajudam na análise"
-                        },
-                        {
-                            "id": "REF_FLXAD_ISG_02",
-                            "text": "Insight #2: as emoções primárias além de serem úteis pra obter a satisfação do desenvolvedor, também cobrem, aspectos de custo, competitividade e manutenção de produtos. A tristeza se relaciona a produtos como os emuladores e dispositivos, assim como, a manipulação de elementos de UI. A raiva está associada a indisponibilidade de recursos. E a alegria, pode impactar na competitividade do produto, pois há relação com as melhores práticas para gerar uma contribuição e a implementação de recursos avançados"
-                        },
-                        {
-                            "id": "REF_FLXAD_ISG_03",
-                            "text": "Insight #3:  é importante explorar como a falta de interseção de interesses impulsiona a troca de informações entre desenvolvedores trabalhando em mais de um MSECO. A pequena interseção mostra que as estratégias tomadas em nível gerencial podem afetar as interações e motivações dos desenvolvedores"
-                        },
-                        {
-                            "id": "REF_FLXAD_ISG_04",
-                            "text": "Insight #4: os tópicos mais visualizados, bem como os tópicos em que os desenvolvedores estão mais empenhados em responder, podem indicar uma comunidade de especialistas que pode ajudar a reduzir as barreiras frequentes à participação no MSECO. Isto favorece o crescimento da comunidade e o aumento da satisfação dos desenvolvedores"
-                        },
-                        {
-                            "id": "REF_FLXAD_ISG_05",
-                            "text": "Insight #5: as perguntas postadas em um repositório de perguntas e respostas em períodos próximos a anúncios oficiais de um MSECO podem ajudar a definir estratégias para adicionar novos recursos do MSECO (por exemplo, plataformas, SDKs, APIs, linguagens de programação). Quando essas novas tecnologias são lançadas no mercado, uma organização central deve ser capaz de gerenciá-las facilmente"
-                        },
-                        {
-                            "id": "REF_FLXAD_ISG_06",
-                            "text": "Insight #6: as medalhas podem ajudar a organização central no gerenciamento de estratégias relacionadas a exploração de recurso técnico, desenvolvedores ativos na comunidade e o controle da comunidade por meio do cultivo de relacionamentos com desenvolvedores que se destacam dentro do ecossistema. Isto pode ajudar a reduzir custos operacionais para a governança de desenvolvedores"
-                        }
-                    ]
                 }
+            },
+            "licoes_aprendidas": {
+                "id": "LA",
+                "title": "Para o seu contexto de DevRel visando a referência de desenvolvedores, selecione as lições aprendidas que mais considera importante",
+                "content": [
+                    {
+                        "id": "REF_FLXAD_LA_01",
+                        "text": "1. Estabeleça um forte relacionamento com desenvolvedores influentes locais chamados de influenciadores. Estas são as pessoas que se levantarão durante uma reunião e proporão seu produto como a solução para o problema que estão tentando resolver. Eles fazem parte do meu sistema de apoio. Um influenciador é alguém com quem você criou um relacionamento especialmente profundo esignificativo, que você delegou para sair, agir em seu nome e aumentar seu alcance"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_02",
+                        "text": "2. Invista em eventos, preferencialmente organizados pelos influenciadores, garantindo eles compreendam que afetam os objetivos da empresa e o que eles podem fazer para causar impacto positivo. Mantenha sua equipe de influenciadores informadas os eventos que você está planejando"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_03",
+                        "text": "3. Construa uma rede forte entre os diferentes influenciadores da comunidade, uma comunidade de influenciadores. Então, reconheça-as como comunidades oficiais de especialistas e conceda-lhes privilégios expandidos. Isso ajudará a aumentar a comunidade e diminuir a carga nas equipes DevRel"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_04",
+                        "text": "4. Apresente a sua comunidade de influenciadores aos desenvolvedores e empresas parceiras. Informe aos diversos setores de sua organização sobre seus influenciadores - este é o passo final para transformar os voluntários em colegas"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_05",
+                        "text": "5. Defina um manual de eventos – como o influenciador de alguma forma fala do nome da sua empresa usando seus materiais, eles também devem ter metas a serem alcançadas"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_06",
+                        "text": "6. Peça aos influenciadores para submeter palestras para conferências técnicas para que eles entreguem palestras técnicas e ajudem na divulgação do ecossistema"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_07",
+                        "text": "7. Envolva os influenciadores na codificação de demonstrações técnicas de produtos do ecossistema. Isto ajuda na capacitação do influenciador"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_08",
+                        "text": "08. Ensine os influenciadores a criar artigos técnicos que informam, convencem e/ou estabelecem a credibilidade do autor"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_09",
+                        "text": "9. Peça aos influenciadores que planejem e realizem reuniões com as comunidades locais, além de analisar os resultados do engajamento de encontro"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_10",
+                        "text": "10. Oriente os influenciadores para serem ativos em sites como o GitHub, o Medium e o YouTube"
+                    },
+                    {
+                        "id": "REF_FLXAD_LA_11",
+                        "text": "11. Direcione o influenciador a coletar feedback sobre as tendências de seus produtos."
+                    }
+                ]
+            },
+            "insights": {
+                "id": "ISG",
+                "title": "Para o seu contexto de DevRel visando a referência de desenvolvedores, selecione os insights que mais considera importante visando o monitoramento",
+                "content": [
+                    {
+                        "id": "REF_FLXAD_ISG_01",
+                        "text": "Insight #1: os tópicos podem indicar as barreiras mais frequentes enfrentadas por desenvolvedores dispostos a participar de um MSECO. Esse cenário pode servir como uma estratégia de monitoramento para apoiar a organização central no recrutamento e no treinamento de desenvolvedores. Do ponto de vista do custo operacional, de manutenção e a competividades, os tópicos comuns: vinculação de dados, programação de UI e infraestrutura de desenvolvimento, ajudam na análise"
+                    },
+                    {
+                        "id": "REF_FLXAD_ISG_02",
+                        "text": "Insight #2: as emoções primárias além de serem úteis pra obter a satisfação do desenvolvedor, também cobrem, aspectos de custo, competitividade e manutenção de produtos. A tristeza se relaciona a produtos como os emuladores e dispositivos, assim como, a manipulação de elementos de UI. A raiva está associada a indisponibilidade de recursos. E a alegria, pode impactar na competitividade do produto, pois há relação com as melhores práticas para gerar uma contribuição e a implementação de recursos avançados"
+                    },
+                    {
+                        "id": "REF_FLXAD_ISG_03",
+                        "text": "Insight #3:  é importante explorar como a falta de interseção de interesses impulsiona a troca de informações entre desenvolvedores trabalhando em mais de um MSECO. A pequena interseção mostra que as estratégias tomadas em nível gerencial podem afetar as interações e motivações dos desenvolvedores"
+                    },
+                    {
+                        "id": "REF_FLXAD_ISG_04",
+                        "text": "Insight #4: os tópicos mais visualizados, bem como os tópicos em que os desenvolvedores estão mais empenhados em responder, podem indicar uma comunidade de especialistas que pode ajudar a reduzir as barreiras frequentes à participação no MSECO. Isto favorece o crescimento da comunidade e o aumento da satisfação dos desenvolvedores"
+                    },
+                    {
+                        "id": "REF_FLXAD_ISG_05",
+                        "text": "Insight #5: as perguntas postadas em um repositório de perguntas e respostas em períodos próximos a anúncios oficiais de um MSECO podem ajudar a definir estratégias para adicionar novos recursos do MSECO (por exemplo, plataformas, SDKs, APIs, linguagens de programação). Quando essas novas tecnologias são lançadas no mercado, uma organização central deve ser capaz de gerenciá-las facilmente"
+                    },
+                    {
+                        "id": "REF_FLXAD_ISG_06",
+                        "text": "Insight #6: as medalhas podem ajudar a organização central no gerenciamento de estratégias relacionadas a exploração de recurso técnico, desenvolvedores ativos na comunidade e o controle da comunidade por meio do cultivo de relacionamentos com desenvolvedores que se destacam dentro do ecossistema. Isto pode ajudar a reduzir custos operacionais para a governança de desenvolvedores"
+                    }
+                ]
             }
         }
     },
@@ -762,8 +759,7 @@
                     }
                 ]
             },
-
-                "categorias": {
+            "categorias": {
                 "id": "CAT",
                 "name": "Categorias",
                 "content": [

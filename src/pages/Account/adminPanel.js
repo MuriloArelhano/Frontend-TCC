@@ -1,8 +1,14 @@
 import React, { memo, useCallback } from 'react';
+import { useState } from 'react';
+// icons
+import { FiDownload } from 'react-icons/fi';
+// components
+import { Tabs } from '../../components';
 // styles
 import { AccountInfoArea, AccountTable } from './styles';
 
 const AdminPanel = ({ users, handleUserAccess }) => {
+    const [currentTab, setCurrentTab] = useState(0);
 
     const handleStatusColor = useCallback((status) => {
         const classes = {
@@ -14,12 +20,8 @@ const AdminPanel = ({ users, handleUserAccess }) => {
         return classes[status];
     }, []);
 
-    return (
-        <AccountInfoArea>
-            <h1>Painel administrativo</h1>
-
-            <h2>Usuários</h2>
-
+    const renderUserTable = () => {
+        return (
             <AccountTable>
                 <thead>
                     <tr>
@@ -48,7 +50,7 @@ const AdminPanel = ({ users, handleUserAccess }) => {
                                 )}
                                 {user.status === 'SUSPENSO' && (
                                     <button
-                                        className="btn-active" 
+                                        className="btn-active"
                                         onClick={() => handleUserAccess('approve', user.email)}
                                     >
                                         Ativar
@@ -62,7 +64,7 @@ const AdminPanel = ({ users, handleUserAccess }) => {
                                         >
                                             Ativar
                                         </button>
-                                        <button 
+                                        <button
                                             className="btn-suspend"
                                             onClick={() => handleUserAccess('suspend', user.email)}
                                         >
@@ -75,6 +77,51 @@ const AdminPanel = ({ users, handleUserAccess }) => {
                     ))}
                 </tbody>
             </AccountTable>
+        )
+    }
+
+    const renderFormAnswers = () => {
+        return (
+            <AccountTable>
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Estágio</th>
+                        <th>Área de foco</th>
+                        <th style={{ textAlign: 'center' }}>Baixar respostas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>john.doe@gmail.com</td>
+                        <td>Sensibilização</td>
+                        <td>Plataforma e Produtos</td>
+                        <td style={{ display: 'flex', justifyContent: 'center' }}>
+                            <button
+                                className="btn-download"
+                                onClick={() => {}}
+                            >
+                                Baixar CSV <FiDownload />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </AccountTable>
+        )
+    }
+
+    return (
+        <AccountInfoArea>
+            <h1>Painel administrativo</h1>
+
+            <Tabs
+                labels={[
+                    { name: 'Usuários', action: (tab) => setCurrentTab(tab) },
+                    { name: 'Respostas do Formulário', action: (tab) => setCurrentTab(tab) }
+                ]}
+                content={[renderUserTable, renderFormAnswers]}
+                currentTab={currentTab}
+            />
         </AccountInfoArea>
     );
 }

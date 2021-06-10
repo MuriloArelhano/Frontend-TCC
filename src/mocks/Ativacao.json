@@ -415,67 +415,67 @@
                             "text": "3. Expectativas"
                         }
                     ]
-                },
-                "licoes_aprendidas": {
-                    "id": "LA",
-                    "title": "Para o seu contexto de DevRel visando a ativação de desenvolvedores, selecione as lições aprendidas que mais considera importante",
-                    "content": [
-                        {
-                            "id": "A_FLXAD_LA_01",
-                            "text": "1. Direcione o desenvolvedor durante o processo de desenvolvimento a compartilhar sobre a experiência com o ecossistema em mídias sociais"
-                        },
-                        {
-                            "id": "A_FLXAD_LA_02",
-                            "text": "2. Envolva os desenvolvedores para falar sobre os pontos problemáticos e as soluções que podem ser implementadas. Os desenvolvedores não precisam que você os impressione resolvendo todos os problemas deles, concentre-se naqueles que o produto de sua empresa resolve"
-                        },
-                        {
-                            "id": "A_FLXAD_LA_03",
-                            "text": "3. Desenvolva sua comunidade planejando e executando Hackathons. Um evento deste tipo ajuda a engajar os desenvolvedores ativos do ecossistema. Possibilitando que todos se conheçam e dando a oportunidade de mostrar que você se importa com eles"
-                        },
-                        {
-                            "id": "A_FLXAD_LA_04",
-                            "text": "4. Envolva os desenvolvedores em uma coleção de materiais escritos por eles para a comunidade"
-                        },
-                        {
-                            "id": "A_FLXAD_LA_05",
-                            "text": "5. Certifique-se de que a documentação de produtos para o desenvolvedor seja uma parte essencial da experiência no site da plataforma. Deve ser fácil de navegar, limpo e simples para fornecer instruções fáceis de serem avaliadas e seguidas pelos desenvolvedores"
-                        },
-                        {
-                            "id": "A_FLXAD_LA_06",
-                            "text": "6. Forneça modelos de projetos e diretrizes de cenários de uso para que os desenvolvedores possam evoluir as contribuições com os produtos e serviços do ecossistema. Isto permite a evolução das contribuições com a menor resistência possível dentro de um prazo muito curto"
-                        }
-                    ]
-                },
-                "insights": {
-                    "id": "ISG",
-                    "title": "Para o seu contexto de DevRel visando a ativação de desenvolvedores, selecione os insights que mais considera importante visando o monitoramento",
-                    "content": [
-                        {
-                            "id": "AE_FLXAD_ISG_01",
-                            "text": "Insight #1: os tópicos podem indicar as barreiras mais frequentes enfrentadas por desenvolvedores dispostos a participar de um MSECO. Esse cenário pode servir como uma estratégia de monitoramento para apoiar a organização central no recrutamento e no treinamento de desenvolvedores. Do ponto de vista do custo operacional, de manutenção e a competividades, os tópicos comuns: vinculação de dados, programação de UI e infraestrutura de desenvolvimento, ajudam na análise"
-                        },
-                        {
-                            "id": "A_FLXAD_ISG_02",
-                            "text": "Insight #2: as emoções primárias além de serem úteis pra obter a satisfação do desenvolvedor, também cobrem, aspectos de custo, competitividade e manutenção de produtos. A tristeza se relaciona a produtos como os emuladores e dispositivos, assim como, a manipulação de elementos de UI. A raiva está associada a indisponibilidade de recursos. E a alegria, pode impactar na competitividade do produto, pois há relação com as melhores práticas para gerar uma contribuição e a implementação de recursos avançados"
-                        },
-                        {
-                            "id": "A_FLXAD_ISG_03",
-                            "text": "Insight #3:  é importante explorar como a falta de interseção de interesses impulsiona a troca de informações entre desenvolvedores trabalhando em mais de um MSECO. A pequena interseção mostra que as estratégias tomadas em nível gerencial podem afetar as interações e motivações dos desenvolvedores"
-                        },
-                        {
-                            "id": "A_FLXAD_ISG_04",
-                            "text": "Insight #4: os tópicos mais visualizados, bem como os tópicos em que os desenvolvedores estão mais empenhados em responder, podem indicar uma comunidade de especialistas que pode ajudar a reduzir as barreiras frequentes à participação no MSECO. Isto favorece o crescimento da comunidade e o aumento da satisfação dos desenvolvedores"
-                        },
-                        {
-                            "id": "A_FLXAD_ISG_05",
-                            "text": "Insight #5: as perguntas postadas em um repositório de perguntas e respostas em períodos próximos a anúncios oficiais de um MSECO podem ajudar a definir estratégias para adicionar novos recursos do MSECO (por exemplo, plataformas, SDKs, APIs, linguagens de programação). Quando essas novas tecnologias são lançadas no mercado, uma organização central deve ser capaz de gerenciá-las facilmente"
-                        },
-                        {
-                            "id": "A_FLXAD_ISG_06",
-                            "text": "Insight #6: as medalhas podem ajudar a organização central no gerenciamento de estratégias relacionadas a exploração de recurso técnico, desenvolvedores ativos na comunidade e o controle da comunidade por meio do cultivo de relacionamentos com desenvolvedores que se destacam dentro do ecossistema. Isto pode ajudar a reduzir custos operacionais para a governança de desenvolvedores"
-                        }
-                    ]
                 }
+            },
+            "licoes_aprendidas": {
+                "id": "LA",
+                "title": "Para o seu contexto de DevRel visando a ativação de desenvolvedores, selecione as lições aprendidas que mais considera importante",
+                "content": [
+                    {
+                        "id": "A_FLXAD_LA_01",
+                        "text": "1. Direcione o desenvolvedor durante o processo de desenvolvimento a compartilhar sobre a experiência com o ecossistema em mídias sociais"
+                    },
+                    {
+                        "id": "A_FLXAD_LA_02",
+                        "text": "2. Envolva os desenvolvedores para falar sobre os pontos problemáticos e as soluções que podem ser implementadas. Os desenvolvedores não precisam que você os impressione resolvendo todos os problemas deles, concentre-se naqueles que o produto de sua empresa resolve"
+                    },
+                    {
+                        "id": "A_FLXAD_LA_03",
+                        "text": "3. Desenvolva sua comunidade planejando e executando Hackathons. Um evento deste tipo ajuda a engajar os desenvolvedores ativos do ecossistema. Possibilitando que todos se conheçam e dando a oportunidade de mostrar que você se importa com eles"
+                    },
+                    {
+                        "id": "A_FLXAD_LA_04",
+                        "text": "4. Envolva os desenvolvedores em uma coleção de materiais escritos por eles para a comunidade"
+                    },
+                    {
+                        "id": "A_FLXAD_LA_05",
+                        "text": "5. Certifique-se de que a documentação de produtos para o desenvolvedor seja uma parte essencial da experiência no site da plataforma. Deve ser fácil de navegar, limpo e simples para fornecer instruções fáceis de serem avaliadas e seguidas pelos desenvolvedores"
+                    },
+                    {
+                        "id": "A_FLXAD_LA_06",
+                        "text": "6. Forneça modelos de projetos e diretrizes de cenários de uso para que os desenvolvedores possam evoluir as contribuições com os produtos e serviços do ecossistema. Isto permite a evolução das contribuições com a menor resistência possível dentro de um prazo muito curto"
+                    }
+                ]
+            },
+            "insights": {
+                "id": "ISG",
+                "title": "Para o seu contexto de DevRel visando a ativação de desenvolvedores, selecione os insights que mais considera importante visando o monitoramento",
+                "content": [
+                    {
+                        "id": "AE_FLXAD_ISG_01",
+                        "text": "Insight #1: os tópicos podem indicar as barreiras mais frequentes enfrentadas por desenvolvedores dispostos a participar de um MSECO. Esse cenário pode servir como uma estratégia de monitoramento para apoiar a organização central no recrutamento e no treinamento de desenvolvedores. Do ponto de vista do custo operacional, de manutenção e a competividades, os tópicos comuns: vinculação de dados, programação de UI e infraestrutura de desenvolvimento, ajudam na análise"
+                    },
+                    {
+                        "id": "A_FLXAD_ISG_02",
+                        "text": "Insight #2: as emoções primárias além de serem úteis pra obter a satisfação do desenvolvedor, também cobrem, aspectos de custo, competitividade e manutenção de produtos. A tristeza se relaciona a produtos como os emuladores e dispositivos, assim como, a manipulação de elementos de UI. A raiva está associada a indisponibilidade de recursos. E a alegria, pode impactar na competitividade do produto, pois há relação com as melhores práticas para gerar uma contribuição e a implementação de recursos avançados"
+                    },
+                    {
+                        "id": "A_FLXAD_ISG_03",
+                        "text": "Insight #3:  é importante explorar como a falta de interseção de interesses impulsiona a troca de informações entre desenvolvedores trabalhando em mais de um MSECO. A pequena interseção mostra que as estratégias tomadas em nível gerencial podem afetar as interações e motivações dos desenvolvedores"
+                    },
+                    {
+                        "id": "A_FLXAD_ISG_04",
+                        "text": "Insight #4: os tópicos mais visualizados, bem como os tópicos em que os desenvolvedores estão mais empenhados em responder, podem indicar uma comunidade de especialistas que pode ajudar a reduzir as barreiras frequentes à participação no MSECO. Isto favorece o crescimento da comunidade e o aumento da satisfação dos desenvolvedores"
+                    },
+                    {
+                        "id": "A_FLXAD_ISG_05",
+                        "text": "Insight #5: as perguntas postadas em um repositório de perguntas e respostas em períodos próximos a anúncios oficiais de um MSECO podem ajudar a definir estratégias para adicionar novos recursos do MSECO (por exemplo, plataformas, SDKs, APIs, linguagens de programação). Quando essas novas tecnologias são lançadas no mercado, uma organização central deve ser capaz de gerenciá-las facilmente"
+                    },
+                    {
+                        "id": "A_FLXAD_ISG_06",
+                        "text": "Insight #6: as medalhas podem ajudar a organização central no gerenciamento de estratégias relacionadas a exploração de recurso técnico, desenvolvedores ativos na comunidade e o controle da comunidade por meio do cultivo de relacionamentos com desenvolvedores que se destacam dentro do ecossistema. Isto pode ajudar a reduzir custos operacionais para a governança de desenvolvedores"
+                    }
+                ]
             }
         }
     },

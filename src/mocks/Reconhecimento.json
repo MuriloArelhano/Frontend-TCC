@@ -423,87 +423,87 @@
                             "text": "3. Expectativas"
                         }
                     ]
-                },
-                "licoes_aprendidas": {
-                    "id": "LA",
-                    "title": "Para o seu contexto de DevRel visando o reconhecimento de desenvolvedores, selecione as lições aprendidas que mais considera importante",
-                    "content": [
-                        {
-                            "id": "REC_FLXAD_LA_01",
-                            "text": "1. Trabalhe diretamente com os vencedores do prêmio em hackathons, promovendo os projetos através de blogs usando a contribuição como material promocional, se isso fizer sentido"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_02",
-                            "text": "2. Promova as contribuições dos desenvolvedores como, por exemplo, as aplicações móveis. Impulsionar os downloads de aplicações móveis criará muito valor em termos de relações com desenvolvedores e também ajudará a vender sua plataforma"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_03",
-                            "text": "3. Elogie alguns desenvolvedores específicos em seus canais oficiais. Isto pode ser um grande impulso para o reconhecimento público e negócios do desenvolvedor"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_04",
-                            "text": "4. Conecte desenvolvedores em potencial da comunidade aos colegas de setores organizacionais. É importante, também, ter uma variedade de programas para conectar os desenvolvedores diretamente aos clientes de pequenas e médias empresas"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_05",
-                            "text": "5. Ajude os desenvolvedores a ajudar a sua área de DevRel. Seminários, eventos, seminários on-line, demonstrações - o que você estiver fazendo para chamar a atenção da sua plataforma para o mundo, convide alguns desenvolvedores para compartilhar conhecimento e experiências"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_06",
-                            "text": "6. Ajude a criar status e identificar líderes na comunidade. Os desenvolvedoresquerem construir seu status social, ganhar reputação e compartilhar seus conhecimentos com outros desenvolvedores"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_07",
-                            "text": "7. Invista na capacitação de líderes de comunidade. Esses líderes poderão trabalhar como extensão da equipe de DevRel recrutando, treinando e capacitando os desenvolvedores do ecossistema"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_08",
-                            "text": "08. Dar reputação às pessoas certas, demonstrar apreço e recompensar os mais ativos. Quando feito corretamente, as pessoas criam palestras, escrevem livros, ajudam a desenvolver a comunidade junto com você. Quando os desenvolvedores podem aumentar seu valor, seu alcance e seu reconhecimento construindo sua plataforma e aumentando seu público-alvo, eles serão muito mais dedicados a você e sua marca"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_09",
-                            "text": "9. Ofereça treinamento 1:1 em vários níveis como recompensa - em vez de se cansar treinando todos, tenha materiais de auto treinamento que os desenvolvedores possam usar para chegar ao próximo nível"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_10",
-                            "text": "10. Ter um código de conduta definido para os líderes e para as comunidades - sua reputação também está em jogo quando um dos membros da sua comunidade “sai da linha”"
-                        },
-                        {
-                            "id": "REC_FLXAD_LA_11",
-                            "text": "11. Conecte sua equipe de aquisição de Talentos aos desenvolvedores, instrua essa equipe sobre como a comunidade está funcionando. Isto ajuda na identificação de comunidades e os influenciadores podem fazer parceria para criar conteúdo incrível para a área de DevRel"
-                        }
-                    ]
-                },
-                "insights": {
-                    "id": "ISG",
-                    "title": "Para o seu contexto de DevRel visando o reconhecimento de desenvolvedores, selecione os insights que mais considera importante visando o monitoramento",
-                    "content": [
-                        {
-                            "id": "REC_FLXAD_ISG_01",
-                            "text": "Insight #1: os tópicos podem indicar as barreiras mais frequentes enfrentadas por desenvolvedores dispostos a participar de um MSECO. Esse cenário pode servir como uma estratégia de monitoramento para apoiar a organização central no recrutamento e no treinamento de desenvolvedores. Do ponto de vista do custo operacional, de manutenção e a competividades, os tópicos comuns: vinculação de dados, programação de UI e infraestrutura de desenvolvimento, ajudam na análise"
-                        },
-                        {
-                            "id": "REC_FLXAD_ISG_02",
-                            "text": "Insight #2: as emoções primárias além de serem úteis pra obter a satisfação do desenvolvedor, também cobrem, aspectos de custo, competitividade e manutenção de produtos. A tristeza se relaciona a produtos como os emuladores e dispositivos, assim como, a manipulação de elementos de UI. A raiva está associada a indisponibilidade de recursos. E a alegria, pode impactar na competitividade do produto, pois há relação com as melhores práticas para gerar uma contribuição e a implementação de recursos avançados"
-                        },
-                        {
-                            "id": "REC_FLXAD_ISG_03",
-                            "text": "Insight #3:  é importante explorar como a falta de interseção de interesses impulsiona a troca de informações entre desenvolvedores trabalhando em mais de um MSECO. A pequena interseção mostra que as estratégias tomadas em nível gerencial podem afetar as interações e motivações dos desenvolvedores"
-                        },
-                        {
-                            "id": "REC_FLXAD_ISG_04",
-                            "text": "Insight #4: os tópicos mais visualizados, bem como os tópicos em que os desenvolvedores estão mais empenhados em responder, podem indicar uma comunidade de especialistas que pode ajudar a reduzir as barreiras frequentes à participação no MSECO. Isto favorece o crescimento da comunidade e o aumento da satisfação dos desenvolvedores"
-                        },
-                        {
-                            "id": "REC_FLXAD_ISG_05",
-                            "text": "Insight #5: as perguntas postadas em um repositório de perguntas e respostas em períodos próximos a anúncios oficiais de um MSECO podem ajudar a definir estratégias para adicionar novos recursos do MSECO (por exemplo, plataformas, SDKs, APIs, linguagens de programação). Quando essas novas tecnologias são lançadas no mercado, uma organização central deve ser capaz de gerenciá-las facilmente"
-                        },
-                        {
-                            "id": "REC_FLXAD_ISG_06",
-                            "text": "Insight #6: as medalhas podem ajudar a organização central no gerenciamento de estratégias relacionadas a exploração de recurso técnico, desenvolvedores ativos na comunidade e o controle da comunidade por meio do cultivo de relacionamentos com desenvolvedores que se destacam dentro do ecossistema. Isto pode ajudar a reduzir custos operacionais para a governança de desenvolvedores"
-                        }
-                    ]
                 }
+            },
+            "licoes_aprendidas": {
+                "id": "LA",
+                "title": "Para o seu contexto de DevRel visando o reconhecimento de desenvolvedores, selecione as lições aprendidas que mais considera importante",
+                "content": [
+                    {
+                        "id": "REC_FLXAD_LA_01",
+                        "text": "1. Trabalhe diretamente com os vencedores do prêmio em hackathons, promovendo os projetos através de blogs usando a contribuição como material promocional, se isso fizer sentido"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_02",
+                        "text": "2. Promova as contribuições dos desenvolvedores como, por exemplo, as aplicações móveis. Impulsionar os downloads de aplicações móveis criará muito valor em termos de relações com desenvolvedores e também ajudará a vender sua plataforma"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_03",
+                        "text": "3. Elogie alguns desenvolvedores específicos em seus canais oficiais. Isto pode ser um grande impulso para o reconhecimento público e negócios do desenvolvedor"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_04",
+                        "text": "4. Conecte desenvolvedores em potencial da comunidade aos colegas de setores organizacionais. É importante, também, ter uma variedade de programas para conectar os desenvolvedores diretamente aos clientes de pequenas e médias empresas"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_05",
+                        "text": "5. Ajude os desenvolvedores a ajudar a sua área de DevRel. Seminários, eventos, seminários on-line, demonstrações - o que você estiver fazendo para chamar a atenção da sua plataforma para o mundo, convide alguns desenvolvedores para compartilhar conhecimento e experiências"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_06",
+                        "text": "6. Ajude a criar status e identificar líderes na comunidade. Os desenvolvedoresquerem construir seu status social, ganhar reputação e compartilhar seus conhecimentos com outros desenvolvedores"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_07",
+                        "text": "7. Invista na capacitação de líderes de comunidade. Esses líderes poderão trabalhar como extensão da equipe de DevRel recrutando, treinando e capacitando os desenvolvedores do ecossistema"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_08",
+                        "text": "08. Dar reputação às pessoas certas, demonstrar apreço e recompensar os mais ativos. Quando feito corretamente, as pessoas criam palestras, escrevem livros, ajudam a desenvolver a comunidade junto com você. Quando os desenvolvedores podem aumentar seu valor, seu alcance e seu reconhecimento construindo sua plataforma e aumentando seu público-alvo, eles serão muito mais dedicados a você e sua marca"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_09",
+                        "text": "9. Ofereça treinamento 1:1 em vários níveis como recompensa - em vez de se cansar treinando todos, tenha materiais de auto treinamento que os desenvolvedores possam usar para chegar ao próximo nível"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_10",
+                        "text": "10. Ter um código de conduta definido para os líderes e para as comunidades - sua reputação também está em jogo quando um dos membros da sua comunidade “sai da linha”"
+                    },
+                    {
+                        "id": "REC_FLXAD_LA_11",
+                        "text": "11. Conecte sua equipe de aquisição de Talentos aos desenvolvedores, instrua essa equipe sobre como a comunidade está funcionando. Isto ajuda na identificação de comunidades e os influenciadores podem fazer parceria para criar conteúdo incrível para a área de DevRel"
+                    }
+                ]
+            },
+            "insights": {
+                "id": "ISG",
+                "title": "Para o seu contexto de DevRel visando o reconhecimento de desenvolvedores, selecione os insights que mais considera importante visando o monitoramento",
+                "content": [
+                    {
+                        "id": "REC_FLXAD_ISG_01",
+                        "text": "Insight #1: os tópicos podem indicar as barreiras mais frequentes enfrentadas por desenvolvedores dispostos a participar de um MSECO. Esse cenário pode servir como uma estratégia de monitoramento para apoiar a organização central no recrutamento e no treinamento de desenvolvedores. Do ponto de vista do custo operacional, de manutenção e a competividades, os tópicos comuns: vinculação de dados, programação de UI e infraestrutura de desenvolvimento, ajudam na análise"
+                    },
+                    {
+                        "id": "REC_FLXAD_ISG_02",
+                        "text": "Insight #2: as emoções primárias além de serem úteis pra obter a satisfação do desenvolvedor, também cobrem, aspectos de custo, competitividade e manutenção de produtos. A tristeza se relaciona a produtos como os emuladores e dispositivos, assim como, a manipulação de elementos de UI. A raiva está associada a indisponibilidade de recursos. E a alegria, pode impactar na competitividade do produto, pois há relação com as melhores práticas para gerar uma contribuição e a implementação de recursos avançados"
+                    },
+                    {
+                        "id": "REC_FLXAD_ISG_03",
+                        "text": "Insight #3:  é importante explorar como a falta de interseção de interesses impulsiona a troca de informações entre desenvolvedores trabalhando em mais de um MSECO. A pequena interseção mostra que as estratégias tomadas em nível gerencial podem afetar as interações e motivações dos desenvolvedores"
+                    },
+                    {
+                        "id": "REC_FLXAD_ISG_04",
+                        "text": "Insight #4: os tópicos mais visualizados, bem como os tópicos em que os desenvolvedores estão mais empenhados em responder, podem indicar uma comunidade de especialistas que pode ajudar a reduzir as barreiras frequentes à participação no MSECO. Isto favorece o crescimento da comunidade e o aumento da satisfação dos desenvolvedores"
+                    },
+                    {
+                        "id": "REC_FLXAD_ISG_05",
+                        "text": "Insight #5: as perguntas postadas em um repositório de perguntas e respostas em períodos próximos a anúncios oficiais de um MSECO podem ajudar a definir estratégias para adicionar novos recursos do MSECO (por exemplo, plataformas, SDKs, APIs, linguagens de programação). Quando essas novas tecnologias são lançadas no mercado, uma organização central deve ser capaz de gerenciá-las facilmente"
+                    },
+                    {
+                        "id": "REC_FLXAD_ISG_06",
+                        "text": "Insight #6: as medalhas podem ajudar a organização central no gerenciamento de estratégias relacionadas a exploração de recurso técnico, desenvolvedores ativos na comunidade e o controle da comunidade por meio do cultivo de relacionamentos com desenvolvedores que se destacam dentro do ecossistema. Isto pode ajudar a reduzir custos operacionais para a governança de desenvolvedores"
+                    }
+                ]
             }
         }
     },

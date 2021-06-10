@@ -167,6 +167,20 @@ export const AccountTable = styled.table`
             color: #ffffff;
         }
     }
+
+    .btn-download {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid #2EA44F;
+        color: #2EA44F;
+
+        &:hover {
+            background-color: #2EA44F;
+            color: #ffffff;
+        }
+    }
 `;
 
 export const AccountForm = styled.form`
