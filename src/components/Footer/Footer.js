@@ -46,29 +46,29 @@ const Footer = () => {
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Sobre nós</FooterLinkTitle>
-              <FooterLink to="/cadastro">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/cadastro">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
             </FooterLinkItems>
             <FooterLinkItems>
-              <FooterLinkTitle>DevGo</FooterLinkTitle>
-              <FooterLink to="/cadastro">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLinkTitle>Go DevRel</FooterLinkTitle>
+              <FooterLink to="/cadastro">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
             </FooterLinkItems>
           </FooterLinksWrapper>
           <FooterLinksWrapper>
             <FooterLinkItems>
               <FooterLinkTitle>Videos</FooterLinkTitle>
-              <FooterLink to="/cadastro">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
-              <FooterLink to="/">DevGo</FooterLink>
+              <FooterLink to="/cadastro">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
+              <FooterLink to="/">Go DevRel</FooterLink>
             </FooterLinkItems>
             <FooterLinkItems>
               <FooterLinkTitle>Mídias Sociais</FooterLinkTitle>
@@ -84,9 +84,9 @@ const Footer = () => {
           <SocialMediaWrap>
             <SocialLogo to="/">
               <SocialIcon />
-              DevGo
+              Go DevRel
             </SocialLogo>
-            <WebsiteRights>DevGo 2021</WebsiteRights>
+            <WebsiteRights>Go DevRel 2021</WebsiteRights>
             <SocialIcons>
               <SocialIconLink href="/" target="_blank" aria-label="Github">
                 <FaGithub/>
