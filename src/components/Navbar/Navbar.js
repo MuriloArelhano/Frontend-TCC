@@ -43,7 +43,6 @@ const Navbar = ({position}) => {
   window.addEventListener("resize", showButton);
 
   const teste = useLocation();
-  console.log(teste.pathname)
   const styles = {
     active: {
       borderBottom: "4px solid #4b59f7"

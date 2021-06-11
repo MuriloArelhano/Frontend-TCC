@@ -39,11 +39,11 @@ export const homeOjeTwo = {
 
 
 export const homeOjeThree = {
-  primary: true,
-  lightBg: false,
-  lightTopLine: true,
-  lightText: true,
-  lightTextDesc: true,
+  primary: false,
+  lightBg: true,
+  lightTopLine: false,
+  lightText: false,
+  lightTextDesc: false,
   buttonLabel: "Preencher",
   description:
   "Você pode contribuir com o avanço da pesquisa, aperfeiçoamento e refinamento do conceito e ferramenta, basta preencher os formulários!",

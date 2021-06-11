@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Footer } from "../../components";
 import { InfoSection } from "../../components";
-import { homeOjeOne, homeOjeTwo, homeOjeThree } from "./Data";
+import { homeOjeOne, homeOjeThree } from "./Data";
 
 const Home = () => {
   return (

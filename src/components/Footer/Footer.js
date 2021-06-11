@@ -6,19 +6,19 @@ import {
   FaLinkedin,
   FaGithub
 } from "react-icons/fa";
-import { Button } from "../../globalStyles";
+// import { Button } from "../../globalStyles";
 import {
   FooterContainer,
-  FooterSubscription,
-  FooterSubHeading,
-  FooterSubText,
-  Form,
-  FormInput,
-  FooterLinksContainer,
-  FooterLinksWrapper,
-  FooterLinkItems,
-  FooterLinkTitle,
-  FooterLink,
+  // FooterSubscription,
+  // FooterSubHeading,
+  // FooterSubText,
+  // Form,
+  // FormInput,
+  // FooterLinksContainer,
+  // FooterLinksWrapper,
+  // FooterLinkItems,
+  // FooterLinkTitle,
+  // FooterLink,
   SocialMedia,
   SocialMediaWrap,
   SocialLogo,
@@ -32,7 +32,7 @@ const Footer = () => {
   return (
     <>
       <FooterContainer>
-        <FooterSubscription>
+        {/* <FooterSubscription>
           <FooterSubHeading>
             Fique por dentro das mais novas atualizações e notícias
           </FooterSubHeading>
@@ -79,7 +79,7 @@ const Footer = () => {
               <FooterLink to="/">Linkedin</FooterLink>
             </FooterLinkItems>
           </FooterLinksWrapper>
-        </FooterLinksContainer>
+        </FooterLinksContainer> */}
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo to="/">

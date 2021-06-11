@@ -427,6 +427,7 @@
             },
             "licoes_aprendidas": {
                 "id": "LA",
+                "name": "Lições aprendidas",
                 "title": "Para o seu contexto de DevRel visando o reconhecimento de desenvolvedores, selecione as lições aprendidas que mais considera importante",
                 "content": [
                     {
@@ -477,6 +478,7 @@
             },
             "insights": {
                 "id": "ISG",
+                "name": "Insights",
                 "title": "Para o seu contexto de DevRel visando o reconhecimento de desenvolvedores, selecione os insights que mais considera importante visando o monitoramento",
                 "content": [
                     {
