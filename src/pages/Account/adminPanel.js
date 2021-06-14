@@ -1,5 +1,5 @@
-import React, { memo, useCallback } from 'react';
-import { useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
+// import { CSVLink } from 'react-csv';
 // icons
 import { FiDownload } from 'react-icons/fi';
 // components
@@ -7,7 +7,7 @@ import { Tabs } from '../../components';
 // styles
 import { AccountInfoArea, AccountTable } from './styles';
 
-const AdminPanel = ({ users, handleUserAccess }) => {
+const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
     const [currentTab, setCurrentTab] = useState(0);
 
     const handleStatusColor = useCallback((status) => {
@@ -88,23 +88,29 @@ const AdminPanel = ({ users, handleUserAccess }) => {
                         <th>Usuário</th>
                         <th>Estágio</th>
                         <th>Área de foco</th>
-                        <th style={{ textAlign: 'center' }}>Baixar respostas</th>
+                        <th>N° de respostas</th>
+                        <th>Respondido em</th>
+                        <th>Baixar respostas</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>john.doe@gmail.com</td>
-                        <td>Sensibilização</td>
-                        <td>Plataforma e Produtos</td>
-                        <td style={{ display: 'flex', justifyContent: 'center' }}>
-                            <button
-                                className="btn-download"
-                                onClick={() => {}}
-                            >
-                                Baixar CSV <FiDownload />
-                            </button>
-                        </td>
-                    </tr>
+                    {formAnswers.map(formAnswer => (
+                        <tr>
+                            <td>{formAnswer.userEmail}</td>
+                            <td>{formAnswer.stageName}</td>
+                            <td>{formAnswer.focus_area}</td>
+                            <td>{formAnswer.answersAmount}</td>
+                            <td>{new Date(formAnswer.updatedAt).toLocaleDateString()}</td>
+                            <td>
+                                <button
+                                    className="btn-download"
+                                    onClick={() => { }}
+                                >
+                                    Baixar CSV <FiDownload />
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </AccountTable>
         )

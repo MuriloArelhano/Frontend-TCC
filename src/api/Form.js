@@ -39,6 +39,35 @@ class Form {
       }
     }
   }
+
+  static async getAnswers() {
+    try {
+      const [, , token] = Auth.userIsLogged();
+
+      if (token) {
+        const { data, status } = await axios.get(`/forms`, {
+          headers: {
+            authorization: `Bearer ${token}`
+          }
+        });
+  
+        return {
+          status,
+          data
+        }
+      }
+
+      return {
+        status: 401,
+        error: 'Usuário não autorizado'
+      }
+    } catch (error) {
+      return {
+        status: error.response.status,
+        error: error.response.data.error
+      }
+    }
+  }
 }
 
 export default Form;

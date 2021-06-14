@@ -3,7 +3,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 // context
 import { Context } from '../../contexts/global';
 // auth api
-import { AuthAPI, UserAPI } from '../../api';
+import { AuthAPI, UserAPI, FormAPI } from '../../api';
 // components
 import { Navbar } from '../../components';
 import Profile from './profile';
@@ -32,6 +32,7 @@ const Account = () => {
     const location = useLocation();
 
     const [users, setUsers] = useState([]);
+    const [formAnswers, setFormAnswers] = useState([]);
     const [showAdminMenu, setShowAdminMenu] = useState(false);
 
     const loadUsersInfo = useCallback(async () => {
@@ -45,11 +46,19 @@ const Account = () => {
         }
     }, []);
 
+    const loadFormAnswers = useCallback(async () => {
+        const response = await FormAPI.getAnswers();
+        if (response.status === 200) {
+            setFormAnswers(response.data);
+        }
+    }, []);
+
     useEffect(() => {
         if (location.pathname === '/conta/painel-administrativo') {
             loadUsersInfo();
+            loadFormAnswers();
         }
-    }, [location, loadUsersInfo]);
+    }, [location, loadUsersInfo, loadFormAnswers]);
 
     useEffect(() => {
         if (context.userIsAdmin) setShowAdminMenu(true);
@@ -67,9 +76,9 @@ const Account = () => {
         } else if (location.pathname === '/conta/trocar-senha') {
             return <ChangePassword />
         } else if (location.pathname === '/conta/painel-administrativo') {
-            return <AdminPanel users={users} handleUserAccess={handleUserAccess} />
+            return <AdminPanel users={users} formAnswers={formAnswers} handleUserAccess={handleUserAccess} />
         }
-    }, [location, users, handleUserAccess]);
+    }, [location, users, formAnswers, handleUserAccess]);
 
     const logout = useCallback(() => {
         AuthAPI.signOut();
