@@ -68,7 +68,8 @@ const FormBox = memo(({ title, questions: questionsOrSubAreas, handleErrors, han
             .replaceAll('ã', 'a')
             .replace('-', '');
 
-        if (noQuestionSelected(boxQuestions)) {
+        if (
+            noQuestionSelected(boxQuestions) || otherQuestionIsEmpty(boxQuestions)) {
             handleErrors({ box: boxKey, value: `${String(title).toUpperCase()}` });
         } else {
             handleErrors({ box: boxKey, value: null });
@@ -85,7 +86,7 @@ const FormBox = memo(({ title, questions: questionsOrSubAreas, handleErrors, han
             .replaceAll('ã', 'a')
             .replace('-', '');
 
-        if (noQuestionSelected(boxSubAreas, true)) {
+        if (noQuestionSelected(boxSubAreas, true) || otherQuestionIsEmpty(boxSubAreas, true)) {
             handleErrors({ box: boxKey, value: `${String(title).toUpperCase()}` });
         } else {
             handleErrors({ box: boxKey, value: null });
@@ -93,6 +94,28 @@ const FormBox = memo(({ title, questions: questionsOrSubAreas, handleErrors, han
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [boxSubAreas]);
+
+    const otherQuestionIsEmpty = (questionsOrSubArea, hasSubArea = false) => {
+        if (hasSubArea) {
+            // TODO
+            let otherEmpty = false;
+            let otherEmptyAmount = 0;
+
+            questionsOrSubArea.forEach(item => {
+                otherEmpty = item[1][item[1].length-1].selected === true &&
+                (item[1][item[1].length-1].text === '' ||
+                item[1][item[1].length-1].text === undefined);
+
+                if (otherEmpty) otherEmptyAmount++;
+            });
+
+            return otherEmptyAmount > 0;
+        } else {
+            return questionsOrSubArea[questionsOrSubArea.length-1].selected === true &&
+                (questionsOrSubArea[questionsOrSubArea.length-1].text === '' ||
+                questionsOrSubArea[questionsOrSubArea.length-1].text === undefined);
+        }
+    }
 
     const handleCheckboxChange = useCallback((type, questionId, questionSelected) => {
         if (type === 'question') {
