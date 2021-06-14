@@ -36,7 +36,7 @@ const Introducao = () => {
           <p>
             O <Button onClick={() => scrollToSection(oModelo)}>modelo</Button> surge como
             forma de ajudar na identificação da estrutura que apoia a Governança
-            de Desenvolvedores em um Ecosistema de Software Móvel e estágios do
+            de Desenvolvedores em um Ecosistema de Software e estágios do
             fluxo dos desenvolvedores.
           </p>
 
@@ -71,9 +71,9 @@ const Introducao = () => {
             . O modelo DevGo, com exceção do conjunto de{" "}
             <i>lições aprendidas</i> e os <i>marcos</i> que são descritos de
             forma textual, é apresentado na{" "}
-            <Button onClick={() => scrollToSection(figura17)}>Figura 17</Button>Figura 17. A
+            <Button onClick={() => scrollToSection(figura17)}>Figura 17</Button>. A
             descrição dos elementos que compõem o modelo é abordada mais a
-            frente
+            frente.
           </p>
 
           <AlignCenter>
@@ -122,11 +122,10 @@ const Introducao = () => {
           </p>
 
           <p>
-            <span>🌟</span> O modelo compreende Quatro
+            <span>🌟</span> O modelo compreende quatro
             áreas de foco: <b>Plataforma e Produtos</b>,{" "}
             <b>DevRel (Evangelismo e Advocacia)</b>,{" "}
-            <b>Fluxo de Avanço do Desenvolvedor</b> e, por fim,
-            <b>Monitoramento</b>. Estas áreas de foco ajudam a suportar uma
+            <b>Fluxo de Avanço do Desenvolvedor</b> e, por fim, <b>Monitoramento</b>. Estas áreas de foco ajudam a suportar uma
             abordagem estruturada e/ou descentralizada (orgânica) para governar
             desenvolvedores. A seguir, cada área de foco será descrita,
             juntamente com o seu objetivo.
@@ -137,8 +136,7 @@ const Introducao = () => {
             <b>
               conjunto de setas no modelo representam objetos de transferência
               de valor
-            </b>
-            entre as <i>áreas de foco</i>. Para cada <i>área de foco</i>, que
+            </b> entre as <i>áreas de foco</i>. Para cada <i>área de foco</i>, que
             são descritas nas próximas seções, são apresentados{" "}
             <i>mapas mentais</i> onde é possível identificar alguns desses
             objetos de transferência entre as <i>áreas de foco</i>. Os{" "}

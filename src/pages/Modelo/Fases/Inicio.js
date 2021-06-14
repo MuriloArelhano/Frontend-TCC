@@ -85,7 +85,7 @@ function Inicio() {
                 <p>
                   <b><i>LA1.</i></b> Divulgue os eventos (mídias sociais). Para isso, crie uma matriz de
                         proposição de valor - para os desenvolvedores, organização e comunidade. Os
-                        eventos são como um produto, em vez de uma “atividade” única. D
+                        eventos são como um produto, em vez de uma “atividade” única.
                     </p>
               </li>
               <li>
@@ -121,7 +121,7 @@ function Inicio() {
               <li>
                 <p>
                   <b><i>LA6.</i></b> Execute a codificação ao vivo ao conduzir uma palestra pois é uma maneira
-                        incrível de mostrar como é fácil implementar e usar um determinado SDK ou API.
+                        incrível de mostrar como é fácil implementar e usar um determinado SDK ou API;
                     </p>
               </li>
               <li>
@@ -162,7 +162,7 @@ function Inicio() {
                         divulgação mostrando a equipe de DevRel que estará presente e o logotipo da
                         organização. As pessoas se acostumarão com essas duas imagens e, quando o
                         evento acontecer, os desenvolvedores reconhecerão a sua equipe de DevRel e
-                        já confiará nela.
+                        já confiará nela;
                     </p>
               </li>
               <li>

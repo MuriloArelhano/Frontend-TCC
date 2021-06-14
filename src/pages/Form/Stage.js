@@ -6,8 +6,8 @@ import { StageBox } from './styles';
 const Stage = memo(({ areas, sectionName, stageId }) => {
     const history = useHistory();
 
-    const handleClickArea = (area) => {
-        history.push(`/formulario/${stageId}/${area}`, { stage: sectionName });
+    const handleClickArea = (area, focusArea) => {
+        history.push(`/formulario/${stageId}/${area}`, { stage: sectionName, focusArea });
     }
 
     return (
@@ -24,7 +24,7 @@ const Stage = memo(({ areas, sectionName, stageId }) => {
 
                 <div className="focus-area-container">
                     {Object.keys(areas).map((key, index) => (
-                        <div key={`${key}-${index}`} className="default-box focus-area" onClick={() => handleClickArea(key)}>
+                        <div key={`${key}-${index}`} className="default-box focus-area" onClick={() => handleClickArea(key, areas[key].name)}>
                             <div className="text">
                                 <p>{areas[key].name}</p>
                             </div>

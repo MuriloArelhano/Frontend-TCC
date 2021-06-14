@@ -34,8 +34,7 @@ function Fases_estagios_facilitadores() {
             meio dos profissionais de DevRel, quanto pela comunidade desenvolvedores.
           </p>
           <p>
-            Cada um dos estágios está associado a um conjunto de facilitadores. Os
-            <b><i>Facilitadores</i></b> são mecanismos da organização associados a cada estágio do progresso do
+            Cada um dos estágios está associado a um conjunto de facilitadores. Os <b><i>Facilitadores</i></b> são mecanismos da organização associados a cada estágio do progresso do
             desenvolvedor para ajudar os desenvolvedores a alcançarem seus próprios objetivos. O
             treinamento é um facilitador comum a todos os estágios que compõem o DevGo, uma vez
             que é um dos mecanismos principais de formação de desenvolvedores e de troca de

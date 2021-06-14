@@ -177,6 +177,22 @@ const Form = memo(() => {
         }
     }
 
+    const handleFormBoxTitle = (name, focusArea) => {
+        if (focusArea) {
+            const separatorPosition = name.indexOf('-');
+            if (separatorPosition !== -1) {
+                const prefix = String(name).substr(0, separatorPosition);
+                const sufix = String(name).substr(separatorPosition, name.length-1);
+
+                return `${prefix}- ${focusArea} ${sufix}`;
+            }
+
+            return `${name} de ${focusArea}`
+        }
+
+        return name;
+    }
+
     if (!areaIsValid) {
         return (
             <h1>Área de foco inválida</h1>
@@ -208,7 +224,7 @@ const Form = memo(() => {
                                 {data && Object.values(data.content).map(item => (
                                     <FormBox
                                         key={item.id}
-                                        title={item.name}
+                                        title={handleFormBoxTitle(item.name, state.focusArea)}
                                         questions={renderQuestions(item.content)}
                                         handleErrors={error => handleErrors(error)}
                                         handleSelectedQuestions={(questionsOrSubArea, hasSubArea) => handleSelectedQuestions(questionsOrSubArea, hasSubArea)}
