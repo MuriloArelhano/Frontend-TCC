@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   width: 100%;
+  height: 100vh;
   justify-content: center;
   margin: 40px 0;
 
@@ -15,6 +16,7 @@ export const Container = styled.div`
     color: #0366d6;
     text-decoration: none;
   }
+
 `
 export const Wrapper = styled.div`
   width: 620px;

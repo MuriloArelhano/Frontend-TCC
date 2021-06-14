@@ -82,7 +82,7 @@ const Login = () => {
             </Logo>
           </Link>
           <Title>
-            <h1>Log in em DevGo</h1>
+            <h1>Log in em Go DevRel</h1>
           </Title>
           <PersonalInfoWrapper>
             <Form onSubmit={handleSubmit}>
@@ -97,6 +97,7 @@ const Login = () => {
                 value={authData.email}
                 onChange={(event) => handleInputChange('email', event.target.value)}
               />
+              <label htmlFor="password">Senha</label>
               <input 
                 type="password" 
                 name="password" 
@@ -114,7 +115,7 @@ const Login = () => {
           </PersonalInfoWrapper>
           <NewAccount>
             <p>
-              Novo em DevGo?{" "}
+              Novo em Go DevRel?{" "}
               <Link to="/cadastro"><Button>Criar uma conta</Button></Link>
               .
             </p>
@@ -131,7 +132,7 @@ const Login = () => {
                 <Button>Segurança</Button>
               </li>
               <li>
-                <Button className="lastChild">Contactar Devgo</Button>
+                <Button className="lastChild">Contactar Go DevRel</Button>
                 {/* <a className="lastChild">Contactar DevGo</a> */}
               </li>
             </ul>

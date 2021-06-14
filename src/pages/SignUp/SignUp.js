@@ -82,7 +82,7 @@ const Signup = () => {
       <Container>
         <Wrapper>
           <Title>
-            <span>Faça parte do DevGo</span>
+            <span>Faça parte de Go DevRel</span>
             <h1>Crie sua conta</h1>
           </Title>
           <PersonalInfoWrapper>
