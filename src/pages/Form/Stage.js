@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
+// icons
+import { RiCheckboxCircleFill, RiErrorWarningFill } from 'react-icons/ri';
 // styles
 import { StageBox } from './styles';
 
@@ -25,6 +27,10 @@ const Stage = memo(({ areas, sectionName, stageId }) => {
                 <div className="focus-area-container">
                     {Object.keys(areas).map((key, index) => (
                         <div key={`${key}-${index}`} className="default-box focus-area" onClick={() => handleClickArea(key, areas[key].name)}>
+                            <div className="info" title="Esse formulário já foi respondido">
+                                <RiCheckboxCircleFill className="success" />
+                                {/* <RiErrorWarningFill className="warning" /> */}
+                            </div>
                             <div className="text">
                                 <p>{areas[key].name}</p>
                             </div>

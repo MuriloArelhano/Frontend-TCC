@@ -188,11 +188,37 @@ export const StageBox = styled.div`
             margin-top: 32px;
 
             .focus-area {
+                position: relative;
                 display: table;
                 flex-basis: 180px;
                 height: 56px;
                 cursor: pointer;
                 transition: transform ease-in-out .2s;
+
+                .info {
+                    position: absolute;
+                    top: -10px;
+                    right: -2px;
+                    background-color: #ffffff;
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    > svg {
+                        font-size: 22px;
+                        
+                        &.success {
+                            color: #3DBB11;
+                        }
+
+                        &.warning {
+                            color: #ef6c00;
+                        }
+                    }
+                }
 
                 .text {
                     display: table-cell;
