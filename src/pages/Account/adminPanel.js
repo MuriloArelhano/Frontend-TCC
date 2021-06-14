@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useState } from 'react';
-// import { CSVLink } from 'react-csv';
+import { CSVLink } from 'react-csv';
 // icons
 import { FiDownload } from 'react-icons/fi';
 // components
@@ -19,6 +19,13 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
 
         return classes[status];
     }, []);
+
+    const csvHeaders = [
+        { label: 'Estágio', key: 'answer.stage' },
+        { label: 'Área de foco', key: 'answer.focusArea' },
+        { label: 'Identificador', key: 'answer.id' },
+        { label: 'Resposta', key: 'answer.text' },
+    ];
 
     const renderUserTable = () => {
         return (
@@ -80,6 +87,38 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
         )
     }
 
+    const handleCSVData = (answers, stage, focusArea) => {
+        if (answers.length === 1) {
+            let formattedAnswers = Object.values(answers[0]);
+            formattedAnswers = formattedAnswers.map(answer => {
+                return {
+                    answer: {
+                        stage,
+                        focusArea,
+                        id: answer.id,
+                        text: answer.text
+                    }
+                }
+            });
+            
+            return formattedAnswers;
+        } else {
+            // TODO: lidar com várias respostas
+            const data = [
+                {
+                    answer: {
+                        stage,
+                        focusArea,
+                        id: 'some_id',
+                        text: 'some_answer',
+                    }
+                },
+            ];
+
+            return data;
+        }
+    }
+
     const renderFormAnswers = () => {
         return (
             <AccountTable>
@@ -102,12 +141,15 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
                             <td>{formAnswer.answersAmount}</td>
                             <td>{new Date(formAnswer.updatedAt).toLocaleDateString()}</td>
                             <td>
-                                <button
+                                <CSVLink
+                                    data={handleCSVData(formAnswer.answers, formAnswer.stageName, formAnswer.focus_area)}
+                                    headers={csvHeaders}
+                                    filename={`${formAnswer.stageName}-${formAnswer.focus_area}-respostas.csv`}
                                     className="btn-download"
-                                    onClick={() => { }}
+                                    target="_blank"
                                 >
                                     Baixar CSV <FiDownload />
-                                </button>
+                                </CSVLink>
                             </td>
                         </tr>
                     ))}

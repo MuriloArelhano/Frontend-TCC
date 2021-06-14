@@ -169,6 +169,19 @@ export const AccountTable = styled.table`
     }
 
     .btn-download {
+        border: 0;
+        background-color: transparent;
+        border-radius: 8px;
+        padding: 4px 8px;
+        cursor: pointer;
+        outline: 0;
+
+        font-size: 0.750rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        transition: all linear 0.2s;
+        
         display: flex;
         justify-content: center;
         align-items: center;
