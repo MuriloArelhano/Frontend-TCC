@@ -1,5 +1,6 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import { CSVLink } from 'react-csv';
+import ReactLoading from 'react-loading';
 // icons
 import { FiDownload } from 'react-icons/fi';
 // components
@@ -9,6 +10,20 @@ import { AccountInfoArea, AccountTable } from './styles';
 
 const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
     const [currentTab, setCurrentTab] = useState(0);
+    const [formAnswersLoading, setFormAnswersLoading] = useState(true);
+    const [usersDataLoading, setUsersDataLoading] = useState(true);
+
+    useEffect(() => {
+        if (formAnswers.length > 0) {
+            setFormAnswersLoading(false);
+        }
+    }, [formAnswers]);
+
+    useEffect(() => {
+        if (users.length > 0) {
+            setUsersDataLoading(false);
+        }
+    }, [users]);
 
     const handleStatusColor = useCallback((status) => {
         const classes = {
@@ -28,6 +43,14 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
     ];
 
     const renderUserTable = () => {
+        if (usersDataLoading) {
+            return (
+                <div style={{ marginTop: 32 }}>
+                    <ReactLoading type="spokes" color="#1890FF" height={32} width={32} />
+                </div>
+            );
+        }
+
         return (
             <AccountTable>
                 <thead>
@@ -120,6 +143,14 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
     }
 
     const renderFormAnswers = () => {
+        if (formAnswersLoading) {
+            return (
+                <div style={{ marginTop: 32 }}>
+                    <ReactLoading type="spokes" color="#1890FF" height={32} width={32} />
+                </div>
+            );
+        }
+
         return (
             <AccountTable>
                 <thead>
