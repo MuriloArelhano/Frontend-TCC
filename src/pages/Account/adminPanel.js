@@ -4,12 +4,19 @@ import ReactLoading from 'react-loading';
 // icons
 import { FiDownload } from 'react-icons/fi';
 // components
-import { Tabs } from '../../components';
+import { Tabs, CsvPopup } from '../../components';
 // styles
 import { AccountInfoArea, AccountTable } from './styles';
 
+const csvHeaders = [
+    { label: 'Estágio', key: 'answer.stage' },
+    { label: 'Área de foco', key: 'answer.focusArea' },
+    { label: 'Identificador', key: 'answer.id' },
+    { label: 'Resposta', key: 'answer.text' },
+];
+
 const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
-    const [currentTab, setCurrentTab] = useState(0);
+    const [currentTab, setCurrentTab] = useState(1);
     const [formAnswersLoading, setFormAnswersLoading] = useState(true);
     const [usersDataLoading, setUsersDataLoading] = useState(true);
 
@@ -34,13 +41,6 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
 
         return classes[status];
     }, []);
-
-    const csvHeaders = [
-        { label: 'Estágio', key: 'answer.stage' },
-        { label: 'Área de foco', key: 'answer.focusArea' },
-        { label: 'Identificador', key: 'answer.id' },
-        { label: 'Resposta', key: 'answer.text' },
-    ];
 
     const renderUserTable = () => {
         if (usersDataLoading) {
@@ -110,36 +110,53 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
         )
     }
 
-    const handleCSVData = (answers, stage, focusArea) => {
-        if (answers.length === 1) {
-            let formattedAnswers = Object.values(answers[0]);
-            formattedAnswers = formattedAnswers.map(answer => {
-                return {
-                    answer: {
-                        stage,
-                        focusArea,
-                        id: answer.id,
-                        text: answer.text
-                    }
+    const handleSingleCSVData = (answers, stage, focusArea) => {
+        let formattedAnswers = Object.values(answers[0]);
+        formattedAnswers = formattedAnswers.map(answer => {
+            return {
+                answer: {
+                    stage,
+                    focusArea,
+                    id: answer.id,
+                    text: answer.text
                 }
-            });
-            
-            return formattedAnswers;
-        } else {
-            // TODO: lidar com várias respostas
-            const data = [
-                {
-                    answer: {
-                        stage,
-                        focusArea,
-                        id: 'some_id',
-                        text: 'some_answer',
-                    }
-                },
-            ];
+            }
+        });
 
-            return data;
-        }
+        return formattedAnswers;
+    }
+
+    const renderCsvPopupContent = (answers, stageName, focusArea) => {
+        return (
+            <>
+                {answers.map((answer, index) => (
+                    <CSVLink
+                        key={answer.id}
+                        data={
+                            handleSingleCSVData(
+                                [answers[index]],
+                                stageName,
+                                focusArea
+                            )
+                        }
+                        headers={csvHeaders}
+                        filename={`Respostas-${stageName}-${focusArea}-${index + 1}.csv`}
+                        style={{
+                            width: '100%',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            gap: 8,
+                            color: '#ffffff',
+                            margin: '16px 0'
+                        }}
+                        target="_blank"
+                    >
+                        {`Baixar resposta ${index + 1}`} <FiDownload />
+                    </CSVLink>
+                ))}
+            </>
+        );
     }
 
     const renderFormAnswers = () => {
@@ -172,15 +189,33 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
                             <td>{formAnswer.answersAmount}</td>
                             <td>{new Date(formAnswer.updatedAt).toLocaleDateString()}</td>
                             <td>
-                                <CSVLink
-                                    data={handleCSVData(formAnswer.answers, formAnswer.stageName, formAnswer.focus_area)}
-                                    headers={csvHeaders}
-                                    filename={`${formAnswer.stageName}-${formAnswer.focus_area}-respostas.csv`}
-                                    className="btn-download"
-                                    target="_blank"
-                                >
-                                    Baixar CSV <FiDownload />
-                                </CSVLink>
+                                {formAnswer.answersAmount === 1 ? (
+                                    <CSVLink
+                                        data={
+                                            handleSingleCSVData(
+                                                formAnswer.answers,
+                                                formAnswer.stageName,
+                                                formAnswer.focus_area
+                                            )
+                                        }
+                                        headers={csvHeaders}
+                                        filename={`Respostas-${formAnswer.stageName}-${formAnswer.focus_area}.csv`}
+                                        className="btn-download"
+                                        target="_blank"
+                                    >
+                                        Baixar CSV <FiDownload />
+                                    </CSVLink>
+                                ) : (
+                                    <CsvPopup
+                                        content={
+                                            renderCsvPopupContent(
+                                                formAnswer.answers,
+                                                formAnswer.stageName,
+                                                formAnswer.focus_area
+                                            )
+                                        }
+                                    />
+                                )}
                             </td>
                         </tr>
                     ))}
