@@ -28,13 +28,14 @@ const Form = memo(() => {
     const [selectedStage, selectStage] = useState(null);
     const [stages, setStages] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         getStagesFromAPI();
         if (StorageAPI.getItem('@devgo-form-route')) {
             StorageAPI.removeItem('@devgo-form-route');
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const getStagesFromAPI = async () => {
@@ -47,9 +48,12 @@ const Form = memo(() => {
                 image: getStageImage(stage.id),
                 order: getStageOrder(stage.id)
             }));
-            
+
             setStages(formattedStages.sort(compareOrder));
             setLoading(false);
+        } else {
+            setLoading(false);
+            setError(stagesResponse.error);
         }
     }
 
@@ -58,7 +62,7 @@ const Form = memo(() => {
 
         if (stage) return stage.image;
     }
-    
+
     const getStageOrder = (stageId) => {
         const [stage] = stagesImage.filter(stage => stage.id === stageId);
 
@@ -67,14 +71,14 @@ const Form = memo(() => {
 
     const compareOrder = (stageA, stageB) => {
         if (stageA.order < stageB.order) {
-          return -1;
+            return -1;
         }
 
         if (stageA.order > stageB.order) {
-          return 1;
+            return 1;
         }
         return 0;
-      }
+    }
 
     const renderContent = () => {
         return (
@@ -90,41 +94,47 @@ const Form = memo(() => {
         <>
             <Navbar />
             <Container>
-                <h1>Seção de Formulários</h1>
+                {error ? (
+                    <h2 style={{ color: 'red' }}>{error}</h2>
+                ) : (
+                    <>
+                        <h1>Seção de Formulários</h1>
 
-                <p>
-                    Ajude-nos a melhorar o modelo através do preenchimento dos formulários,
-                    dessa forma você estará contribuindo com o avanço de nossa pesquisa e ficará
-                    por dentro das mais novas atualizações, podendo usufruir do modelo para a
-                    melhoria de processos dentro da sua empresa.
-                </p>
+                        <p>
+                            Ajude-nos a melhorar o modelo através do preenchimento dos formulários,
+                            dessa forma você estará contribuindo com o avanço de nossa pesquisa e ficará
+                            por dentro das mais novas atualizações, podendo usufruir do modelo para a
+                            melhoria de processos dentro da sua empresa.
+                        </p>
 
-                {
-                    loading ? (
-                        <div style={{ marginTop: 60 }}>
-                            <ReactLoading type="spokes" color="#1890FF" height={50} width={50} />
-                        </div>
-                    ) : (
-                        <>
-                            <div className="default-box-2 select-message">
-                                <p>Selecione abaixo um dos seguintes estágios</p>
-                            </div>
-
-                            <StageContainer>
-                                {stages.map(stage => (
-                                    <div className="stage-item" key={stage.id} onClick={() => selectStage(stage)}>
-                                        <div className={`img-container ${selectedStage && selectedStage.id === stage.id && 'active'}`}>
-                                            <img src={stage.image} alt={stage.name} />
-                                        </div>
-                                        <span>{stage.name}</span>
+                        {
+                            loading ? (
+                                <div style={{ marginTop: 60 }}>
+                                    <ReactLoading type="spokes" color="#1890FF" height={50} width={50} />
+                                </div>
+                            ) : (
+                                <>
+                                    <div className="default-box-2 select-message">
+                                        <p>Selecione abaixo um dos seguintes estágios</p>
                                     </div>
-                                ))}
-                            </StageContainer>
-                        </>
-                    )
-                }
 
-                {selectedStage && renderContent()}
+                                    <StageContainer>
+                                        {stages.map(stage => (
+                                            <div className="stage-item" key={stage.id} onClick={() => selectStage(stage)}>
+                                                <div className={`img-container ${selectedStage && selectedStage.id === stage.id && 'active'}`}>
+                                                    <img src={stage.image} alt={stage.name} />
+                                                </div>
+                                                <span>{stage.name}</span>
+                                            </div>
+                                        ))}
+                                    </StageContainer>
+                                </>
+                            )
+                        }
+
+                        {selectedStage && renderContent()}
+                    </>
+                )}
             </Container>
             <Footer />
         </>
