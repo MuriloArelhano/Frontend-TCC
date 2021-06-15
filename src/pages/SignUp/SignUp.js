@@ -55,7 +55,10 @@ const Signup = () => {
 
     if (!hasError) {
       setLoading(true);
-      if (authData.confirmPassword !== authData.password) {
+      if (authData.password.length < 6) {
+        setLoading(false);
+        Notification.show('error', 'A senha deve ter no mínimo 6 caracteres');
+      } else if (authData.confirmPassword !== authData.password) {
         setLoading(false);
         Notification.show('error', 'As senhas devem ser iguais');
       } else {
