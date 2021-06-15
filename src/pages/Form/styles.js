@@ -197,25 +197,21 @@ export const StageBox = styled.div`
 
                 .info {
                     position: absolute;
-                    top: -10px;
-                    right: -2px;
+                    top: -12px;
+                    right: -4px;
                     background-color: #ffffff;
-                    width: 22px;
-                    height: 22px;
+                    width: 24px;
+                    height: 24px;
                     border-radius: 50%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
 
                     > svg {
-                        font-size: 22px;
+                        font-size: 24px;
                         
                         &.success {
                             color: #3DBB11;
-                        }
-
-                        &.warning {
-                            color: #ef6c00;
                         }
                     }
                 }

@@ -9,6 +9,7 @@ import { Tabs, CsvPopup } from '../../components';
 import { AccountInfoArea, AccountTable } from './styles';
 
 const csvHeaders = [
+    { label: 'Usuário', key: 'answer.userEmail' },
     { label: 'Estágio', key: 'answer.stage' },
     { label: 'Área de foco', key: 'answer.focusArea' },
     { label: 'Identificador', key: 'answer.id' },
@@ -16,7 +17,7 @@ const csvHeaders = [
 ];
 
 const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
-    const [currentTab, setCurrentTab] = useState(1);
+    const [currentTab, setCurrentTab] = useState(0);
     const [formAnswersLoading, setFormAnswersLoading] = useState(true);
     const [usersDataLoading, setUsersDataLoading] = useState(true);
 
@@ -110,11 +111,12 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
         )
     }
 
-    const handleSingleCSVData = (answers, stage, focusArea) => {
+    const handleSingleCSVData = (answers, stage, focusArea, userEmail) => {
         let formattedAnswers = Object.values(answers[0]);
         formattedAnswers = formattedAnswers.map(answer => {
             return {
                 answer: {
+                    userEmail,
                     stage,
                     focusArea,
                     id: answer.id,
@@ -126,7 +128,7 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
         return formattedAnswers;
     }
 
-    const renderCsvPopupContent = (answers, stageName, focusArea) => {
+    const renderCsvPopupContent = (answers, stageName, focusArea, userEmail) => {
         return (
             <>
                 {answers.map((answer, index) => (
@@ -136,7 +138,8 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
                             handleSingleCSVData(
                                 [answers[index]],
                                 stageName,
-                                focusArea
+                                focusArea,
+                                userEmail
                             )
                         }
                         headers={csvHeaders}
@@ -195,7 +198,8 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
                                             handleSingleCSVData(
                                                 formAnswer.answers,
                                                 formAnswer.stageName,
-                                                formAnswer.focus_area
+                                                formAnswer.focus_area,
+                                                formAnswer.userEmail
                                             )
                                         }
                                         headers={csvHeaders}
@@ -211,7 +215,8 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
                                             renderCsvPopupContent(
                                                 formAnswer.answers,
                                                 formAnswer.stageName,
-                                                formAnswer.focus_area
+                                                formAnswer.focus_area,
+                                                formAnswer.userEmail
                                             )
                                         }
                                     />

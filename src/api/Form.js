@@ -68,6 +68,38 @@ class Form {
       }
     }
   }
+
+  static async getAnswersAmount(stageId, focusArea) {
+    try {
+      const [user, , token] = Auth.userIsLogged();
+
+      if (token && user.id && stageId && focusArea) {
+        const { data, status } = await axios.get(
+          `/forms/answers?userId=${user.id}&stageId=${stageId}&focusArea=${focusArea}`,
+          {
+            headers: {
+              authorization: `Bearer ${token}`
+            }
+          }
+        );
+  
+        return {
+          status,
+          data
+        }
+      }
+
+      return {
+        status: 401,
+        error: 'Usuário não autorizado'
+      }
+    } catch (error) {
+      return {
+        status: error.response.status,
+        error: error.response.data.error
+      }
+    }
+  }
 }
 
 export default Form;
