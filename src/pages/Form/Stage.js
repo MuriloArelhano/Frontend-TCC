@@ -17,11 +17,11 @@ const Stage = memo(({ areas, sectionName, stageId }) => {
         setAreasLoading(true);
         Promise.all(
             Object.keys(areas).map(async (key) => {
-                const { answersAmount } = await handleFocusAreaAnswered(key);
+                const area = await handleFocusAreaAnswered(key);
 
                 return {
                     ...areas[key],
-                    answersAmount,
+                    answersAmount: area ? area.answersAmount : 0,
                     key
                 }
             })

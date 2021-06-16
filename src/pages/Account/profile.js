@@ -1,8 +1,13 @@
 import React, { useState, useContext, useEffect, memo, useCallback } from 'react';
+import ReactLoading from 'react-loading';
+// api
+import { UserAPI } from '../../api';
 // context
 import { Context } from '../../contexts/global';
 // styles
 import { AccountInfoArea, AccountForm, InLine, InputControl, Error } from './styles';
+// notification
+import Notification from '../../notification';
 
 const Profile = () => {
     const context = useContext(Context);
@@ -12,6 +17,7 @@ const Profile = () => {
         email: '',
         birthDate: ''
     });
+    const [updateLoading, setUpdateLoading] = useState(false);
 
     const [accountError] = useState(null);
 
@@ -19,7 +25,8 @@ const Profile = () => {
         if (context.user) {
             setAccountData({
                 name: context.user.name,
-                email: context.user.email
+                email: context.user.email,
+                birthDate: context.user.birthDate
             });
         }
     }, [context.user]);
@@ -50,8 +57,19 @@ const Profile = () => {
         });
 
         if (!hasError) {
-            // TODO
+            setUpdateLoading(true);
+            const response = await UserAPI.updateUser(accountData);
+
+            if (response.status === 200) {
+                setUpdateLoading(false);
+                context.updateUserData(response.data.user);
+                Notification.show('success', response.data.message);
+            } else {
+                setUpdateLoading(false);
+                Notification.show('error', response.error);
+            }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [accountData]);
 
     return (
@@ -92,7 +110,13 @@ const Profile = () => {
                     />
                 </InputControl>
 
-                <button type="submit">Salvar</button>
+                <button type="submit">
+                    {updateLoading ? (
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                            <ReactLoading type="spokes" color="#ffffff" height={20} width={20} />
+                        </div>
+                    ) : 'Salvar'}
+                </button>
             </AccountForm>
             {accountError && (
                 <Error>

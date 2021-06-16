@@ -1,6 +1,6 @@
 import React, {useEffect, useState, createContext} from 'react';
 // api
-import AuthAPI from '../api/Auth';
+import { AuthAPI, StorageAPI } from '../api';
 
 export const Context = createContext();
 
@@ -24,6 +24,15 @@ const ContextProvider = ({children}) => {
     setUserIsAdmin(false);
   }
 
+  const updateUserData = (newData) => {
+    const auth = StorageAPI.getItem('@devgo-authentication');
+    if (auth) {
+      setUser(newData);
+      auth.user = newData;
+      StorageAPI.setItem('@devgo-authentication', auth);
+    }
+  }
+
   return (
     <Context.Provider
       value={{
@@ -32,7 +41,8 @@ const ContextProvider = ({children}) => {
         setUserIsLogged,
         userIsAdmin,
         setUser,
-        removeUser
+        removeUser,
+        updateUserData
       }}
     >
       {children}

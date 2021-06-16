@@ -24,7 +24,11 @@ class User {
     }
 
     static formatBirthDate(birthDate) {
-        return new Date(birthDate).toLocaleDateString();
+        const day = new Date(birthDate).getUTCDate();
+        const month = new Date(birthDate).getUTCMonth() + 1;
+        const year = new Date(birthDate).getUTCFullYear();
+
+        return `${Number(day) < 10 ? '0' + day : day}/${Number(month) < 10 ? '0' + month : month}/${year}`;
     }
 
     static async manageUserAccess(type, userEmail) {
@@ -46,6 +50,37 @@ class User {
         } catch (error) {
             return error.message;
         }
+    }
+
+    static async updateUser({ name, email, birthDate }) {
+        try {
+            const [user, , token] = Auth.userIsLogged();
+      
+            if (token) {
+              const { data, status } = await axios.put(`/users/${user.id}`, {
+                name, email, birthDate
+              }, {
+                headers: {
+                  authorization: `Bearer ${token}`
+                }
+              });
+        
+              return {
+                status,
+                data
+              }
+            }
+      
+            return {
+              status: 401,
+              error: 'Usuário não autorizado'
+            }
+          } catch (error) {
+            return {
+              status: error.response.status,
+              error: error.response.data.error
+            }
+          }
     }
 }
 
