@@ -82,6 +82,37 @@ class User {
             }
           }
     }
+
+    static async changePassword({ currentPassword, newPassword, newPasswordConfirmation }) {
+        try {
+            const [user, , token] = Auth.userIsLogged();
+      
+            if (token) {
+              const { data, status } = await axios.put(`/users/${user.id}/password`, {
+                currentPassword, newPassword, newPasswordConfirmation
+              }, {
+                headers: {
+                  authorization: `Bearer ${token}`
+                }
+              });
+        
+              return {
+                status,
+                data
+              }
+            }
+      
+            return {
+              status: 401,
+              error: 'Usuário não autorizado'
+            }
+          } catch (error) {
+            return {
+              status: error.response.status,
+              error: error.response.data.error
+            }
+          }
+    }
 }
 
 export default User;
