@@ -8,3 +8,4 @@ export { default as Accordion } from "./Accordion";
 export { default as FormBox } from "./FormBox";
 export { default as Tabs } from "./Tabs";
 export { default as CsvPopup } from "./CsvPopup";
+export { default as Table } from "./Table";

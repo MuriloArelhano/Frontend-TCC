@@ -1,12 +1,12 @@
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useState, useMemo } from 'react';
 import { CSVLink } from 'react-csv';
 import ReactLoading from 'react-loading';
 // icons
 import { FiDownload } from 'react-icons/fi';
 // components
-import { Tabs, CsvPopup } from '../../components';
+import { Tabs, CsvPopup, Table } from '../../components';
 // styles
-import { AccountInfoArea, AccountTable } from './styles';
+import { AccountInfoArea } from './styles';
 
 const csvHeaders = [
     { label: 'Usuário', key: 'answer.userEmail' },
@@ -33,6 +33,97 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
         }
     }, [users]);
 
+    const userData = useMemo(() => users, [users]);
+
+    const userColumns = React.useMemo(
+        () => [
+            {
+                Header: 'Nome',
+                accessor: 'name',
+            },
+            {
+                Header: 'E-mail',
+                accessor: 'email',
+            },
+            {
+                Header: 'Data de nascimento',
+                accessor: 'birthDate',
+            },
+            {
+                Header: 'Status',
+                accessor: 'status',
+            }
+        ],
+        []
+    );
+
+    const answersData = useMemo(() => formAnswers, [formAnswers]);
+
+    const answersColumns = React.useMemo(
+        () => [
+            {
+                Header: 'Usuário',
+                accessor: 'userEmail',
+            },
+            {
+                Header: 'Estágio',
+                accessor: 'stageName'
+            },
+            {
+                Header: 'Área de foco',
+                accessor: 'focus_area',
+            },
+            {
+                Header: 'N° de respostas',
+                accessor: 'answersAmount',
+            },
+            {
+                Header: 'Respondido em',
+                accessor: 'updatedAt',
+            }
+        ],
+        []
+    );
+
+    const renderUserActions = (userStatus, userEmail) => {
+        return (
+            <>
+                {userStatus === 'ATIVO' && (
+                    <button
+                        className="btn-suspend"
+                        onClick={() => handleUserAccess('suspend', userEmail)}
+                    >
+                        Suspender
+                    </button>
+                )}
+                {userStatus === 'SUSPENSO' && (
+                    <button
+                        className="btn-active"
+                        onClick={() => handleUserAccess('approve', userEmail)}
+                    >
+                        Ativar
+                    </button>
+                )}
+                {userStatus === 'PENDENTE' && (
+                    <>
+                        <button
+                            className="btn-active"
+                            onClick={() => handleUserAccess('approve', userEmail)}
+                        >
+                            Ativar
+                        </button>
+                        <button
+                            className="btn-suspend"
+                            onClick={() => handleUserAccess('suspend', userEmail)}
+                        >
+                            Suspender
+                        </button>
+                    </>
+                )}
+            </>
+        );
+    }
+
     const handleStatusColor = useCallback((status) => {
         const classes = {
             'ATIVO': 'user-active',
@@ -53,62 +144,60 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
         }
 
         return (
-            <AccountTable>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>Data de nascimento</th>
-                        <th>Status</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map(user => (
-                        <tr key={user.id}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>{user.birthDate}</td>
-                            <td className={handleStatusColor(user.status)}>{user.status}</td>
-                            <td>
-                                {user.status === 'ATIVO' && (
-                                    <button
-                                        className="btn-suspend"
-                                        onClick={() => handleUserAccess('suspend', user.email)}
-                                    >
-                                        Suspender
-                                    </button>
-                                )}
-                                {user.status === 'SUSPENSO' && (
-                                    <button
-                                        className="btn-active"
-                                        onClick={() => handleUserAccess('approve', user.email)}
-                                    >
-                                        Ativar
-                                    </button>
-                                )}
-                                {user.status === 'PENDENTE' && (
-                                    <>
-                                        <button
-                                            className="btn-active"
-                                            onClick={() => handleUserAccess('approve', user.email)}
-                                        >
-                                            Ativar
-                                        </button>
-                                        <button
-                                            className="btn-suspend"
-                                            onClick={() => handleUserAccess('suspend', user.email)}
-                                        >
-                                            Suspender
-                                        </button>
-                                    </>
-                                )}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </AccountTable>
+            <Table
+                data={userData}
+                columns={userColumns}
+                actions={renderUserActions}
+                statusColor={handleStatusColor}
+                type="user"
+            />
         )
+    }
+
+    const getAnswers = (userEmail, stageName, focus_area) => {
+        let answers = [];
+        formAnswers.forEach(item => {
+            if (item.userEmail === userEmail && item.stageName === stageName && item.focus_area === focus_area) {
+                answers = item.answers;
+            }
+        });
+        return answers;
+    }
+
+    const renderAnswersAction = (formAnswer) => {
+        return (
+            <>
+                {formAnswer.answersAmount === 1 ? (
+                    <CSVLink
+                        data={
+                            handleSingleCSVData(
+                                getAnswers(formAnswer.userEmail, formAnswer.stageName, formAnswer.focus_area),
+                                formAnswer.stageName,
+                                formAnswer.focus_area,
+                                formAnswer.userEmail
+                            )
+                        }
+                        headers={csvHeaders}
+                        filename={`Respostas-${formAnswer.stageName}-${formAnswer.focus_area}.csv`}
+                        className="btn-download"
+                        target="_blank"
+                    >
+                        Baixar CSV <FiDownload />
+                    </CSVLink>
+                ) : (
+                    <CsvPopup
+                        content={
+                            renderCsvPopupContent(
+                                getAnswers(formAnswer.userEmail, formAnswer.stageName, formAnswer.focus_area),
+                                formAnswer.stageName,
+                                formAnswer.focus_area,
+                                formAnswer.userEmail
+                            )
+                        }
+                    />
+                )}
+            </>
+        );
     }
 
     const handleSingleCSVData = (answers, stage, focusArea, userEmail) => {
@@ -133,7 +222,7 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
             <>
                 {answers.map((answer, index) => (
                     <CSVLink
-                        key={answer.id}
+                        key={`${answer.id}-${index}`}
                         data={
                             handleSingleCSVData(
                                 [answers[index]],
@@ -172,60 +261,13 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
         }
 
         return (
-            <AccountTable>
-                <thead>
-                    <tr>
-                        <th>Usuário</th>
-                        <th>Estágio</th>
-                        <th>Área de foco</th>
-                        <th>N° de respostas</th>
-                        <th>Respondido em</th>
-                        <th>Baixar respostas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {formAnswers.map(formAnswer => (
-                        <tr>
-                            <td>{formAnswer.userEmail}</td>
-                            <td>{formAnswer.stageName}</td>
-                            <td>{formAnswer.focus_area}</td>
-                            <td>{formAnswer.answersAmount}</td>
-                            <td>{new Date(formAnswer.updatedAt).toLocaleDateString()}</td>
-                            <td>
-                                {formAnswer.answersAmount === 1 ? (
-                                    <CSVLink
-                                        data={
-                                            handleSingleCSVData(
-                                                formAnswer.answers,
-                                                formAnswer.stageName,
-                                                formAnswer.focus_area,
-                                                formAnswer.userEmail
-                                            )
-                                        }
-                                        headers={csvHeaders}
-                                        filename={`Respostas-${formAnswer.stageName}-${formAnswer.focus_area}.csv`}
-                                        className="btn-download"
-                                        target="_blank"
-                                    >
-                                        Baixar CSV <FiDownload />
-                                    </CSVLink>
-                                ) : (
-                                    <CsvPopup
-                                        content={
-                                            renderCsvPopupContent(
-                                                formAnswer.answers,
-                                                formAnswer.stageName,
-                                                formAnswer.focus_area,
-                                                formAnswer.userEmail
-                                            )
-                                        }
-                                    />
-                                )}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </AccountTable>
+            <Table
+                data={answersData}
+                columns={answersColumns}
+                actions={renderAnswersAction}
+                statusColor={handleStatusColor}
+                type="answer"
+            />
         )
     }
 

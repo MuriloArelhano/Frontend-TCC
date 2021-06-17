@@ -49,7 +49,10 @@ const Account = () => {
     const loadFormAnswers = useCallback(async () => {
         const response = await FormAPI.getAnswers();
         if (response.status === 200) {
-            setFormAnswers(response.data);
+            setFormAnswers(response.data.map(answer => ({
+                ...answer,
+                updatedAt: new Date(answer.updatedAt).toLocaleDateString()
+            })));
         }
     }, []);
 
