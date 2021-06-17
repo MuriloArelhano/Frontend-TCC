@@ -1,5 +1,7 @@
 import React from 'react';
-import { useTable } from 'react-table';
+import { useTable, useSortBy } from 'react-table';
+// icons
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 // styles
 import { TableContainer } from './styles';
 
@@ -10,7 +12,7 @@ const Table = ({ data, columns, actions, statusColor, type }) => {
     headerGroups,
     rows,
     prepareRow,
-  } = useTable({ columns, data })
+  } = useTable({ columns, data }, useSortBy)
 
   return (
     <TableContainer {...getTableProps()}>
@@ -18,8 +20,23 @@ const Table = ({ data, columns, actions, statusColor, type }) => {
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>
-                {column.render('Header')}
+              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                  }}
+                >
+                  {column.render('Header')}
+                  <span style={{ paddingTop: 2 }}>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? <FaChevronDown size={14} />
+                        : <FaChevronUp size={14} />
+                      : ''}
+                  </span>
+                </div>
               </th>
             ))}
             <th>{type === 'user' ? 'Ação' : 'Baixar respostas'}</th>
