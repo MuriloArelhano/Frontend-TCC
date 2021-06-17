@@ -103,3 +103,46 @@ export const TableContainer = styled.table`
     }
   }
 `;
+
+export const PaginationContainer = styled.div`
+  margin-top: 16px;
+  padding: 8px;
+  color: #1890ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  > button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: #1890ff;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all linear .05s;
+
+    &:hover {
+      filter: brightness(90%);
+      transform: scale(1.05);
+    }
+
+    > svg {
+      font-size: 14px;
+    }
+  }
+
+  > select {
+    border: 2px solid #1890ff;
+    border-radius: 4px;
+    outline: none;
+    background-color: transparent;
+    color: #1890ff;
+    font-size: 14px;
+    padding: 2px;
+  }
+`;

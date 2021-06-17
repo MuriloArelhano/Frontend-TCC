@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { Button } from "../../globalStyles";
+import { ButtonNav, ButtonLogin } from "./NavbarElements";
 import {useLocation} from "react-router-dom";
 import {
   Nav,
@@ -93,26 +94,36 @@ const Navbar = ({position}) => {
                   <NavItemBtn>
                     {button ? (
                       <NavBtnLink to="/entrar" onClick={closeMobileMenu}>
-                        <Button primary>Log in</Button>
+                        <ButtonLogin>Log in</ButtonLogin>
                       </NavBtnLink>
                     ) : (
                       <NavBtnLink to="/entrar" onClick={closeMobileMenu}>
-                        <Button fontBig primary>
+                        <ButtonLogin fontBig big primary>
                           Log in
-                        </Button>
+                        </ButtonLogin>
                       </NavBtnLink>
                     )}
                   </NavItemBtn>
                   <NavItemBtn>
                     {button ? (
                       <NavBtnLink to="/cadastro" onClick={closeMobileMenu}>
-                        <Button primary>Sign up</Button>
+                        <ButtonNav primary>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          Sign up
+                        </ButtonNav>
                       </NavBtnLink>
                     ) : (
                       <NavBtnLink to="/cadastro" onClick={closeMobileMenu}>
-                        <Button fontBig primary>
+                        <ButtonNav fontBig primary>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
                           Sign up
-                        </Button>
+                        </ButtonNav>
                       </NavBtnLink>
                     )}
                   </NavItemBtn>
