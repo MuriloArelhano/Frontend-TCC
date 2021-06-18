@@ -101,10 +101,13 @@ export const StageContainer = styled.div`
     background-color: #1890FF;
     border-radius: 8px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    gap: 16px;
 
     .stage-item {
+        flex: 1 1 88px;
         display: flex;
         flex-direction: column;
         align-items: center;
