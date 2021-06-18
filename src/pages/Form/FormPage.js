@@ -137,7 +137,8 @@ const Form = memo(() => {
                 Notification.show('success', 'Formulário enviado com sucesso!');
                 history.goBack();
             } else {
-                Notification.show('error', response.error);
+                setLoadingSubmit(false);
+                Notification.show('error', response.error ? response.error : 'Erro ao enviar respostas');
             }
         } else {
             handleErrorNotification(Object.values(errors));

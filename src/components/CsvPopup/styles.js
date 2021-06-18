@@ -9,7 +9,7 @@ export const CsvPopupContent = styled.div`
   position: absolute;
   top: -58px;
   right: 0;
-  min-width: 120%;
+  min-width: 188px;
   min-height: 64px;
   background-color: #2EA44F;
   color: #ffffff;

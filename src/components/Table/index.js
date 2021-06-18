@@ -62,7 +62,7 @@ const Table = ({ data, columns, actions, statusColor, type }) => {
                 {row.cells.map(cell => {
                   return (
                     <td {...cell.getCellProps()} className={cell.column.id === 'status' ? statusColor(cell.value) : ''}>
-                      {cell.render('Cell')}
+                      {cell.column.id === 'updatedAt' ? String(cell.value).substr(0, 10) : cell.render('Cell')}
                     </td>
                   )
                 })}

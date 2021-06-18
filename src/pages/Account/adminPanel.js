@@ -12,6 +12,7 @@ const csvHeaders = [
     { label: 'Usuário', key: 'answer.userEmail' },
     { label: 'Estágio', key: 'answer.stage' },
     { label: 'Área de foco', key: 'answer.focusArea' },
+    { label: 'Data e Hora', key: 'answer.createdAt' },
     { label: 'Identificador', key: 'answer.id' },
     { label: 'Resposta', key: 'answer.text' },
 ];
@@ -174,11 +175,13 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
                                 getAnswers(formAnswer.userEmail, formAnswer.stageName, formAnswer.focus_area),
                                 formAnswer.stageName,
                                 formAnswer.focus_area,
-                                formAnswer.userEmail
+                                formAnswer.userEmail,
+                                formAnswer.updatedAt,
+                                true
                             )
                         }
                         headers={csvHeaders}
-                        filename={`Respostas-${formAnswer.stageName}-${formAnswer.focus_area}.csv`}
+                        filename={`Respostas-${formAnswer.stageName}-${formAnswer.focus_area}-${formAnswer.updatedAt}.csv`}
                         className="btn-download"
                         target="_blank"
                     >
@@ -200,16 +203,18 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
         );
     }
 
-    const handleSingleCSVData = (answers, stage, focusArea, userEmail) => {
-        let formattedAnswers = Object.values(answers[0]);
+    const handleSingleCSVData = (answers, stage, focusArea, userEmail, createdAt, singleAnswer = false) => {
+        let formattedAnswers = Object.values(singleAnswer ? answers[0].answers : answers[0]);
+        
         formattedAnswers = formattedAnswers.map(answer => {
             return {
                 answer: {
+                    createdAt,
                     userEmail,
                     stage,
                     focusArea,
                     id: answer.id,
-                    text: answer.text
+                    text: answer.text,
                 }
             }
         });
@@ -225,26 +230,36 @@ const AdminPanel = ({ users, formAnswers, handleUserAccess }) => {
                         key={`${answer.id}-${index}`}
                         data={
                             handleSingleCSVData(
-                                [answers[index]],
+                                [answers[index].answers],
                                 stageName,
                                 focusArea,
-                                userEmail
+                                userEmail,
+                                answers[index].createdAt
                             )
                         }
-                        headers={csvHeaders}
-                        filename={`Respostas-${stageName}-${focusArea}-${index + 1}.csv`}
                         style={{
                             width: '100%',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            gap: 8,
                             color: '#ffffff',
                             margin: '16px 0'
                         }}
+                        headers={csvHeaders}
+                        filename={`Respostas-${stageName}-${focusArea}-${index + 1}-${answers[index].createdAt}.csv`}
                         target="_blank"
                     >
-                        {`Baixar resposta ${index + 1}`} <FiDownload />
+                        <div
+                            style={{
+                                width: '100%',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                gap: 8,
+                                color: '#ffffff',
+                                margin: '16px 0'
+                            }}
+                        >
+                            <span style={{ flex: 1 }}>{`Resposta ${index + 1}`} <FiDownload /></span>
+                            <span style={{ flex: 1 }}>{answers[index].createdAt}</span>
+                        </div>
                     </CSVLink>
                 ))}
             </>

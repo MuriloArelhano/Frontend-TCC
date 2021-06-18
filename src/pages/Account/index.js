@@ -51,7 +51,7 @@ const Account = () => {
         if (response.status === 200) {
             setFormAnswers(response.data.map(answer => ({
                 ...answer,
-                updatedAt: new Date(answer.updatedAt).toLocaleDateString()
+                updatedAt: new Date(answer.updatedAt).toLocaleString()
             })));
         }
     }, []);
