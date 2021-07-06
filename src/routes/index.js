@@ -47,8 +47,8 @@ const Routes = () => {
             <Route path="/modelo/crescimento" exact component={Crescimento} />
             <Route path="/modelo/maturidade" exact component={Maturidade} />
             <Route path="/modelo/conclusao" exact component={Conclusao} />
-            <Route path="/formulario" exact component={Form} />
             {/* rotas privadas */}
+            <Route path="/formulario" exact component={Form} isPrivate />
             <Route path={accountRoutes} component={Account} isPrivate />
             <Route path={formRoutes} exact component={FormPage} isPrivate />
         </Switch>

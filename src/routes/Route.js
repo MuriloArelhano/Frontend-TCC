@@ -8,10 +8,8 @@ const RouteWrapper = ({ component: Component, isPrivate, isAuth, path, ...rest }
   const isFormStoredRoute = StorageAPI.getItem('@devgo-form-route');
 
   if (!userData && isPrivate) {
-    if (Array.isArray(path)) {
-      const isFormRoute = path.filter(route => route.includes('formulario')).length > 0;
-      isFormRoute && StorageAPI.setItem('@devgo-form-route', true);
-    }
+    const isFormRoute = path.includes('formulario');
+    isFormRoute && StorageAPI.setItem('@devgo-form-route', true);
     return <Redirect to="/entrar" />;
   }
 
