@@ -13,7 +13,7 @@
 
 ### `Arquivo .env`
 * Criar na pasta raiz do projeto um arquivo **'.env'**;
-* Dentro deste arquivo adicionar a seguinte linha de código: **REACT_API_URL={host}:{port}** .
+* Dentro deste arquivo adicionar a seguinte linha de código: **REACT_APP_API_URL={host}:{port}** .
 
 ### `Inicializar o projeto`
 * Para o pleno funcionamento, você deverá clonar o repositório backend, instalar as dependencias e iniciar o servidor;

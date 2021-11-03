@@ -4,6 +4,7 @@ import axios from './axios';
 
 class Auth {
   static async signUp({ name, email, password }) {
+    
     try {
       const { data, status } = await axios.post('/users', { name, email, password });
       return {
@@ -17,7 +18,7 @@ class Auth {
           error: error.response.data.error
         }
       }
-
+      
       return {
         status: 404,
         error: 'Erro ao conectar-se com a api'
